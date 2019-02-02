@@ -17,7 +17,7 @@ module bpu
 	input logic b_eval, 				// Bit used to know when the actual outcome of the branch is available
 	input logic op_zero,				// op_zero = '1' if op = 0
 	output logic[`instr_size-1:0] npc, 		// New PC according to branch prediction or jmp instrucion
-	output logic chng2nop, 		// This is an output bit that tells the CU that the instruction fetched is wrong and has to be turned into a NOP
+	output logic chng2nop, 				// This is an output bit that tells the CU that the instruction fetched is wrong and has to be turned into a NOP
 	output logic mux_sel				// PC multiplexer selector
 );
 
@@ -26,14 +26,14 @@ module bpu
 	logic[1:0] branch_table [0:`table_size-1];		// Initialize all the entries to "01" (branch predicted not taken)
 	logic[`pc_size-1:0] npc_table [0:`table_size-1]; 	// Initialize all the entries to 0x00000000
 	logic mispredict; 					// It tells us whether we've a misprediction or not
-	logic eqz, eqz_pipe;                // '1' if beqz, '0' if bnez
-	logic br_tkn;
-	logic[1:0] prdct_pipe; // Stores the last prediction 
-	logic valbit_pipe; // Pipelined validity bit
-	logic cjmpa; // Used to correct the jmp address when the table is overwritten
-	logic[`pc_size-1:0] pcplf_pipe; // PC+4 pipelined
-    logic[`opcode_size-1:0] op_pipe; // Opcode pipelined
-    logic[`table_logsize-1:0] pc_pipe; // PC pipelined;
+	logic eqz, eqz_pipe;                			// '1' if beqz, '0' if bnez
+	logic br_tkn;						// Actual outcome of the branch
+	logic[1:0] prdct_pipe; 					// Stores the last prediction 
+	logic valbit_pipe; 					// Pipelined validity bit
+	logic cjmpa; 						// Used to correct the jmp address when the table is overwritten
+	logic[`pc_size-1:0] pcplf_pipe; 			// PC+4 pipelined
+	logic[`opcode_size-1:0] op_pipe; 			// Opcode pipelined
+	logic[`table_logsize-1:0] pc_pipe; 			// PC pipelined;
 
     integer i;
 
