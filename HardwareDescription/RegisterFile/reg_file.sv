@@ -9,7 +9,7 @@ module reg_file
 	input logic rd2_en,				// Port 2 read enable signa
 	input logic[`regfile_logsize-1:0] rd2_addr,	// Port 2 read address
 	input logic wr_en,				// Write enable signal
-	input logic[`regfile_logsize-1:0] wr_addr,				// Write address
+	input logic[`regfile_logsize-1:0] wr_addr,	// Write address
 	input logic[`data_size-1:0] wr_data,		// Data to be written
 	output logic[`data_size-1:0] rd_data1,		// Port 1 output data
 	output logic[`data_size-1:0] rd_data2		// Port 2 output data
