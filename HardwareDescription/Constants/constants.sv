@@ -6,7 +6,7 @@ package constants;
 	`define opcode_size 7
 	`define regfile_logsize 5
 	`define instr_size 32
-    `define regfile_size 32
+    	`define regfile_size 32
 
     // Define opcodes
 	`define j_op 7'b0000010
