@@ -59,7 +59,7 @@ logic[`data_size-1:0] dataout2;
 			else begin
 				// If write is enabled
 				if(wr_en)
-                    if(wr_addr != 'h0)
+		                    if(wr_addr != 'h0)
 					    registers[wr_addr] = wr_data;
 				// If read @ the first port is enabled
 				if(rd1_en)
