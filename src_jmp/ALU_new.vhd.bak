@@ -1,0 +1,109 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity alu is
+	port(
+	A, B:in signed(31 downto 0);
+	OP:in std_logic_vector(3 downto 0);
+	C:out signed(31 downto 0);
+	Zero: out std_logic
+);
+end alu;	
+
+Architecture behavioral of alu is
+signal ADD_s,ADDI_s,XOR_s,SLT_s,ANDI_s,
+		ORI_s,BEQ_s,LUI_s,LW_s,SW_s, SUB_s,ABS_s: signed(31 downto 0);--mancava segnale ABS_s
+signal SRA_s: std_logic_vector(31 downto 0);
+signal zero_s, C_s: signed(31 downto 0);
+signal shamt_s: std_logic_vector(4 downto 0);
+
+component adder is
+	GENERIC(N: integer:=32);
+	PORT(	A,B: in  signed(N-1 downto 0);
+			OP : in  std_logic;
+			S  : out signed(N-1 downto 0)
+		);
+end component;
+
+component barrel is
+	port(
+	     input : in std_logic_vector (31 downto 0);
+	     shift : in std_logic_vector (4 downto 0);
+	     output : out std_logic_vector(31 downto 0)
+	);
+end component;
+
+component shift_right_arithmetic is
+	port(
+	     input : in std_logic_vector (31 downto 0);
+	     shift : in std_logic_vector (4 downto 0);
+	     output : out std_logic_vector(31 downto 0)
+	);
+end component;
+
+component abs_unit is
+	GENERIC(N: integer:=32);
+	PORT(	A: in  signed(N-1 downto 0);
+		ABS_value  : out signed(N-1 downto 0)
+		);
+end component;
+
+begin
+--zero_s <= (OTHERS=>'0');
+--Zero <= '1' when (C_s=zero_s) else '0'; --NOT (zero_s) AND NOT(C_s);
+shamt_s<=std_logic_vector(B(10 downto 6));
+
+ADD_c: adder PORT MAP (A,B,'0', ADD_s);
+XOR_s <= A XOR B;
+SRA_c: barrel PORT MAP (std_logic_vector(A), shamt_s, SRA_s);
+--SRA_c: shift_right_arithmetic PORT MAP (std_logic_vector(A), shamt_s, SRA_s);
+SUB_c: adder PORT MAP (A,B,'1', SUB_s);
+SLT_s <= (OTHERS => SUB_s(31));
+ADDI_s<= ADD_s;
+ANDI_s<= A AND (X"0000" & B(15 downto 0));
+ORI_s <= A OR  (X"0000" & B(15 downto 0));
+BEQ_s <= XOR_s;
+LUI_S <= B(15 downto 0) & X"0000";
+LW_s<=ADD_s;
+SW_s<=ADD_s;
+
+
+--process(OP,ADD_s,XOR_s,SRA_s,SLT_s,ADDI_s,ANDI_s,ORI_s,BEQ_s,LUI_s,LW_s,SW_s)
+--begin
+--case OP is
+--	when X"0" => 
+--	when X"1" => C_s <= ADD_s;
+--	when X"2" => C_s <= XOR_s;
+--	when X"3" => C_s <= signed(SRA_s);
+--	when X"4" => C_s <= SLT_s;
+--	when X"5" => C_s <= ADDI_s;
+--	when X"6" => C_s <= ANDI_s;
+--	when X"7" => C_s <= ORI_s;
+--	when X"8" => C_s <= BEQ_s;
+--	when X"9" => C_s <= LUI_s;
+--	when X"A" => C_s <= LW_s;
+--	when X"B" => C_s <= SW_s;
+--	when others => 
+--end case;
+--end process;
+
+C_s<=	ADD_s when OP=X"1" else 
+	XOR_s when OP=X"2" else 
+	signed(SRA_s)  when OP=X"3" else 
+	SLT_s when OP=X"4" else 
+	ADDI_s when OP=X"5" else 
+	ANDI_s when OP=X"6" else 
+	ORI_s when OP=X"7" else 
+	BEQ_s when OP=X"8" else 
+	LUI_s when OP=X"9" else 
+	LW_s when OP=X"A" else 
+	SW_s when OP=X"B" else 
+	ABS_s when OP=X"C" else
+	X"00000000";
+
+C<=C_s;
+
+zero<='1' when C_s= X"00000000" else '0';
+
+end behavioral;
