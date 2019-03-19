@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity FU is
 	port(
-	     RegR1,RegR2,RegW_1d,RegW_2d,RegWr_1d,RegWr_2d : in std_logic_vector(4 downto 0);
+	     RegR1,RegR2,RegW_1d,RegW_2d : in std_logic_vector(4 downto 0);
 	     RegWrs_1d,RegWrs_2d : in std_logic;--reg write signal--
 	     SelMuxOp1,SelMuxOp2 : out std_logic_vector(1 downto 0)
 	);
