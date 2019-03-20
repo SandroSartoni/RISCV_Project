@@ -15,15 +15,15 @@ module forw_unit
 
 always_comb
 begin
-	if (RegR1 == '00000') begin
+	if (RegR1 == '00000') 
 		sel_mux1 = '00';
-	end else if ((RegR1 == RegW_1d)and(RegWrs_1d=1)) begin
+	else if ((RegR1 == RegW_1d)and(RegWrs_1d=1)) 
 		sel_mux1 = '10';
-	end else if ((RegR1 == RegW_2d)and(RegWrs_2d=1)) begin
+	else if ((RegR1 == RegW_2d)and(RegWrs_2d=1)) 
 		sel_mux1 = '01';
-	end else begin
+	else 
 		sel_mux1='00';
-	end
+
 end
 
 always_comb 
