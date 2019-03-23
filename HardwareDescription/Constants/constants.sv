@@ -13,6 +13,10 @@ package constants;
 	`define jal_op 7'b000011
 	`define beq_op 7'b000100
 	`define bne_op 7'b000101
+	`define ldtype_op 7'b0000011		// lb, lh and so on
+	`define itype_op 7'b0010011			// arithmetic immediate
+	`define cstype_op 7'b1110011		// ecall, cssrw and so on
+	`define rtype_op 7'b0110011			// all R types
 
     // Define user data types
 	typedef enum logic[2:0] {
