@@ -1,6 +1,7 @@
+// This module detects hazards and produces a vector specifying the number of NOPs to be placed between the
+// two colliding instruction in order to resolve the hazard.
+
 `include "constants.sv"
-`define table_size 512
-`define table_logsize 9
 
 module hdu
 (
