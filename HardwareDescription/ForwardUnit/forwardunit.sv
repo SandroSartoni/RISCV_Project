@@ -1,5 +1,5 @@
 
-'define bit_for_reg 5
+`define bit_for_reg 5
 
 module forw_unit
 (
