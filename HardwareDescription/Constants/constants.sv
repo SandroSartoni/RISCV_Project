@@ -6,9 +6,16 @@ package constants;
 	`define opcode_size 7
 	`define regfile_logsize 5
 	`define instr_size 32
-    	`define regfile_size 32
+	`define regfile_size 32
+    `define memory_word 8
 
-	// Define opcodes & functions
+	// I-Cache parameters
+	`define icache_blocksize 64*8 // Bytes*no_of_bits (in a byte)
+	`define icache_noofsets 64
+	`define entriesperset 16
+
+
+	// Define opcodes
 	`define branch_group 7'h63
 	`define jal_op 7'h6F
 	`define jalr_op 7'h67
@@ -23,6 +30,7 @@ package constants;
 	`define cstype_op 7'b1110011		// ecall, cssrw and so on
 	`define rtype_op 7'b0110011		// all R types
 
+
 	// Define user data types
 	typedef enum logic[2:0] {
 		add_conf = 3'b000,
@@ -34,5 +42,14 @@ package constants;
 		srl_conf = 3'b110,
 		sra_conf = 3'b111
 	} iexu_conf;
+
+	typedef enum logic[2:0] {
+		beq_inst = 3'b000,
+		bne_inst = 3'b001,
+		blt_inst = 3'b100,
+		bge_inst = 3'b101,
+		bltu_inst = 3'b110,
+		bgeu_inst = 3'b111
+	} branch_type;
 
 endpackage
