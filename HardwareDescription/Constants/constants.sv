@@ -14,6 +14,9 @@ package constants;
 	`define icache_noofsets 64
 	`define entriesperset 16
 
+// Define cu sizes
+	`define cw_length 16	// number of control signals
+	`define cw_mem_size 55	// number of distinct instructions
 
 	// Define opcodes
 
@@ -60,6 +63,15 @@ package constants;
 	`define srx_func	3'h5	// same as srxi
 	`define or_func		3'h6
 	`define and_func	3'h7
+
+	`define mul_func	3'h0	// same as srxi
+	`define mulh_func	3'h1
+	`define mulhsu_func	3'h2
+	`define mulhu_func	3'h3
+	`define div_func	3'h4
+	`define divu_func	3'h5	// same as srxi
+	`define rem_func	3'h6
+	`define remu_func	3'h7
 // fence
 	`define fence_op 7'b0001111
 	`define or_func		3'h0
@@ -73,11 +85,6 @@ package constants;
 	`define csrrwi_func		3'h5
 	`define csrrsi_func		3'h6
 	`define csrrci_func		3'h7
-
-	// Define cu sizes
-
-	`define cw_length 16	// number of control signals
-	`define cw_mem_size 55	// number of distinct instructions
 
 	// Define user data types
 	typedef enum logic[2:0] {
