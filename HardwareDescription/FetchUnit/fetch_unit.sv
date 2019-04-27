@@ -15,7 +15,7 @@ module fetch_unit
 	input logic[`memory_word-1:0] mem_word, // Word from RAM
 	input logic word_ready,
 	output logic[`pc_size-1:0] ram_address,
-    output logic miss_cache;
+    output logic miss_cache,
 	output logic [`instr_size-1:0] instr_fetched,
 	output logic chng2nop
 );
@@ -43,7 +43,7 @@ always_ff @(posedge clk) begin : program_counter
 	if(~nrst)
 		curr_pc <= 'h0;
 	else
-		if(pc_en | cache_miss)
+		if(pc_en & ~cache_miss)
 			curr_pc <= next_pc;
 end : program_counter
 
@@ -52,7 +52,7 @@ always_ff @(posedge clk) begin : piped_pc
 	if(~nrst)
 		pc_dec <= 'h0;
 	else
-		if(pc_en | cache_miss)
+		if(pc_en & ~cache_miss)
 			pc_dec <= curr_pc;
 end : piped_pc
 

@@ -5,7 +5,7 @@ module i_cache
 	input logic clk,                            // Clock signal
 	input logic nrst,                           // Reset active on logic 1'b0
 	input logic we,                             // Write enable signal
-	input logic[`icache_blocksize-1:0] block_in,// Instruction from IRAM
+	input logic[0:`icache_blocksize-1] block_in,// Instruction from IRAM
 	input logic[`pc_size-1:0] pc,               // Program Counter value
 	output logic hit,                           // Hit/Miss signal
 	output logic[`instr_size-1:0] fetched_inst  // Fetched instruction if hit
@@ -15,7 +15,7 @@ module i_cache
 //  -- Cache table: blocks to be accessed in case of Hit
 //  -- Tag table: each entry contains a tag
 //  -- Valbit: each entry has the validity bit for the corresponding cache entry
-logic[`icache_blocksize-1:0] cache_table [0:(`icache_noofsets*`entriesperset)-1];
+logic[0:`icache_blocksize-1] cache_table [0:(`icache_noofsets*`entriesperset)-1];
 logic[(`pc_size-$clog2(`icache_blocksize/8)-$clog2(`icache_noofsets)-1):0] tag_table [0:(`icache_noofsets*`entriesperset)-1];
 logic valbit [0:(`icache_noofsets*`entriesperset)-1];
 
@@ -42,7 +42,7 @@ logic hit_s; // Hit signal given a PC value
 always_comb begin : hit_or_miss
 
     for(int i=0; i<`entriesperset; i++)
-        singlentry_hit[i] = (tag_table[set_base_address+i] == tag) & valbit[i];
+        singlentry_hit[i] = (tag_table[set_base_address+i] == tag) & valbit[set_base_address+i];
 
 end : hit_or_miss
 
@@ -55,8 +55,9 @@ logic[`instr_size-1:0] instr_entry[0:(`icache_blocksize/`instr_size)-1];
 generate
 
     for(genvar i=0; i<(`icache_blocksize/`instr_size); i++)
-        assign instr_entry[i] = hit_s ? {cache_table[set_base_address+singlentry_hit][32*i+7:32*i],cache_table[set_base_address+singlentry_hit][32*i+15:32*i+8],
-                                         cache_table[set_base_address+singlentry_hit][32*i+23:32*i+16],cache_table[set_base_address+singlentry_hit][32*i+31:32*i+24]} : (we ? block_in[i+3:i] : 'h0);
+        assign instr_entry[i] = hit_s ? {cache_table[set_base_address+singlentry_hit-1][32*i+24:32*i+31],cache_table[set_base_address+singlentry_hit-1][32*i+16:32*i+23],
+                                           cache_table[set_base_address+singlentry_hit-1][32*i+8:32*i+15],cache_table[set_base_address+singlentry_hit-1][32*i:32*i+7]} :
+                                           (we ? {block_in[32*i+24:32*i+31],block_in[32*i+16:32*i+23],block_in[32*i+8:32*i+15],block_in[32*i:32*i+7]} : 'h0);
 
 endgenerate
 
@@ -67,7 +68,7 @@ assign fetched_inst = instr_entry[block_offset[$clog2(`icache_blocksize/8)-1:2]]
 
 
 // Tag and Cache Table 
-logic[$clog2(`entriesperset)-1:0] update_cnt[0:$clog2(`icache_noofsets)-1];
+logic[$clog2(`entriesperset)-1:0] update_cnt[0:`icache_noofsets-1];
 
 always_ff @(posedge clk) begin
     if(~nrst) begin
@@ -77,15 +78,15 @@ always_ff @(posedge clk) begin
             valbit[i] <= 1'b0;
         end 
 
-        for(int i=0; i<$clog2(`icache_noofsets); i++)
+        for(int i=0; i<`icache_noofsets; i++)
             update_cnt[i] <= 'h0;
     end
     else begin
         if(we) begin// Assuming Miss stalls the fetch unit
-            cache_table[set_base_address+update_cnt[set_base_address]] <= block_in;
-            tag_table[set_base_address+update_cnt[set_base_address]] <= tag;
-            valbit[set_base_address+update_cnt[set_base_address]] <= 1'b1; 
-            update_cnt[set_base_address] <= update_cnt[set_base_address] + 1'b1;
+            cache_table[set_base_address+update_cnt[set_index]] <= block_in;
+            tag_table[set_base_address+update_cnt[set_index]] <= tag;
+            valbit[set_base_address+update_cnt[set_index]] <= 1'b1; 
+            update_cnt[set_index] <= update_cnt[set_index] + 1'b1;
         end
     end
 end

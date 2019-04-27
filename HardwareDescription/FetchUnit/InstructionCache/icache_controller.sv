@@ -15,7 +15,7 @@ module icache_controller
 //logic[`instr_size-1:0] fetched_inst;
 logic hit_cache;
 logic we_cache;
-logic[`icache_blocksize-1:0] block_in_cache;
+logic[0:`icache_blocksize-1] block_in_cache;
 logic[`memory_word-1:0] byte_from_mem [0:(`icache_blocksize/`memory_word)-1];
 logic[$clog2(`icache_blocksize/`memory_word)-1:0] entries_written;
 
@@ -29,7 +29,7 @@ always_ff @(posedge clk) begin
 			entries_written <= entries_written + 1'b1;
 end
 
-assign we_cache = &entries_written;
+assign we_cache = &entries_written & ~hit_cache;
 
 // Here we assign the words from the RAM to the byte_from_mem array of bytes
 always_ff @(posedge clk) begin
