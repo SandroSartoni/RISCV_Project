@@ -15,7 +15,7 @@ module fetch_unit
 	input logic[`memory_word-1:0] mem_word, // Word from RAM
 	input logic word_ready,
 	output logic[`pc_size-1:0] ram_address,
-    output logic miss_cache,
+	output logic miss_cache,
 	output logic [`instr_size-1:0] instr_fetched,
 	output logic chng2nop
 );

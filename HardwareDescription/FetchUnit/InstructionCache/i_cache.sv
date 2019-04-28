@@ -41,12 +41,12 @@ logic hit_s; // Hit signal given a PC value
 
 always_comb begin : hit_or_miss
 
-    for(int i=0; i<`entriesperset; i++)
-        singlentry_hit[i] = (tag_table[set_base_address+i] == tag) & valbit[set_base_address+i];
+	for(int i=0; i<`entriesperset; i++)
+		singlentry_hit[i] = (tag_table[set_base_address+i] == tag) & valbit[set_base_address+i];
 
 end : hit_or_miss
 
-assign hit_s = |singlentry_hit; // & (~ valbit[set_base_address+singlentry_hit]); // OR reduce of the vector of hit signals
+assign hit_s = |singlentry_hit; // OR reduce of the vector of hit signals
 
 
 // Decompose the instruction block entry
@@ -54,10 +54,10 @@ logic[`instr_size-1:0] instr_entry[0:(`icache_blocksize/`instr_size)-1];
 
 generate
 
-    for(genvar i=0; i<(`icache_blocksize/`instr_size); i++)
-        assign instr_entry[i] = hit_s ? {cache_table[set_base_address+singlentry_hit-1][32*i+24:32*i+31],cache_table[set_base_address+singlentry_hit-1][32*i+16:32*i+23],
-                                           cache_table[set_base_address+singlentry_hit-1][32*i+8:32*i+15],cache_table[set_base_address+singlentry_hit-1][32*i:32*i+7]} :
-                                           (we ? {block_in[32*i+24:32*i+31],block_in[32*i+16:32*i+23],block_in[32*i+8:32*i+15],block_in[32*i:32*i+7]} : 'h0);
+	for(genvar i=0; i<(`icache_blocksize/`instr_size); i++)
+		assign instr_entry[i] = hit_s ? {cache_table[set_base_address+singlentry_hit-1][32*i+24:32*i+31],cache_table[set_base_address+singlentry_hit-1][32*i+16:32*i+23],
+						 cache_table[set_base_address+singlentry_hit-1][32*i+8:32*i+15],cache_table[set_base_address+singlentry_hit-1][32*i:32*i+7]} :
+						 (we ? {block_in[32*i+24:32*i+31],block_in[32*i+16:32*i+23],block_in[32*i+8:32*i+15],block_in[32*i:32*i+7]} : 'h0);
 
 endgenerate
 
@@ -71,24 +71,24 @@ assign fetched_inst = instr_entry[block_offset[$clog2(`icache_blocksize/8)-1:2]]
 logic[$clog2(`entriesperset)-1:0] update_cnt[0:`icache_noofsets-1];
 
 always_ff @(posedge clk) begin
-    if(~nrst) begin
-        for(int i=0; i<(`icache_noofsets*`entriesperset); i++) begin
-            cache_table[i] <= 'h0;
-            tag_table[i] <= 'h0;
-            valbit[i] <= 1'b0;
-        end 
+	if(~nrst) begin
+		for(int i=0; i<(`icache_noofsets*`entriesperset); i++) begin
+			cache_table[i] <= 'h0;
+			tag_table[i] <= 'h0;
+			valbit[i] <= 1'b0;
+		end 
 
-        for(int i=0; i<`icache_noofsets; i++)
-            update_cnt[i] <= 'h0;
-    end
-    else begin
-        if(we) begin// Assuming Miss stalls the fetch unit
-            cache_table[set_base_address+update_cnt[set_index]] <= block_in;
-            tag_table[set_base_address+update_cnt[set_index]] <= tag;
-            valbit[set_base_address+update_cnt[set_index]] <= 1'b1; 
-            update_cnt[set_index] <= update_cnt[set_index] + 1'b1;
-        end
-    end
+		for(int i=0; i<`icache_noofsets; i++)
+			update_cnt[i] <= 'h0;
+	end
+	else begin
+		if(we) begin// Assuming Miss stalls the fetch unit
+			cache_table[set_base_address+update_cnt[set_index]] <= block_in;
+			tag_table[set_base_address+update_cnt[set_index]] <= tag;
+			valbit[set_base_address+update_cnt[set_index]] <= 1'b1; 
+			update_cnt[set_index] <= update_cnt[set_index] + 1'b1;
+		end
+	end
 end
 
 endmodule

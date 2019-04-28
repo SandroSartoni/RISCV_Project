@@ -43,24 +43,24 @@ fetch_unit fu_riscv
 always #5 clk = ~clk;
 
 always_ff @(posedge clk) begin
-    chng2nop_p <= chng2nop;
+	chng2nop_p <= chng2nop;
 end
 
 always_ff @(posedge clk) begin
-    if(~nrst)
-        instr_decoded <= 'h0;
-    else
-        if(pc_en)
-            if(~chng2nop_p)
-                instr_decoded <= instr_fetched;
-            else
-                instr_decoded <= 'h0;
+	if(~nrst)
+		instr_decoded <= 'h0;
+	else
+		if(pc_en)
+			if(~chng2nop_p)
+				instr_decoded <= instr_fetched;
+			else
+				instr_decoded <= 'h0;
 end
 
 assign op_decode = instr_decoded[6:0];
 
 initial begin : IRAM_loading
-    $readmemh("../RISCV_EXE/fu_tester.in",ram_words,0);
+	$readmemh("../RISCV_EXE/fu_tester.in",ram_words,0);
 end : IRAM_loading
 
 logic[6:0] counter;
@@ -86,20 +86,14 @@ always_ff @(posedge clk) begin : cache_miss
 end : cache_miss
 
 initial begin
-    nrst = 1'b0;
-    clk = 1'b0;
-    pc_en = 1'b0;
-    branch_op = beq_inst;
-    @(posedge clk)
-    pc_en = 1'b1;
-    nrst = 1'b1;
-    @(posedge clk);
-    /*@(posedge clk);
-    rs1_decode = 'h7;
-    rs2_decode = 'h7;
-    immediate_decode = 'hC;
-    @(posedge clk);
-    $stop;*/
+	nrst = 1'b0;
+	clk = 1'b0;
+	pc_en = 1'b0;
+	branch_op = beq_inst;
+	@(posedge clk);
+	pc_en = 1'b1;
+	nrst = 1'b1;
+	@(posedge clk);
 end
 
 endmodule

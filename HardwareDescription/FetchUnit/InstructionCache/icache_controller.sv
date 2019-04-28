@@ -59,14 +59,10 @@ i_cache instruction_cache
 	.block_in(block_in_cache),
 	.pc(pc),
 	.hit(hit_cache),
-	.fetched_inst(inst_fu)//(fetched_inst)
+	.fetched_inst(inst_fu)
 );
 
 assign cache_miss = ~hit_cache;
 assign ram_address = pc;
-
-// Select the correct instruction to be fetched (depending on the presence of
-// a Hit/Miss)
-//assign inst_fu = hit_cache ? fetched_inst : 'h0;
 
 endmodule
