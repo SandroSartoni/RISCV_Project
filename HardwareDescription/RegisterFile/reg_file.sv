@@ -32,8 +32,8 @@ logic[`data_size-1:0] dataout2;
 		else begin
 			// If write is enabled
 			if(wr_en) begin
-                if(wr_addr != 'h0)
-					    registers[wr_addr] <= wr_data;
+				if(wr_addr != 'h0)
+					registers[wr_addr] <= wr_data;
                 else
                         registers[0] <= 'h0;
 			end
