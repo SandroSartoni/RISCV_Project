@@ -15,8 +15,8 @@ package constants;
 	`define entriesperset 16
 
 // Define cu sizes
-	`define cw_length 16	// number of control signals
-	`define cw_mem_size 55	// number of distinct instructions
+	`define cw_length 11	// number of control signals
+	`define cw_mem_size 9	// number of distinct instructions
 
 	// Define opcodes
 
