@@ -28,8 +28,9 @@ package constants;
 	`define bge_func 3'h5
 	`define bltu_func 3'h6
 	`define bgeu_func 3'h7
-// jump
+// jal
 	`define jal_op 7'h6F
+//jalr
 	`define jalr_op 7'h67
 // load
 	`define ldtype_op 7'b0000011
