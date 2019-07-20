@@ -1,10 +1,11 @@
+`include "constants.sv"
 
-module ALU
+module alu
 (
-	input logic [31:0] A,
-	input logic [31:0] B,
+	input logic [`data_size-1:0] A,
+	input logic [`data_size-1:0] B,
 	input logic [3:0] Control,
-	output logic [31:0] Out,
+	output logic [`data_size-1:0] Out,
 	output logic ovfl
 );
 

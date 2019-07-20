@@ -1,16 +1,15 @@
-
-`define bit_for_reg 5
+`include "constants.sv"
 
 module forw_unit
 (
-	input logic RegWrs_1d,
-	input logic RegWrs_2d,
-	input logic [`bit_for_reg-1:0] RegR1,
-	input logic [`bit_for_reg-1:0] RegR2,
-	input logic [`bit_for_reg-1:0] RegW_1d,
-	input logic [`bit_for_reg-1:0] RegW_2d,
-	output logic [1:0] sel_mux1,
-	output logic [1:0] sel_mux2
+	input logic RegWrs_1d,				// Write enable for Reg1
+	input logic RegWrs_2d,				// Write enable for Reg2
+	input logic [`regfile_logsize-1:0] RegR1,	// Reg1 field
+	input logic [`regfile_logsize-1:0] RegR2,	// Reg2 field
+	input logic [`regfile_logsize-1:0] RegW_1d,	// Reg1 to be written
+	input logic [`regfile_logsize-1:0] RegW_2d,	// Reg2 to be written
+	output logic [1:0] sel_mux1,			// First mux selector
+	output logic [1:0] sel_mux2			// Second mux selector
 );
 
 always_comb

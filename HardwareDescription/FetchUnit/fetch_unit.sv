@@ -8,15 +8,15 @@ module fetch_unit
 	input logic nrst,
 	input logic pc_en,
 	input logic[`opcode_size-1:0] op_decode,
-	input logic [`data_size-1:0] rs1_decode,
-	input logic [`data_size-1:0] rs2_decode,
-	input logic [`pc_size-1:0] immediate_decode,
+	input logic[`data_size-1:0] rs1_decode,
+	input logic[`data_size-1:0] rs2_decode,
+	input logic[`pc_size-1:0] immediate_decode,
 	input branch_type branch_op,
 	input logic[`memory_word-1:0] mem_word, // Word from RAM
 	input logic word_ready,
 	output logic[`pc_size-1:0] ram_address,
 	output logic miss_cache,
-	output logic [`instr_size-1:0] instr_fetched,
+	output logic[`instr_size-1:0] instr_fetched,
 	output logic chng2nop
 );
 
