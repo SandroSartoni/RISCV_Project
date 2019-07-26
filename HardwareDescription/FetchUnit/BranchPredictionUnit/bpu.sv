@@ -1,4 +1,4 @@
-`include "constants.sv"
+`include "../../Constants/constants.sv"
 `define table_size 512
 `define table_logsize $clog2(`table_size)
 
@@ -58,7 +58,7 @@ module bpu
     	always_comb begin : mux_selector_assign
         	if(mispredict || cjmpa || jr_bpu || aliasing_pipe || (validity_bit[pc[`table_logsize+1:2]] && (op == `jal_op)))
             		mux_sel = 1'b1;
-        	else if(op == `branch_group)
+        	else if(op == `btype_op)
             		mux_sel = branch_table[pc[`table_logsize+1:2]][1];
         	else
             		mux_sel = 1'b0;
@@ -69,7 +69,7 @@ module bpu
 	assign chng2nop = mispredict | aliasing_pipe | (~valbit_pipe && (op_pipe == `jal_op));
 
     	// Is there an aliasing?
-    	assign aliasing = (op == `branch_group || op == `jal_op) ? (pc[`pc_size-1:`table_logsize+2] != pc_aliasing[pc[`table_logsize+1:2]]) : 1'b0;
+    	assign aliasing = (op == `btype_op || op == `jal_op) ? (pc[`pc_size-1:`table_logsize+2] != pc_aliasing[pc[`table_logsize+1:2]]) : 1'b0;
 
     	// Bit that tells the BPU that a jump target never evaluated before has been produced
 	assign cjmpa = trgt_gen & (~valbit_pipe);	

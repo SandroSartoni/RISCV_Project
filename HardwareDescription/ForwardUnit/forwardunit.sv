@@ -1,13 +1,13 @@
-`include "constants.sv"
+`include "../Constants/constants.sv"
 
 module forw_unit
 (
-	input logic RegWrs_1d,				// Write enable for Reg1
-	input logic RegWrs_2d,				// Write enable for Reg2
-	input logic [`regfile_logsize-1:0] RegR1,	// Reg1 field
-	input logic [`regfile_logsize-1:0] RegR2,	// Reg2 field
-	input logic [`regfile_logsize-1:0] RegW_1d,	// Reg1 to be written
-	input logic [`regfile_logsize-1:0] RegW_2d,	// Reg2 to be written
+	input logic RegWrs_1d,				// Write enable for WR after 1 cycle
+	input logic RegWrs_2d,				// Write enable for WR after 2 cycles
+	input logic [`regfile_logsize-1:0] RegR1,	// Operand_1 field
+	input logic [`regfile_logsize-1:0] RegR2,	// Operand_2 field
+	input logic [`regfile_logsize-1:0] RegW_1d,	// WR after 1 cycle
+	input logic [`regfile_logsize-1:0] RegW_2d,	// WR after 2 cycles 
 	output logic [1:0] sel_mux1,			// First mux selector
 	output logic [1:0] sel_mux2			// Second mux selector
 );

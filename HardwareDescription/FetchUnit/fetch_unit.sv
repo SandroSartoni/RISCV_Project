@@ -1,5 +1,5 @@
-`include "bpu.sv"
-`include "icache_controller.sv"
+`include "BranchPredictionUnit/bpu.sv"
+`include "InstructionCache/icache_controller.sv"
 import constants::*;
 
 module fetch_unit
@@ -61,11 +61,11 @@ assign alupc = {{pc_dec[`pc_size-1:2] + immediate_decode[`pc_size-1:2]},2'h0};
 
 // Target_generated and branch_evaluated signals
 assign trgt_gen = (op_decode == `jal_op);
-assign b_eval = (op_decode == `branch_group); 
+assign b_eval = (op_decode == `btype_op); 
 
 // Branch outcome: if 1'b0 it means do not branch, if 1'b1 it means branch
 always_comb begin : branch_operations
-	if(op_decode == `branch_group) begin
+	if(op_decode == `btype_op) begin
 		case(branch_op)
 			beq_inst : begin
 				if(rs1_decode == rs2_decode)

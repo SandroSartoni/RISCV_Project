@@ -1,0 +1,294 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/sandro/GIT_RISCV/Simulation/Run
+valu
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 DXx4 work 9 constants 0 22 B<Dzc8YZ2PLhUM`B<=mAF3
+Z3 DXx4 work 18 riscv_core_sv_unit 0 22 NVF^MlH3]FH?aKa603Re>1
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 40_;F>bEINmaMJNiA<_g[1
+I:TW7Zm;CDde`NSX_fPQ:;0
+Z5 !s105 riscv_core_sv_unit
+S1
+R0
+w1564179919
+8../../HardwareDescription/RISCVCore/../ALU/alu.sv
+Z6 F../../HardwareDescription/RISCVCore/../ALU/alu.sv
+L0 3
+Z7 OV;L;10.5b;63
+Z8 !s108 1564181935.000000
+Z9 !s107 ../../HardwareDescription/RISCVCore/../ALU/../Constants/constants.sv|../../HardwareDescription/RISCVCore/../ALU/alu.sv|../../HardwareDescription/RISCVCore/../ForwardUnit/../Constants/constants.sv|../../HardwareDescription/RISCVCore/../ForwardUnit/forwardunit.sv|../../HardwareDescription/RISCVCore/../RegisterFile/../Constants/constants.sv|../../HardwareDescription/RISCVCore/../RegisterFile/reg_file.sv|../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv|../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv|../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv|../../HardwareDescription/RISCVCore/../FetchUnit/BranchPredictionUnit/../../Constants/constants.sv|../../HardwareDescription/RISCVCore/../FetchUnit/BranchPredictionUnit/bpu.sv|../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv|../../HardwareDescription/RISCVCore/riscv_core.sv|
+Z10 !s90 -sv|-work|work|../../HardwareDescription/RISCVCore/riscv_core.sv|
+!i113 1
+Z11 o-sv -work work
+Z12 tCvgOpt 0
+vbpu
+R1
+Z13 !s110 1564181935
+!i10b 1
+!s100 o;7^zG@OdjoLR[_GMKY242
+I_l1Zn8m[JE2LzUgI^AL?o0
+R4
+R5
+S1
+R0
+w1564179208
+8../../HardwareDescription/RISCVCore/../FetchUnit/BranchPredictionUnit/bpu.sv
+Z14 F../../HardwareDescription/RISCVCore/../FetchUnit/BranchPredictionUnit/bpu.sv
+L0 5
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Xconstants
+R1
+VB<Dzc8YZ2PLhUM`B<=mAF3
+r1
+!s85 0
+31
+!i10b 1
+!s100 DLd6]2VCi9<JB919@3FR]3
+IB<Dzc8YZ2PLhUM`B<=mAF3
+S1
+R0
+w1564180228
+8../../HardwareDescription/RISCVCore/../ALU/../Constants/constants.sv
+Z15 F../../HardwareDescription/RISCVCore/../ALU/../Constants/constants.sv
+L0 1
+R7
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vfetch_unit
+R1
+R2
+R3
+R4
+r1
+!s85 0
+31
+!i10b 1
+!s100 S4bP?ToCOTJQk`JKT9Kah2
+IjdY=4Ha4fmV<ABbI]N:Lc1
+R5
+S1
+R0
+Z16 w1564181683
+8../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv
+Z17 F../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv
+L0 5
+R7
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Xfetch_unit_sv_unit
+R1
+DXx4 work 9 constants 0 22 YOCG45`kCdh8cmJe73?9j2
+Vo:2=`BI30Uo7H1g>dMU462
+r1
+!s85 0
+31
+!i10b 1
+!s100 kS]kcWD8W=MLCXnJ;8UL12
+Io:2=`BI30Uo7H1g>dMU462
+!i103 1
+S1
+R0
+R16
+8../../HardwareDescription/FetchUnit/fetch_unit.sv
+F../../HardwareDescription/FetchUnit/fetch_unit.sv
+F../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv
+F../../HardwareDescription/FetchUnit/BranchPredictionUnit/../../Constants/constants.sv
+F../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv
+F../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv
+F../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv
+L0 3
+R7
+R8
+!s107 ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv|../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv|../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv|../../HardwareDescription/FetchUnit/BranchPredictionUnit/../../Constants/constants.sv|../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv|../../HardwareDescription/FetchUnit/fetch_unit.sv|
+!s90 -sv|-work|work|../../HardwareDescription/FetchUnit/fetch_unit.sv|
+!i113 1
+R11
+R12
+vforw_unit
+R1
+R2
+R3
+R4
+r1
+!s85 0
+31
+!i10b 1
+!s100 nklA@XhnmG42:g<eLIm_N3
+I8O67E_;RhUKdB4k[PMSRO1
+R5
+S1
+R0
+w1564179940
+8../../HardwareDescription/RISCVCore/../ForwardUnit/forwardunit.sv
+Z18 F../../HardwareDescription/RISCVCore/../ForwardUnit/forwardunit.sv
+L0 3
+R7
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vi_cache
+R1
+R13
+!i10b 1
+!s100 87R_NC6O7dP`9HNL9gVHn0
+IH5E3egQAdz0>>NcmIG0lX0
+R4
+R5
+S1
+R0
+w1564179256
+8../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv
+Z19 F../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv
+L0 3
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vicache_controller
+R1
+R13
+!i10b 1
+!s100 >Ab4V[5@@1z_aHm0eYj:j1
+IhU56NaWaM48cIGYJ>jZHX1
+R4
+R5
+S1
+R0
+w1564179236
+8../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv
+Z20 F../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv
+L0 3
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vreg_file
+R1
+R2
+R3
+R4
+r1
+!s85 0
+31
+!i10b 1
+!s100 N]Xl@jlibMZ5gVINFb98f0
+I:Q2_Hgl;`TEGdQS6fV8fA1
+R5
+S1
+R0
+w1564179902
+8../../HardwareDescription/RISCVCore/../RegisterFile/reg_file.sv
+Z21 F../../HardwareDescription/RISCVCore/../RegisterFile/reg_file.sv
+L0 3
+R7
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vriscv_core
+R1
+R2
+R3
+R4
+r1
+!s85 0
+31
+!i10b 1
+!s100 3>6<8JkG6[i:kl6:NJ^2P3
+I;XE@aKU_DfHMAEdDVR:dd0
+R5
+S1
+R0
+Z22 w1564181928
+Z23 8../../HardwareDescription/RISCVCore/riscv_core.sv
+Z24 F../../HardwareDescription/RISCVCore/riscv_core.sv
+L0 12
+R7
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Xriscv_core_sv_unit
+R1
+R2
+VNVF^MlH3]FH?aKa603Re>1
+r1
+!s85 0
+31
+!i10b 1
+!s100 W9gH_TVh>=WmnPH[`?hDZ3
+INVF^MlH3]FH?aKa603Re>1
+!i103 1
+S1
+R0
+R22
+R23
+R24
+R17
+R14
+F../../HardwareDescription/RISCVCore/../FetchUnit/BranchPredictionUnit/../../Constants/constants.sv
+R20
+R19
+F../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv
+R21
+F../../HardwareDescription/RISCVCore/../RegisterFile/../Constants/constants.sv
+R18
+F../../HardwareDescription/RISCVCore/../ForwardUnit/../Constants/constants.sv
+R6
+R15
+L0 3
+R7
+R8
+R9
+R10
+!i113 1
+R11
+R12
