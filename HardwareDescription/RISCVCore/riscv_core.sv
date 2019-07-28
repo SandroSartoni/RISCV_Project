@@ -182,7 +182,7 @@ reg_file register_file
 	.rd2_addr(rs2_field),
 	.wr_en(),
 	.wr_addr(rdw_wr),
-	.wr_data(),
+	.wr_data(wr_data),
 	.rd_data1(rd_data1),
 	.rd_data2(rd_data2)
 );
