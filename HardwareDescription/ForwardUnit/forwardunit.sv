@@ -12,6 +12,7 @@ module forw_unit
 	output logic [1:0] sel_mux2			// Second mux selector
 );
 
+
 always_comb
 begin
 	if (RegR1 == 5'b00000) 

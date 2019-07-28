@@ -14,6 +14,7 @@ module fetch_unit
 	input branch_type branch_op,
 	input logic[`memory_word-1:0] mem_word, // Word from RAM
 	input logic word_ready,
+	output logic[`pc_size-1:0] pc_val,		// Current Program Counter value
 	output logic[`pc_size-1:0] ram_address,
 	output logic miss_cache,
 	output logic[`instr_size-1:0] instr_fetched,
@@ -37,6 +38,7 @@ logic cache_miss;
 // Define the PC+4 value and the next program counter value
 assign pc_four = curr_pc + 'h4;
 assign next_pc = mux_sel ? bpu_pc : pc_four;
+assign pc_val = curr_pc;
 
 // Program Counter register
 always_ff @(posedge clk) begin : program_counter
