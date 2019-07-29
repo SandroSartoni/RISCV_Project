@@ -1,5 +1,6 @@
 `include "BranchPredictionUnit/bpu.sv"
 `include "InstructionCache/icache_controller.sv"
+`include "BranchForwardingUnit/bfu.sv"
 import constants::*;
 
 module fetch_unit
@@ -8,11 +9,15 @@ module fetch_unit
 	input logic nrst,
 	input logic pc_en,
 	input logic[`opcode_size-1:0] op_decode,
-	input logic[`data_size-1:0] rs1_decode,
-	input logic[`data_size-1:0] rs2_decode,
+	input logic[`data_size-1:0] rs1_decode,		// RegisterSource1 Value
+	input logic[`data_size-1:0] rs2_decode,		// RegisterSource2 Value
+	input logic[`data_size-1:0] wr_mem,		// WritingReg from MEM Stage Value
+	input logic[`regfile_logsize-1:0] rs1_field,	// RegisterSource1 Address Field
+	input logic[`regfile_logsize-1:0] rs2_field,	// RegisterSource2 Address Field
+	input logic[`regfile_logsize-1:0] wr_field,	// WriteRegister Address Field
 	input logic[`pc_size-1:0] immediate_decode,
 	input branch_type branch_op,
-	input logic[`memory_word-1:0] mem_word, // Word from RAM
+	input logic[`memory_word-1:0] mem_word,		// Word from RAM
 	input logic word_ready,
 	output logic[`pc_size-1:0] pc_val,		// Current Program Counter value
 	output logic[`pc_size-1:0] ram_address,
@@ -33,6 +38,8 @@ logic trgt_gen;
 logic b_eval;
 logic branch_outcome;
 logic cache_miss;
+logic[`data_size-1:0] rs1;
+logic[`data_size-1:0] rs2;
 
 
 // Define the PC+4 value and the next program counter value
@@ -65,47 +72,63 @@ assign alupc = {{pc_dec[`pc_size-1:2] + immediate_decode[`pc_size-1:2]},2'h0};
 assign trgt_gen = (op_decode == `jal_op);
 assign b_eval = (op_decode == `btype_op); 
 
+// Branch Forwarding Unit 
+bfu branch_fwd_unit
+(
+        .opcode(op_decode),
+        .rs1_field(rs1_field),
+        .rs2_field(rs2_field),
+        .wr_field(wr_field),
+        .wr_en(wr_en),
+        .br_fwsel1(br_fwsel1),
+        .br_fwsel2(br_fwsel2)
+);
+
+// Branch Forwarding Multiplexers
+assign rs1 = br_fwsel1 ? wr_mem : rs1_decode;
+assign rs2 = br_fwsel2 ? wr_mem : rs2_decode;
+
 // Branch outcome: if 1'b0 it means do not branch, if 1'b1 it means branch
 always_comb begin : branch_operations
 	if(op_decode == `btype_op) begin
 		case(branch_op)
 			beq_inst : begin
-				if(rs1_decode == rs2_decode)
+				if(rs1 == rs2)
 					branch_outcome = 1'b1;
 				else
 					branch_outcome = 1'b0;
 			end
 
 			bne_inst : begin
-				if(rs1_decode != rs2_decode)
+				if(rs1 != rs2)
 					branch_outcome = 1'b1;
 				else
 					branch_outcome = 1'b0;
 			end
 
 			blt_inst : begin
-				if($signed(rs1_decode) < $signed(rs2_decode))
+				if($signed(rs1) < $signed(rs2))
 					branch_outcome = 1'b1;
 				else
 					branch_outcome = 1'b0;
 			end
 
 			bge_inst : begin
-				if($signed(rs1_decode) >= $signed(rs2_decode))
+				if($signed(rs1) >= $signed(rs2))
 					branch_outcome = 1'b1;
 				else
 					branch_outcome = 1'b0;
 			end
 
 			bltu_inst : begin
-				if(rs1_decode < rs2_decode)
+				if(rs1 < rs2)
 					branch_outcome = 1'b1;
 				else
 					branch_outcome = 1'b0;
 			end
 
 			bgeu_inst : begin
-				if(rs1_decode >= rs2_decode)
+				if(rs1 >= rs2)
 					branch_outcome = 1'b1;
 				else
 					branch_outcome = 1'b0;

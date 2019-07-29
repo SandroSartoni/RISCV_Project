@@ -66,13 +66,13 @@ module bpu
 			   
 	// Here we evaluate whether there's misprediction or not;	   
     	assign mispredict = b_eval ? (prdct_pipe[1] ^ branch_outcome) : 1'b0;
-	assign chng2nop = mispredict | aliasing_pipe | (~valbit_pipe && (op_pipe == `jal_op));
+	assign chng2nop = mispredict | aliasing_pipe | (~valbit_pipe && (op_pipe == `jal_op)) | jr_bpu;
 
     	// Is there an aliasing?
     	assign aliasing = (op == `btype_op || op == `jal_op) ? (pc[`pc_size-1:`table_logsize+2] != pc_aliasing[pc[`table_logsize+1:2]]) : 1'b0;
 
     	// Bit that tells the BPU that a jump target never evaluated before has been produced
-	assign cjmpa = trgt_gen & (~valbit_pipe);	
+	assign cjmpa = trgt_gen & (~valbit_pipe);
 
 
     	// Validity bit vector, Branch table and NPC table update

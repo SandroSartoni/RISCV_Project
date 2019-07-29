@@ -75,6 +75,10 @@ fetch_unit fu
         .op_decode(op_decode),
         .rs1_decode(op1_decode),
         .rs2_decode(op2_decode),
+	.wr_mem(aluout_mem),
+	.rs1_field(rs1_field),
+	.rs2_field(rs2_field),
+	.wr_field(rdw_du),
         .immediate_decode(immediate_decode),
         .branch_op(branch_op),
         .mem_word(mem_word),
@@ -187,51 +191,19 @@ reg_file register_file
 	.rd_data2(rd_data2)
 );
 
-// Forward unit instantiation
-forw_unit forward_unit
-(
-	.RegWrs_1d(), // Write enable for Destination Register in the EXE stage
-	.RegWrs_2d(), // Write enable for Destination Register in the MEM stage
-	.RegR1(rs1_field),
-	.RegR2(rs2_field),
-	.RegW_1d(rdw_exu),
-	.RegW_2d(rdw_mu),
-	.sel_mux1(sel_fwdmux1),
-	.sel_mux2(sel_fwdmux2)
-);
-
-// Multiplexer driven by the Forward Unit
-always_comb begin : op1_mux
-	if(sel_fwdmux1 == 2'h0)		// No Forwarding Needed
-		op1_decode = rd_data1;
-	else if(sel_fwdmux1 == 2'h1)	// Forwarding from MEM Stage
-		op1_decode = ;
-	else if(sel_fwdmux1 == 2'h2)	// Forwarding from EXE Stage
-		op1_decode = alu_out;
-end : op1_mux
-
-always_comb begin : op2_mux
-	if(sel_fwdmux2 == 2'h0)		// No Forwarding Needed
-		op2_decode = rd_data2;
-	else if(sel_fwdmux2 == 2'h1)	// Forwarding from MEM Stage
-		op2_decode = ;
-	else if(sel_fwdmux2 == 2'h2)	// Forwarding from EXE Stage
-		op2_decode = alu_out;
-end : op2_mux
-
 // DecodeUnit -> ExecuteUnit pipeline registers
 always_ff @(posedge clk) begin : du_exu_regs
 	if(~nrst) begin
 		rdw_exu <= 'h0;
-		op1_execute <= 'h0;
-		op2_execute <= 'h0;
+		op1_decode <= 'h0;
+		op2_decode <= 'h0;
 		imm_exe <= 'h0;
 		pc_exe <= 'h0;
 	end
 	else begin
 		rdw_exu <= rdw_du;
-		op1_execute <= op1_decode;
-		op2_execute <= op2_decode;
+		op1_decode <= rd_data1;
+		op2_decode <= rd_data2;
 		imm_exe <= immediate_field;
 		pc_exe <= pc_dec;
 	end
@@ -241,6 +213,38 @@ end : du_exu_regs
 ////////////////////////////////////
 // Execute Unit of the RISCV Core //
 ////////////////////////////////////
+
+// Forward unit instantiation
+forw_unit forward_unit
+(
+	.RegWrs_1d(), // Write enable for Destination Register in the EXE stage
+	.RegWrs_2d(), // Write enable for Destination Register in the MEM stage
+	.RegR1(rs1_field),
+	.RegR2(rs2_field),
+	.RegW_1d(rdw_mu),
+	.RegW_2d(rdw_wr),
+	.sel_mux1(sel_fwdmux1),
+	.sel_mux2(sel_fwdmux2)
+);
+
+// Multiplexer driven by the Forward Unit
+always_comb begin : op1_mux
+	if(sel_fwdmux1 == 2'h0)		// No Forwarding Needed
+		op1_execute = op1_decode;
+	else if(sel_fwdmux1 == 2'h1)	// Forwarding from MEM Stage
+		op1_execute = wr_data;
+	else if(sel_fwdmux1 == 2'h2)	// Forwarding from EXE Stage
+		op1_execute = aluout_mem;
+end : op1_mux
+
+always_comb begin : op2_mux
+	if(sel_fwdmux2 == 2'h0)		// No Forwarding Needed
+		op2_execute = op2_decode;
+	else if(sel_fwdmux2 == 2'h1)	// Forwarding from MEM Stage
+		op2_execute = wr_data;
+	else if(sel_fwdmux2 == 2'h2)	// Forwarding from EXE Stage
+		op2_execute = aluout_mem;
+end : op2_mux
 
 assign alu_in1 = (segnale di controllo del muxa) ? pc_exe : op1_execute;
 assign alu_in2 = (segnale di controllo del muxb) ? op2_execute : imm_exe;
