@@ -8,6 +8,7 @@ package constants;
 	`define instr_size	32
 	`define regfile_size	32
 	`define memory_word	8
+    `define mem_delay_const 2   // Used in the hdu, it's ( 1 + the dmem delay )
 
 	// I-Cache parameters
 	`define icache_blocksize	64*8 // Bytes*no_of_bits (in a byte)
@@ -15,7 +16,7 @@ package constants;
 	`define entriesperset		16
 
 	// Define cu sizes
-	`define cw_length	11	// number of control signals
+	`define cw_length	15	// number of control signals
 	`define cw_mem_size	9	// number of distinct instructions
 
 
@@ -120,4 +121,12 @@ package constants;
 		bgeu_inst = 3'b111
 	} branch_type;
 
+    // For the CU fsm
+    typedef enum {  
+        NORMAL, 
+        FD_DELAY_ONE,
+        F_DELAY_ONE, 
+        F_DELAY_MEM
+    } statetype;
+    
 endpackage
