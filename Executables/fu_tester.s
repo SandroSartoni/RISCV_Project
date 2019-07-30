@@ -6,6 +6,7 @@
 _start:
 	addi x1,x0,45
 	addi x2,x0,37
+	#sw x0(16),x2
 	beq x1,x2,label
 	j _exit
 label:
