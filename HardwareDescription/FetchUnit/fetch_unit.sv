@@ -17,6 +17,7 @@ module fetch_unit
 	input logic[`regfile_logsize-1:0] wr_field,	// WriteRegister Address Field
 	input logic[`pc_size-1:0] immediate_decode,
 	input branch_type branch_op,
+	input logic jr_bpu,				// When 1'b1 there's a JR instruction in the Decode Stage
 	input logic[`memory_word-1:0] mem_word,		// Word from RAM
 	input logic word_ready,
 	output logic[`pc_size-1:0] pc_val,		// Current Program Counter value
@@ -40,12 +41,13 @@ logic branch_outcome;
 logic cache_miss;
 logic[`data_size-1:0] rs1;
 logic[`data_size-1:0] rs2;
+logic[`pc_size-1:0] jr_in;
 
 
 // Define the PC+4 value and the next program counter value
 assign pc_four = curr_pc + 'h4;
 assign next_pc = mux_sel ? bpu_pc : pc_four;
-assign pc_val = curr_pc;
+assign pc_val = pc_four;
 
 // Program Counter register
 always_ff @(posedge clk) begin : program_counter
@@ -67,6 +69,7 @@ end : piped_pc
 
 // It's PC+offset (different wrt MIPS which was PC+4+offset)
 assign alupc = {{pc_dec[`pc_size-1:2] + immediate_decode[`pc_size-1:2]},2'h0};
+assign jr_in = rs1 + immediate_decode;
 
 // Target_generated and branch_evaluated signals
 assign trgt_gen = (op_decode == `jal_op);

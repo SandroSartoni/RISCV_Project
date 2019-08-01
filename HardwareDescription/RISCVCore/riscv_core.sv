@@ -33,6 +33,7 @@ logic[`regfile_logsize-1:0] rdw_mu;		// RegisterDestination field from the Memor
 logic[`regfile_logsize-1:0] rdw_wr;		// RegisterDestination field from the WritebackUnit
 logic[`data_size-1:0] immediate_field;		// Immediate Field from the DecodeUnit
 branch_type branch_op;				// Branch type operation
+logic jr_bpu;					// Bit from CU that is 1'b1 when there's a JR in the Decode Stage
 logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg)
 logic[`instr_size-1:0] instr_fetched_du;	// Instruction fetched in the DecodeUnit (after pipeline reg)
 logic chng2nop_fu;				// Change to NOP bit in the FetchUnit (before pipeline reg)
@@ -81,6 +82,7 @@ fetch_unit fu
 	.wr_field(rdw_du),
         .immediate_decode(immediate_decode),
         .branch_op(branch_op),
+	.jr_bpu(jr_bpu),
         .mem_word(mem_word),
         .word_ready(word_ready),
 	.pc_val(pc_fu),
@@ -97,11 +99,12 @@ always_ff @(posedge clk) begin : fu_du_regs
 		instr_fetched_du <= 'h0;
 		pc_dec <= 'h0;
 	end
-	else begin
-		chng2nop_du <= chng2nop_fu;
-		instr_fetched_du <= instr_fetched_fu;
-		pc_dec <= pc_fu;
-	end
+	else 
+		if(pc_en) begin
+			chng2nop_du <= chng2nop_fu;
+			instr_fetched_du <= instr_fetched_fu;
+			pc_dec <= pc_fu;
+		end
 end : fu_du_regs
 
 
@@ -200,13 +203,14 @@ always_ff @(posedge clk) begin : du_exu_regs
 		imm_exe <= 'h0;
 		pc_exe <= 'h0;
 	end
-	else begin
-		rdw_exu <= rdw_du;
-		op1_decode <= rd_data1;
-		op2_decode <= rd_data2;
-		imm_exe <= immediate_field;
-		pc_exe <= pc_dec;
-	end
+	else
+		if( enable ) begin
+			rdw_exu <= rdw_du;
+			op1_decode <= rd_data1;
+			op2_decode <= rd_data2;
+			imm_exe <= immediate_field;
+			pc_exe <= pc_dec;
+		end
 end : du_exu_regs
 
 
@@ -266,11 +270,12 @@ always_ff @(posedge clk) begin : exu_mu_regs
 		aluout_mem <= 'h0;
 		dmem_data <= 'h0;
 	end
-	else begin
+	else
+		if( enable ) begin
 		rdw_mu <= rdw_exu;
 		aluout_mem <= alu_out;
 		dmem_data <= op2_execute;
-	end
+		end
 end : exu_mu_regs
 
 
@@ -289,10 +294,11 @@ always_ff @(posedge clk) begin : wr_mu_regs
 		rdw_wr <= 'h0;
 		wr_data <= 'h0;
 	end
-	else begin
-		rdw_wr <= rdw_mu;
-		wr_data <= wr_datamem;
-	end
+	else
+		if( enable ) begin
+			rdw_wr <= rdw_mu;
+			wr_data <= wr_datamem;
+		end
 end : wr_mu_regs
 
 
