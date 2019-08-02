@@ -32,8 +32,8 @@ logic[`regfile_logsize-1:0] wr_fieldp1;
 logic[`regfile_logsize-1:0] wr_fieldp2;
 
 
-assign br_fwsel1 = ((opcode == `btype_op) && (rs1_field == wr_fieldp2) && wr_enp2);
-assign br_fwsel2 = ((opcode == `btype_op) && (rs2_field == wr_fieldp2) && wr_enp2);
+assign br_fwsel1 = (((opcode == `btype_op) || (opcode == `jalr_op)) && (rs1_field == wr_fieldp2) && wr_enp2);
+assign br_fwsel2 = (((opcode == `btype_op) || (opcode == `jalr_op)) && (rs2_field == wr_fieldp2) && wr_enp2);
 
 
 always_ff @(posedge clk) begin : pipe_regs
