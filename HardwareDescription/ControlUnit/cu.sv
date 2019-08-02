@@ -7,7 +7,7 @@
 
 module cu
 (
-    input logic posedge clk, nrst, stall, chng2nop,
+    input logic clk, nrst, stall, chng2nop,
     input logic [`instr_size-1:0] instr_in,
     output logic [`cw_length-1:0] cw_out
 );
@@ -60,16 +60,25 @@ module cu
     
     assign opcode = instr_in[`opcode_size-1:0];
 
-    logic F_stall, FD_stall;
+    logic F_stall, FD_stall, F_stall_mem;
     logic[3:0] counter;
     logic counting;     // simple flag for starting/resetting the counter
+    
+        // For the CU fsm
+    typedef enum {  
+        RESET,
+        NORMAL, 
+        FD_DELAY_ONE,
+        F_DELAY_ONE, 
+        F_DELAY_MEM
+    } statetype;
     
     statetype state, next_state;
 
     //super bulky case statement fetching each entry from the internal control word memory_word
     always_comb begin : cw_fetch
     case (opcode)
-      `branch_group : current_cw = cw_memory[0];
+      `btype_op : current_cw = cw_memory[0];
       `jal_op       : current_cw = cw_memory[1];
       `jalr_op      : current_cw = cw_memory[2];
       `ldtype_op    : current_cw = cw_memory[3];
@@ -83,21 +92,30 @@ module cu
 
     always_comb begin : fsm_comb
     case (state)
-        NORMAL :
+        
+        RESET : begin
+        
+            if(~nrst)
+                next_state = RESET;
+            else
+                next_state = NORMAL;
+        end
+        
+        NORMAL : begin
             if (FD_stall)
                 next_state = FD_DELAY_ONE;
             if (F_stall)
                 next_state = F_DELAY_ONE;
             if (F_stall_mem) 
                 next_state = F_DELAY_MEM;
-                
+        end
         FD_DELAY_ONE :
             next_state = NORMAL;
         F_DELAY_ONE:
             next_state = NORMAL;
         F_DELAY_MEM :
             if ( counter == `mem_delay_const )
-                next_state = NORMAL
+                next_state = NORMAL;
     endcase
     if ( F_stall_mem )
         counting = 1;
@@ -109,31 +127,44 @@ module cu
 
     always_ff @(posedge clk) begin : fsm_seq    // including a counter for memory delay
         
-        if (~nrst)
+        if (~nrst) begin
             state <= RESET;
             counter <= 'b0;
-            
-        else 
+        end
+        else begin
             state <= next_state;
             if ( counting )
                 counter <= counter + 1;
             else 
-                counter = 'b0
+                counter = 'b0;
+        end        
+        
     end : fsm_seq
 
     always_ff @(posedge clk) begin : output_logic
         if (stall)
             cw1 <= 'b0;
-        if (~nrst) begin
-            cw2 <= 'b0;
-            cw3 <= 'b0;
-            cw4 <= 'b0;
-            cw5 <= 'b0;
-        end
+        // else if (~nrst) begin
+            // cw2 <= 'b0;
+            // cw3 <= 'b0;
+            // cw4 <= 'b0;
+            // cw5 <= 'b0;
+        // end
       
         else begin            
             case(state)
-                NORMAL :
+                
+                RESET : begin
+                    
+                    cw1 <= 'b0;
+                    cw2 <= 'b0;
+                    cw3 <= 'b0;
+                    cw4 <= 'b0;
+                    cw5 <= 'b0;
+                
+                end
+                
+                NORMAL : begin
                     cw1 <= current_cw;
                     cw3 <= cw2[`cw_length-7:0];
                     cw4 <= cw3[`cw_length-9:0];
@@ -143,27 +174,29 @@ module cu
                         cw2 <= 'b0;
                     else
                         cw2 <= cw1[`cw_length-3:0];
+                end
                 
-                FD_DELAY : 
+                FD_DELAY_ONE : begin
                     cw1 <= {1'b0, cw1[`cw_length-1:0]};    // Disabling PC for one clk
                     cw2 <= cw2;
                     cw3 <= 'b0;                            // Bubble
                     cw4 <= cw2[`cw_length-9:0];
                     cw5 <= cw4[`cw_length-13:0];
-                
-                F_DELAY :
+                end
+                F_DELAY_ONE : begin
                     cw1 <= {1'b0, cw1[`cw_length-1:0]};    // Disabling PC for one clk
                     cw2 <= 'b0;                            // Bubble
                     cw3 <= cw1[`cw_length-7:0];
                     cw4 <= cw3[`cw_length-9:0];
                     cw5 <= cw4[`cw_length-13:0];
-               
-                F_DELAY_MEM :
+                end
+                F_DELAY_MEM : begin
                     cw1 <= {1'b0, cw1[`cw_length-1:0]};    // Disabling PC for one clk
                     cw2 <= 'b0;                            // Bubble
                     cw3 <= cw1[`cw_length-7:0];
                     cw4 <= cw3[`cw_length-9:0];
                     cw5 <= cw4[`cw_length-13:0];                
+                end
             endcase 
         end
     end : output_logic
@@ -221,20 +254,26 @@ module cu
         if( (rd_field == rs1_field_previous) || (rd_field == rs2_field_previous) ) begin
             if ( rd_field != 'b0 ) begin
                 
+                // F_stall and F_stall_mem are separated to have a different number of cycle stalls
+                //      if and when we decide to emulate memory latencies
+                
                 if ( opcode == `ldtype_op )         // First Load then ANY
-                    FD_stall = 1
-                else if ( opcode == `btype_op )     // First Branch then
+                    FD_stall = 1;
+                else if ( opcode == `btype_op ) begin     // First Branch then
                     if ( opcode_previous == `ldtype_op )    // Load
-                        F_stall_mem = 1         // different state for different number of stalls
+                        F_stall_mem = 1;         
                     else                                    // OTHERS
-                        F_stall = 1
-                else 
+                        F_stall = 1;
+                end             
+                
+                else begin
                     
-                    FD_stall = 0
-                    F_stall_mem = 0
-                    F_stall = 0
+                    FD_stall = 0;
+                    F_stall_mem = 0;
+                    F_stall = 0;
                 end
             end
         end
+    end : hdu
 
 endmodule
