@@ -4,7 +4,8 @@
 // - chng2nop at the second clock cycle
 // - hazards:
 //      load / any
-//      load / branch
+//      load / branch ?
+//      any / branch ?
 
 `include "constants.sv"
 
@@ -59,13 +60,15 @@ module cu
     logic[`regfile_logsize-1:0] rs1_field, rs1_field_previous;		// rs1 for hazards
     logic[`regfile_logsize-1:0] rs2_field, rs2_field_previous;		// rs2 for hazards
     logic[`regfile_logsize-1:0] rd_field, rd_field_previous;		// rd for hazards
-    logic[`opcode_size-1:0] opcode_previous;                        // opcode for hazards
+    logic[`opcode_size-1:0] opcode_previous, opcode_temp;           // opcode for hazards. temp is
+                                                                    //  for having a delay b/w opcode and 
+                                                                    //  opcode_previous
     
     assign opcode = instr_in[`opcode_size-1:0];
     
     logic F_stall, FD_stall, F_stall_mem;
     logic[3:0] counter;
-    logic counting, start_counting, stop_counting;     // simple flag for starting/resetting the counter
+    logic counting, start_counting, stop_counting;     // simple flags for starting/resetting the counter
     
         // For the CU fsm
     typedef enum {  
@@ -173,12 +176,6 @@ module cu
     always_ff @(posedge clk) begin : output_logic
         if (stall)
             cw1 <= 'b0;
-        // else if (~nrst) begin
-            // cw2 <= 'b0;
-            // cw3 <= 'b0;
-            // cw4 <= 'b0;
-            // cw5 <= 'b0;
-        // end
       
         else begin            
             case(state)
@@ -265,7 +262,8 @@ module cu
         rs1_field_previous <= rs1_field;
         rs2_field_previous <= rs2_field;
         rd_field_previous <= rd_field;
-        opcode_previous <= opcode;
+        opcode_temp <= opcode;
+        opcode_previous <= opcode_temp;
         
         if (!nrst) begin
             rs1_field_previous <= 'b0;
@@ -305,30 +303,22 @@ module cu
 
 // Add the comparison b/w rd_current and previous and the appropriate masking to stall them
 
-    // Logic for having the comparison:
-    
+    // F_stall and F_stall_mem are separated to have a different number of cycle stalls
+    //      if and when we decide to emulate memory latencies
+                
     always_comb begin : hdu
+    
         if( (rs1_field == rd_field_previous) || (rs2_field == rd_field_previous) ) begin
             if ( rd_field != 'b0 ) begin
+                if ( (opcode_previous == `ldtype_op) && (opcode == `btype_op) )  // First Load then branch
+                    F_stall_mem = 1;
                 
-                // F_stall and F_stall_mem are separated to have a different number of cycle stalls
-                //      if and when we decide to emulate memory latencies
-                
-                if ( opcode_previous == `ldtype_op ) begin         // First Load then
-                    if ( opcode == `btype_op )                // Branch 
-                        F_stall_mem = 1;
-                    else
-                        FD_stall = 1;                            // ANY
-                end 
-                else if (opcode == `btype_op ) begin     // Branch after ANY
+                else if (opcode_previous == `ldtype_op)
+                    FD_stall = 1;                            // Load/any
+
+                else if (opcode == `btype_op )           // any / branch
                     F_stall = 1;
-                end
-                // if ( opcode == `btype_op ) begin     // Branch after 
-                    // if ( opcode_previous == `ldtype_op )    // Load
-                        // F_stall_mem = 1;         
-                    // else                                    // OTHERS
-                        // F_stall = 1;
-                // end             
+                
             end
         end
         
