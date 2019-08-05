@@ -1,7 +1,10 @@
-// TODO LIST:
-// - Basic pipelining
-// - Pipeline flushing when mispredicted
-// - Stalling logic
+// TESTED:
+
+// - basic fetching and pipelining
+// - chng2nop at the second clock cycle
+// - hazards:
+//      load / any
+//      load / branch
 
 `include "constants.sv"
 
@@ -47,7 +50,7 @@ module cu
     };
 
     logic [`opcode_size-1:0] opcode;
-    logic [`cw_length-1:0]  cw1, current_cw;
+    logic [`cw_length-1:0]  cw1;
     logic [`cw_length-3:0]  cw2;
     logic [`cw_length-7:0]  cw3;
     logic [`cw_length-9:0]  cw4;
@@ -79,28 +82,28 @@ module cu
     
     always_comb begin : out_assign
     
-        cw_out <=    {cw1[`instr_size-1: `instr_size-2], 
-                     cw2[`instr_size-3: `instr_size-6],
-                     cw3[`instr_size-7: `instr_size-9],
-                     cw4[`instr_size-10:`instr_size-12],
-                     cw5[`instr_size-13:`instr_size-15]};
+        cw_out =    {cw1[`cw_length-1: `cw_length-2], 
+                     cw2[`cw_length-3: `cw_length-6],
+                     cw3[`cw_length-7: `cw_length-9],
+                     cw4[`cw_length-10:`cw_length-12],
+                     cw5[`cw_length-13:`cw_length-15]};
     
     end : out_assign
     
-    //super bulky case statement fetching each entry from the internal control word memory_word
-    always_comb begin : cw_fetch
-    case (opcode)
-      `btype_op     : current_cw = cw_memory[0];
-      `jal_op       : current_cw = cw_memory[1];
-      `jalr_op      : current_cw = cw_memory[2];
-      `ldtype_op    : current_cw = cw_memory[3];
-      `stotype_op   : current_cw = cw_memory[4];
-      `itype_op     : current_cw = cw_memory[5];
-      `rtype_op     : current_cw = cw_memory[6];
-      `fence_op     : current_cw = cw_memory[7];
-      `cstype_op    : current_cw = cw_memory[8];
-    endcase
-    end : cw_fetch
+    // // super bulky case statement fetching each entry from the internal control word memory_word
+    // always_comb begin : cw_fetch
+        // case (opcode)
+          // `btype_op     : current_cw = cw_memory[8];
+          // `jal_op       : current_cw = cw_memory[7];
+          // `jalr_op      : current_cw = cw_memory[6];
+          // `ldtype_op    : current_cw = cw_memory[5];
+          // `stotype_op   : current_cw = cw_memory[4];
+          // `itype_op     : current_cw = cw_memory[3];
+          // `rtype_op     : current_cw = cw_memory[2];
+          // `fence_op     : current_cw = cw_memory[1];
+          // `cstype_op    : current_cw = cw_memory[0];
+        // endcase
+    // end : cw_fetch
 
     always_comb begin : fsm_comb
     case (state)
@@ -114,10 +117,10 @@ module cu
         end
         
         NORMAL : begin
-            if (FD_stall)
-                next_state = FD_DELAY_ONE;
-            if (F_stall)
-                next_state = F_DELAY_ONE;
+            // if (FD_stall)
+                // next_state = FD_DELAY_ONE;
+            // if (F_stall)
+                // next_state = F_DELAY_ONE;
             if (F_stall_mem) 
                 next_state = F_DELAY_MEM;
         end
@@ -191,33 +194,61 @@ module cu
                 end
                 
                 NORMAL : begin
-                    cw1 <= current_cw;
-                    cw3 <= cw2[`cw_length-7:0];
-                    cw4 <= cw3[`cw_length-9:0];
-                    cw5 <= cw4[`cw_length-13:0];
+                    if (FD_stall) begin
+                        cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
+                        cw2 <= cw2;
+                        cw3 <= 'b0;                            // Bubble
+                        cw4 <= cw2[`cw_length-9:0];
+                        cw5 <= cw4[`cw_length-13:0];
+                    end    
+                    else if (F_stall) begin
+                        cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
+                        cw2 <= 'b0;                            // Bubble
+                        cw3 <= cw1[`cw_length-7:0];
+                        cw4 <= cw3[`cw_length-9:0];
+                        cw5 <= cw4[`cw_length-13:0];
+                    end
+                    else begin
+                        case (opcode)
+                          `btype_op     : cw1 <= cw_memory[8];
+                          `jal_op       : cw1 <= cw_memory[7];
+                          `jalr_op      : cw1 <= cw_memory[6];
+                          `ldtype_op    : cw1 <= cw_memory[5];
+                          `stotype_op   : cw1 <= cw_memory[4];
+                          `itype_op     : cw1 <= cw_memory[3];
+                          `rtype_op     : cw1 <= cw_memory[2];
+                          `fence_op     : cw1 <= cw_memory[1];
+                          `cstype_op    : cw1 <= cw_memory[0];
+                        endcase
+                        
+                        // cw1 <= current_cw;
+                        cw3 <= cw2[`cw_length-7:0];
+                        cw4 <= cw3[`cw_length-9:0];
+                        cw5 <= cw4[`cw_length-13:0];
 
-                    if(chng2nop)    // the bpu mispredicted
-                        cw2 <= 'b0;
-                    else
-                        cw2 <= cw1[`cw_length-3:0];
+                        if(chng2nop)    // the bpu mispredicted
+                            cw2 <= 'b0;
+                        else
+                            cw2 <= cw1[`cw_length-3:0];
+                    end 
                 end
                 
                 FD_DELAY_ONE : begin
-                    cw1 <= {1'b0, cw1[`cw_length-1:0]};    // Disabling PC for one clk
+                    cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
                     cw2 <= cw2;
                     cw3 <= 'b0;                            // Bubble
                     cw4 <= cw2[`cw_length-9:0];
                     cw5 <= cw4[`cw_length-13:0];
                 end
                 F_DELAY_ONE : begin
-                    cw1 <= {1'b0, cw1[`cw_length-1:0]};    // Disabling PC for one clk
+                    cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
                     cw2 <= 'b0;                            // Bubble
                     cw3 <= cw1[`cw_length-7:0];
                     cw4 <= cw3[`cw_length-9:0];
                     cw5 <= cw4[`cw_length-13:0];
                 end
                 F_DELAY_MEM : begin
-                    cw1 <= {1'b0, cw1[`cw_length-1:0]};    // Disabling PC for one clk
+                    cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
                     cw2 <= 'b0;                            // Bubble
                     cw3 <= cw1[`cw_length-7:0];
                     cw4 <= cw3[`cw_length-9:0];
@@ -227,7 +258,7 @@ module cu
         end
     end : output_logic
 
-    // Shifting the reg number to store the previous instruction's
+    // Shifting the reg number to store the previous instruction
 
     always_ff @(posedge clk) begin : hazard_shift
     
@@ -283,14 +314,21 @@ module cu
                 // F_stall and F_stall_mem are separated to have a different number of cycle stalls
                 //      if and when we decide to emulate memory latencies
                 
-                if ( opcode_previous == `ldtype_op )         // First Load then ANY
-                    FD_stall = 1;
-                else if ( opcode == `btype_op ) begin     // Branch after 
-                    if ( opcode_previous == `ldtype_op )    // Load
-                        F_stall_mem = 1;         
-                    else                                    // OTHERS
-                        F_stall = 1;
-                end             
+                if ( opcode_previous == `ldtype_op ) begin         // First Load then
+                    if ( opcode == `btype_op )                // Branch 
+                        F_stall_mem = 1;
+                    else
+                        FD_stall = 1;                            // ANY
+                end 
+                else if (opcode == `btype_op ) begin     // Branch after ANY
+                    F_stall = 1;
+                end
+                // if ( opcode == `btype_op ) begin     // Branch after 
+                    // if ( opcode_previous == `ldtype_op )    // Load
+                        // F_stall_mem = 1;         
+                    // else                                    // OTHERS
+                        // F_stall = 1;
+                // end             
             end
         end
         

@@ -25,11 +25,18 @@ initial begin
   
   instr_in = 'b0;
   
-  #5 nrst = 1;
+  #5
+  nrst = 1;
+  #4       //       rs2   rs1                  rd 
   instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `rtype_op};
-  
-  
-  
+  #2
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `jal_op};
+  #2    // hazard begin
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `ldtype_op};
+  #2
+  instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `rtype_op};
+  #2    // end
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `btype_op};
 end
 
 endmodule
