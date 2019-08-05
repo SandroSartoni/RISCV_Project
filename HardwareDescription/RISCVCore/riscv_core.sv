@@ -2,10 +2,11 @@
 // Set of allowed instructions: 
 
 `include "../FetchUnit/fetch_unit.sv"
-//`include "../ControlUnit/cu.sv"
+`include "../ControlUnit/cu.sv"
 `include "../RegisterFile/reg_file.sv"
 `include "../ForwardUnit/forwardunit.sv"
 `include "../ALU/alu.sv"
+`include "../DRAM/dram.sv"
 
 import constants::*;
 
@@ -17,7 +18,7 @@ module riscv_core
 	input logic word_ready,			// Bit from IRAM Controller, requested word from RAM is available
 //	...
 	output logic[`pc_size-1:0] ram_address, // Address for the IRAM Controller (in case of Cache Miss)
-	output logic miss_cache//,		// Bit to tell the IRAM Controller there's a miss
+	output logic i_miss//,			// Bit to tell the IRAM Controller there's a miss
 //	...
 );
 
@@ -31,15 +32,21 @@ logic[`regfile_logsize-1:0] rdw_du;		// RegisterDestination field from the Decod
 logic[`regfile_logsize-1:0] rdw_exu;		// RegisterDestination field from the ExecutionUnit
 logic[`regfile_logsize-1:0] rdw_mu;		// RegisterDestination field from the MemoryUnit
 logic[`regfile_logsize-1:0] rdw_wr;		// RegisterDestination field from the WritebackUnit
+logic rd1_en;					// Read Register1 enable
+logic rd2_en;					// Read Register2 enable
+logic rf_we_d;
+logic rf_we_e;
+logic rf_we_m;
+logic rf_we_w;
 logic[`data_size-1:0] immediate_field;		// Immediate Field from the DecodeUnit
 branch_type branch_op;				// Branch type operation
 logic jr_bpu;					// Bit from CU that is 1'b1 when there's a JR in the Decode Stage
 logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg)
 logic[`instr_size-1:0] instr_fetched_du;	// Instruction fetched in the DecodeUnit (after pipeline reg)
-logic chng2nop_fu;				// Change to NOP bit in the FetchUnit (before pipeline reg)
-logic chng2nop_du;				// Change to NOP bit in the DecodeUnit (after pipeline reg)
-logic[`cw_length-1:0] cw_out;
-logic stall;
+logic chng2nop;					// Change to NOP bit in the FetchUnit (before pipeline reg)
+//logic chng2nop_du;				// Change to NOP bit in the DecodeUnit (after pipeline reg)
+logic[`cw_length-1:0] cw_out;			// Control signals from Control Unit
+logic miss_cache;				// Miss signal from Instruction Cache
 logic[1:0] sel_fwdmux1;				// Forwarding Multiplexer Selector 1
 logic[1:0] sel_fwdmux2;				// Forwarding Multiplexer Selector 2
 logic[`data_size-1:0] op1_decode;		// First Operand in Decode Stage 
@@ -55,12 +62,26 @@ logic[`data_size-1:0] alu_op1;			// First ALU's operand
 logic[`data_size-1:0] alu_op2;			// Second ALU's operand
 logic[`data_size-1:0] alu_out;			// ALU's result in EXE stage
 logic ovfl_bit;
+logic[`pc_size-1:0] pc_mem;			// Program Counter in the Memory Stage
 logic[`data_size-1:0] aluout_mem;		// ALU's result in MEM Stage
 logic[`data_size-1:0] dmem_data;		// Data input for DRAM
 logic[`data_size-1:0] dmem_out;			// Data output of the DRAM
+logic dmem_re;
+logic dmem_we;
+logic[`data_size-1:0] alumem;
 logic[`data_size-1:0] wr_datamem;		// Data output of the DRAM
 logic[`data_size-1:0] wr_data;			// Register File input data
+logic fet_dec_en;
+logic dec_exe_en;
+logic exe_mem_en;
+logic mem_wr_en;
 
+
+///////////////////
+// Outer Signals //
+///////////////////
+
+assign i_miss = miss_cache;
 
 
 //////////////////////////////////
@@ -80,7 +101,7 @@ fetch_unit fu
 	.rs1_field(rs1_field),
 	.rs2_field(rs2_field),
 	.wr_field(rdw_du),
-        .immediate_decode(immediate_decode),
+        .immediate_decode(immediate_field),
         .branch_op(branch_op),
 	.jr_bpu(jr_bpu),
         .mem_word(mem_word),
@@ -95,13 +116,13 @@ fetch_unit fu
 // FetchUnit -> DecodeUnit pipeline registers
 always_ff @(posedge clk) begin : fu_du_regs
 	if(~nrst) begin
-		chng2nop_du <= 1'b0;
+		//chng2nop_du <= 1'b0;
 		instr_fetched_du <= 'h0;
 		pc_dec <= 'h0;
 	end
 	else 
-		if(pc_en) begin
-			chng2nop_du <= chng2nop_fu;
+		if(fet_dec_en) begin
+			//chng2nop_du <= chng2nop_fu;
 			instr_fetched_du <= instr_fetched_fu;
 			pc_dec <= pc_fu;
 		end
@@ -143,7 +164,7 @@ end : rdw_assign
 // Immediate Field
 always_comb begin : imm_assign
 	case(op_decode)
-		(`itype_op || `jalr_op) : begin
+		`itype_op : begin//|| `jalr_op) : begin
 			immediate_field = `data_size'(signed'(instr_fetched_du[31:20]));
 		end
 
@@ -170,24 +191,49 @@ always_comb begin : imm_assign
 end : imm_assign
 
 // Branch Operation field
-assign branch_op = (op_decode == `btype_op) ? instr_fetched_du[14:12] : 'h0;
+assign branch_op = (op_decode == `btype_op) ? branch_type'(instr_fetched_du[14:12]) : branch_type'('h0);
+
+// JALR related jr_bpu bit generation
+assign jr_bpu = (op_decode == `jalr_op);
 
 // Control unit instantiation
-//cu control_unit
-//(
-	//TODO: download new version of CU and fill this block
-//);
+cu control_unit
+(
+	.clk(clk),
+	.nrst(nrst),
+	.stall(miss_cache),
+	.chng2nop(chng2nop),
+	.instr_in(instr_fetched_du),
+	.cw_out(cw_out),
+	.rf_we(rf_we_d)
+);
+
+// Control Word signals assignment
+assign pc_en = cw_out[`cw_length-1];
+assign fet_dec_en = cw_out[`cw_length-2]; 
+assign rd1_en = cw_out[`cw_length-3];
+assign rd2_en = cw_out[`cw_length-4];
+//assign rf_we = riportalo nella Control Word e tiralo fuori di lì se tutto funziona
+assign dec_exe_en = cw_out[`cw_length-6];
+assign muxA_sel = cw_out[`cw_length-7];
+assign muxB_sel = cw_out[`cw_length-8];
+assign exe_mem_en = cw_out[`cw_length-9];
+assign dmem_we = cw_out[`cw_length-10];
+assign dmem_re = cw_out[`cw_length-11];
+assign mem_wr_en = cw_out[`cw_length-12];
+assign muxC_sel = cw_out[`cw_length-13];
+assign muxD_sel = cw_out[`cw_length-14];
 
 // Register file instantiation
 reg_file register_file
 (
 	.clk(clk),
 	.nrst(nrst),
-	.rd1_en(),
+	.rd1_en(rd1_en),
 	.rd1_addr(rs1_field),
-	.rd2_en(),
+	.rd2_en(rd2_en),
 	.rd2_addr(rs2_field),
-	.wr_en(),
+	.wr_en(rf_we_w),
 	.wr_addr(rdw_wr),
 	.wr_data(wr_data),
 	.rd_data1(rd_data1),
@@ -202,14 +248,16 @@ always_ff @(posedge clk) begin : du_exu_regs
 		op2_decode <= 'h0;
 		imm_exe <= 'h0;
 		pc_exe <= 'h0;
+		rf_we_e <= 1'b0;
 	end
 	else
-		if( enable ) begin
+		if(dec_exe_en) begin
 			rdw_exu <= rdw_du;
 			op1_decode <= rd_data1;
 			op2_decode <= rd_data2;
 			imm_exe <= immediate_field;
 			pc_exe <= pc_dec;
+			rf_we_e <= rf_we_d;
 		end
 end : du_exu_regs
 
@@ -221,8 +269,8 @@ end : du_exu_regs
 // Forward unit instantiation
 forw_unit forward_unit
 (
-	.RegWrs_1d(), // Write enable for Destination Register in the EXE stage
-	.RegWrs_2d(), // Write enable for Destination Register in the MEM stage
+	.RegWrs_1d(rf_we_m), // Write enable for Destination Register in the MEM stage
+	.RegWrs_2d(rf_we_w), // Write enable for Destination Register in the WRB stage
 	.RegR1(rs1_field),
 	.RegR2(rs2_field),
 	.RegW_1d(rdw_mu),
@@ -250,15 +298,15 @@ always_comb begin : op2_mux
 		op2_execute = aluout_mem;
 end : op2_mux
 
-assign alu_in1 = (segnale di controllo del muxa) ? pc_exe : op1_execute;
-assign alu_in2 = (segnale di controllo del muxb) ? op2_execute : imm_exe;
+assign alu_op1 = (muxA_sel) ? op1_execute : pc_exe;
+assign alu_op2 = (muxB_sel) ? imm_exe : op2_execute;
 
 // ALU instantiation
 alu arithm_log_unit
 (
-	.A(alu_in1),
-	.B(alu_in2),
-	.Control(),
+	.A(alu_op1),
+	.B(alu_op2),
+	.Control(4'h2),
 	.Out(alu_out),
 	.ovfl(ovfl_bit)
 );
@@ -269,12 +317,16 @@ always_ff @(posedge clk) begin : exu_mu_regs
 		rdw_mu <= 'h0;
 		aluout_mem <= 'h0;
 		dmem_data <= 'h0;
+		rf_we_m <= 1'b0;
+		pc_mem <= 'h0;
 	end
 	else
-		if( enable ) begin
-		rdw_mu <= rdw_exu;
-		aluout_mem <= alu_out;
-		dmem_data <= op2_execute;
+		if(exe_mem_en) begin
+			rdw_mu <= rdw_exu;
+			aluout_mem <= alu_out;
+			dmem_data <= op2_execute;
+			rf_we_m <= rf_we_e;
+			pc_mem <= pc_exe;
 		end
 end : exu_mu_regs
 
@@ -284,20 +336,33 @@ end : exu_mu_regs
 ///////////////////////////////////
 
 // DRAM instantiation
+dram data_ram
+(
+	.clk(clk),
+	.nrst(nrst),
+	.dmem_addr(aluout_mem[8:0]),
+	.dmem_data(dmem_data),
+	.dmem_re(dmem_re),
+	.dmem_we(dmem_we),
+	.dmem_out(dmem_out)
+);
 
 // Mux that chooses between DRAM's out or ALU's out
-assign wr_datamem = (segnale di controllo del muxc) ? aluout_mem : dmem_out;
+assign alumem = (muxC_sel) ? aluout_mem : dmem_out;
+assign wr_datamem = (muxD_sel) ? pc_mem : alumem;
 
 // MemoryUnit -> WritebackUnit pipeline registers
 always_ff @(posedge clk) begin : wr_mu_regs
 	if(~nrst) begin
 		rdw_wr <= 'h0;
 		wr_data <= 'h0;
+		rf_we_w <= 1'b0;
 	end
 	else
-		if( enable ) begin
+		if(mem_wr_en) begin
 			rdw_wr <= rdw_mu;
 			wr_data <= wr_datamem;
+			rf_we_w <= rf_we_m;
 		end
 end : wr_mu_regs
 

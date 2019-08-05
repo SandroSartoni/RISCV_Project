@@ -1,4 +1,4 @@
-`include "constants.sv"
+`include "../Constants/constants.sv"
 
 module tb_CU;
 
@@ -28,15 +28,16 @@ initial begin
   #5
   nrst = 1;
   #4       //       rs2   rs1                  rd 
-  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `rtype_op};
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `ldtype_op};
   #2
-  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `jal_op};
+  instr_in = {7'd0, 5'd5, 5'd4, `addsub_func , 5'd7, `rtype_op};
   #2    // hazard begin
-  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `rtype_op}; // 1
+  instr_in = {7'd0, 5'd1, 5'd0, `addsub_func , 5'd8, `rtype_op}; // 1
   #2
-  instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `btype_op};  // 2
+  /*instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `btype_op};  // 2
   #2    // end
-  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `btype_op};
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `btype_op};*/
+	$stop;
 end
 
 endmodule

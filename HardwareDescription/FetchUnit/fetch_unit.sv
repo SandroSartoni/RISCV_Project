@@ -78,6 +78,8 @@ assign b_eval = (op_decode == `btype_op);
 // Branch Forwarding Unit 
 bfu branch_fwd_unit
 (
+	.clk(clk),
+	.nrst(nrst),
         .opcode(op_decode),
         .rs1_field(rs1_field),
         .rs2_field(rs2_field),

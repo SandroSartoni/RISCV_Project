@@ -7,13 +7,14 @@
 //      load / branch ?
 //      any / branch ?
 
-`include "constants.sv"
+`include "../Constants/constants.sv"
 
 module cu
 (
     input logic clk, nrst, stall, chng2nop,
     input logic [`instr_size-1:0] instr_in,
-    output logic [`cw_length-1:0] cw_out
+    output logic [`cw_length-1:0] cw_out,
+    output logic rf_we
 );
 
   localparam  logic [`cw_length-1:0] cw_memory [`cw_mem_size-1:0] =
@@ -38,15 +39,15 @@ module cu
 //       |||||||||||||| MUXD_SEL
 //       ||||||||||||||| RF_WE
                         
-       'b111111110100100,   // branch
-       'b110011100100111,   // jal
-       'b111011010100111,   // jalr
-       'b111011110110101,   // load
-       'b111111111100100,   // store
-       'b111011110100101,   // immediate
-       'b111101100100101,   // rtype
-       'b111101100100101,   // fence    rtype opcode
-       'b111101100100101    // cstype
+       'b111111111001100,   // branch
+       'b110011101001111,   // jal
+       'b111011011001111,   // jalr
+       'b111011111011001,   // load
+       'b111111111101100,   // store
+       'b111011111001101,   // immediate
+       'b111101101001101,   // rtype
+       'b111101101001101,   // fence    rtype opcode
+       'b111101101001101    // cstype
 
     };
 
@@ -70,6 +71,8 @@ module cu
     logic[3:0] counter;
     logic counting, start_counting, stop_counting;     // simple flags for starting/resetting the counter
     
+assign rf_we = cw1[0];								
+
         // For the CU fsm
     typedef enum {  
         RESET,
@@ -88,8 +91,8 @@ module cu
         cw_out =    {cw1[`cw_length-1: `cw_length-2], 
                      cw2[`cw_length-3: `cw_length-6],
                      cw3[`cw_length-7: `cw_length-9],
-                     cw4[`cw_length-10:`cw_length-12],
-                     cw5[`cw_length-13:`cw_length-15]};
+                     cw4[`cw_length-10:`cw_length-14],
+                     cw5[`cw_length-15]};
     
     end : out_assign
     
@@ -216,6 +219,7 @@ module cu
                           `rtype_op     : cw1 <= cw_memory[2];
                           `fence_op     : cw1 <= cw_memory[1];
                           `cstype_op    : cw1 <= cw_memory[0];
+                          'b0           : cw1 <= 'b10000000000000;
                         endcase
                         
                         // cw1 <= current_cw;
@@ -309,13 +313,13 @@ module cu
     always_comb begin : hdu
     
         if( (rs1_field == rd_field_previous) || (rs2_field == rd_field_previous) ) begin
-            if ( rd_field != 'b0 ) begin
-                if ( (opcode_previous == `ldtype_op) && (opcode == `btype_op) )  // First Load then branch
-                    F_stall_mem = 1;
-                
-                else if (opcode_previous == `ldtype_op)
-                    FD_stall = 1;                            // Load/any
-
+            if ( rd_field_previous != 'b0 ) begin
+                if (opcode_previous == `ldtype_op) begin      // First Load then branch
+                    if (opcode == `btype_op)
+                        F_stall_mem = 1;        // Branch
+                    else
+                        FD_stall = 1;           // Any
+                end
                 else if (opcode == `btype_op )           // any / branch
                     F_stall = 1;
                 
