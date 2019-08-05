@@ -59,10 +59,16 @@ module cu
     logic[`opcode_size-1:0] opcode_previous;                        // opcode for hazards
     
     assign opcode = instr_in[`opcode_size-1:0];
-
+    
+    assign cw_out = {cw1[`instr_size-1: `instr_size-2], 
+                     cw2[`instr_size-3: `instr_size-6],
+                     cw3[`instr_size-7: `instr_size-9],
+                     cw4[`instr_size-10:`instr_size-12],
+                     cw5[`instr_size-13:`instr_size-15]};
+    
     logic F_stall, FD_stall, F_stall_mem;
     logic[3:0] counter;
-    logic counting;     // simple flag for starting/resetting the counter
+    logic counting, start_counting, stop_counting;     // simple flag for starting/resetting the counter
     
         // For the CU fsm
     typedef enum {  
@@ -78,7 +84,7 @@ module cu
     //super bulky case statement fetching each entry from the internal control word memory_word
     always_comb begin : cw_fetch
     case (opcode)
-      `btype_op : current_cw = cw_memory[0];
+      `btype_op     : current_cw = cw_memory[0];
       `jal_op       : current_cw = cw_memory[1];
       `jalr_op      : current_cw = cw_memory[2];
       `ldtype_op    : current_cw = cw_memory[3];
@@ -114,15 +120,19 @@ module cu
         F_DELAY_ONE:
             next_state = NORMAL;
         F_DELAY_MEM :
-            if ( counter == `mem_delay_const )
+            if ( stop_counting )
                 next_state = NORMAL;
     endcase
+
     if ( F_stall_mem )
-        counting = 1;
+        start_counting = 1;
+    else if ( counter == `mem_delay_const )
+        stop_counting = 1;
+    else begin
+        stop_counting = 0;
+        start_counting = 0;
     
-    if ( counter == `mem_delay_const )
-        counting = 0;
-        
+    end
     end : fsm_comb
 
     always_ff @(posedge clk) begin : fsm_seq    // including a counter for memory delay
@@ -130,13 +140,23 @@ module cu
         if (~nrst) begin
             state <= RESET;
             counter <= 'b0;
+            counting <= 0;
         end
+        
         else begin
             state <= next_state;
+            
+            if(start_counting)
+                counting <= 1;
+
             if ( counting )
                 counter <= counter + 1;
-            else 
-                counter = 'b0;
+            else if (stop_counting) begin
+            
+                counting <= 0;
+                counter <= 'b0;
+                
+            end
         end        
         
     end : fsm_seq
@@ -265,15 +285,16 @@ module cu
                     else                                    // OTHERS
                         F_stall = 1;
                 end             
-                
-                else begin
-                    
-                    FD_stall = 0;
-                    F_stall_mem = 0;
-                    F_stall = 0;
-                end
             end
         end
+        
+        else begin
+            
+            FD_stall = 0;
+            F_stall_mem = 0;
+            F_stall = 0;
+        end
+        
     end : hdu
 
 endmodule
