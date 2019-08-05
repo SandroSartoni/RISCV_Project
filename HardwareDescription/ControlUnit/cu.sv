@@ -60,12 +60,6 @@ module cu
     
     assign opcode = instr_in[`opcode_size-1:0];
     
-    assign cw_out = {cw1[`instr_size-1: `instr_size-2], 
-                     cw2[`instr_size-3: `instr_size-6],
-                     cw3[`instr_size-7: `instr_size-9],
-                     cw4[`instr_size-10:`instr_size-12],
-                     cw5[`instr_size-13:`instr_size-15]};
-    
     logic F_stall, FD_stall, F_stall_mem;
     logic[3:0] counter;
     logic counting, start_counting, stop_counting;     // simple flag for starting/resetting the counter
@@ -81,6 +75,18 @@ module cu
     
     statetype state, next_state;
 
+    // Assigning the datapath outputs
+    
+    always_comb begin : out_assign
+    
+        cw_out <=    {cw1[`instr_size-1: `instr_size-2], 
+                     cw2[`instr_size-3: `instr_size-6],
+                     cw3[`instr_size-7: `instr_size-9],
+                     cw4[`instr_size-10:`instr_size-12],
+                     cw5[`instr_size-13:`instr_size-15]};
+    
+    end : out_assign
+    
     //super bulky case statement fetching each entry from the internal control word memory_word
     always_comb begin : cw_fetch
     case (opcode)
@@ -271,15 +277,15 @@ module cu
     // Logic for having the comparison:
     
     always_comb begin : hdu
-        if( (rd_field == rs1_field_previous) || (rd_field == rs2_field_previous) ) begin
+        if( (rs1_field == rd_field_previous) || (rs2_field == rd_field_previous) ) begin
             if ( rd_field != 'b0 ) begin
                 
                 // F_stall and F_stall_mem are separated to have a different number of cycle stalls
                 //      if and when we decide to emulate memory latencies
                 
-                if ( opcode == `ldtype_op )         // First Load then ANY
+                if ( opcode_previous == `ldtype_op )         // First Load then ANY
                     FD_stall = 1;
-                else if ( opcode == `btype_op ) begin     // First Branch then
+                else if ( opcode == `btype_op ) begin     // Branch after 
                     if ( opcode_previous == `ldtype_op )    // Load
                         F_stall_mem = 1;         
                     else                                    // OTHERS
