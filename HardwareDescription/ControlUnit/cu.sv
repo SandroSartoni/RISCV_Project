@@ -309,13 +309,13 @@ module cu
     always_comb begin : hdu
     
         if( (rs1_field == rd_field_previous) || (rs2_field == rd_field_previous) ) begin
-            if ( rd_field != 'b0 ) begin
-                if ( (opcode_previous == `ldtype_op) && (opcode == `btype_op) )  // First Load then branch
-                    F_stall_mem = 1;
-                
-                else if (opcode_previous == `ldtype_op)
-                    FD_stall = 1;                            // Load/any
-
+            if ( rd_field_previous != 'b0 ) begin
+                if (opcode_previous == `ldtype_op) begin      // First Load then branch
+                    if (opcode == `btype_op)
+                        F_stall_mem = 1;        // Branch
+                    else
+                        FD_stall = 1;           // Any
+                end
                 else if (opcode == `btype_op )           // any / branch
                     F_stall = 1;
                 

@@ -32,7 +32,7 @@ initial begin
   #2
   instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `jal_op};
   #2    // hazard begin
-  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `rtype_op}; // 1
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `ldtype_op}; // 1
   #2
   instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `btype_op};  // 2
   #2    // end
