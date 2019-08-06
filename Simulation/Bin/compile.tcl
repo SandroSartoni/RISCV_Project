@@ -52,3 +52,6 @@ vsim -t ns work.riscv_tester
 add wave -position insertpoint sim:/riscv_tester/riscv_processor/*
 add wave -position insertpoint sim:/riscv_tester/riscv_processor/register_file/registers
 radix -h
+
+# Run the simulation
+run 1500 ns
