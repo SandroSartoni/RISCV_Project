@@ -17,6 +17,8 @@
 
 module bfu
 (
+	input logic clk,
+	input logic nrst,
 	input logic[`opcode_size-1:0] opcode,
 	input logic[`regfile_logsize-1:0] rs1_field,
 	input logic[`regfile_logsize-1:0] rs2_field,

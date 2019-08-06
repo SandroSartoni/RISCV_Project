@@ -29,6 +29,21 @@ vlog -sv -work work $PATH/ALU/alu.sv
 vlog -sv -work work $PATH/ForwardUnit/forwardunit.sv
 #####################
 
+### Control Unit ###
+vlog -sv -work work $PATH/ControlUnit/cu.sv
+##################
+
+### Data RAM ###
+vlog -sv -work work $PATH/DRAM/dram.sv
+##################
+
 ### RISCV Core ###
 vlog -sv -work work $PATH/RISCVCore/riscv_core.sv
 ##################
+
+### RISCV Testbench ###
+vlog -sv -work work $PATH/Testbench/riscv_tester.sv
+#######################
+
+# Launch RISCV Core simulator
+vsim -t ns work.riscv_tester
