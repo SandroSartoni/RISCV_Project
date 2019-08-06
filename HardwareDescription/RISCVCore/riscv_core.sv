@@ -54,6 +54,8 @@ logic[`data_size-1:0] op2_decode;		// Second Operand in Decode Stage
 logic[`pc_size-1:0] pc_dec;			// Program Counter in the Decode Stage
 logic[`data_size-1:0] rd_data1;			// Out1 Data from Register File
 logic[`data_size-1:0] rd_data2;			// Out2 Data from Register File
+logic[`regfile_logsize-1:0] rs1_field_exe;	// RegisterSource_1 field in the ExecuteUnit
+logic[`regfile_logsize-1:0] rs2_field_exe;	// RegisterSource_2 field in the ExecuteUnit
 logic[`data_size-1:0] op1_execute;		// First Operand in Execute Stage (before mux)
 logic[`data_size-1:0] op2_execute;		// Second Operand in Execute Stage (before mux)
 logic[`data_size-1:0] imm_exe;			// Immediate Field in the Execute Stage
@@ -203,7 +205,7 @@ cu control_unit
 	.nrst(nrst),
 	.stall(miss_cache),
 	.chng2nop(chng2nop),
-	.instr_in(instr_fetched_du),
+	.instr_in(instr_fetched_fu),
 	.cw_out(cw_out),
 	.rf_we(rf_we_d)
 );
@@ -249,6 +251,8 @@ always_ff @(posedge clk) begin : du_exu_regs
 		imm_exe <= 'h0;
 		pc_exe <= 'h0;
 		rf_we_e <= 1'b0;
+		rs1_field_exe <= 'h0;
+		rs2_field_exe <= 'h0;
 	end
 	else
 		if(dec_exe_en) begin
@@ -258,6 +262,8 @@ always_ff @(posedge clk) begin : du_exu_regs
 			imm_exe <= immediate_field;
 			pc_exe <= pc_dec;
 			rf_we_e <= rf_we_d;
+			rs1_field_exe <= rs1_field;
+			rs2_field_exe <= rs2_field;
 		end
 end : du_exu_regs
 
@@ -271,8 +277,8 @@ forw_unit forward_unit
 (
 	.RegWrs_1d(rf_we_m), // Write enable for Destination Register in the MEM stage
 	.RegWrs_2d(rf_we_w), // Write enable for Destination Register in the WRB stage
-	.RegR1(rs1_field),
-	.RegR2(rs2_field),
+	.RegR1(rs1_field_exe),
+	.RegR2(rs2_field_exe),
 	.RegW_1d(rdw_mu),
 	.RegW_2d(rdw_wr),
 	.sel_mux1(sel_fwdmux1),
