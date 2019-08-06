@@ -216,7 +216,7 @@ module cu
                           `rtype_op     : cw1 <= cw_memory[2];
                           `fence_op     : cw1 <= cw_memory[1];
                           `cstype_op    : cw1 <= cw_memory[0];
-                          'b0           : cw1 <= 'b10000000000000;
+                          'b0           : cw1 <= 'b10000000000000;  // enabling pc during icache loading
                         endcase
                         
                         // cw1 <= current_cw;
