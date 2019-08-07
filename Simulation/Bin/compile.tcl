@@ -50,9 +50,14 @@ vlog +acc -sv -work work $PATH/Testbench/riscv_tester.sv
 # Launch RISCV Core simulator
 vsim -t ns work.riscv_tester
 
-# Add waves
-add wave -position insertpoint sim:/riscv_tester/riscv_processor/*
-add wave -position insertpoint sim:/riscv_tester/riscv_processor/register_file/registers
+# # Add waves
+# add wave -position insertpoint sim:/riscv_tester/riscv_processor/register_file/registers
+# add wave -position insertpoint sim:/riscv_tester/riscv_processor/control_unit/state
+# add wave -position insertpoint sim:/riscv_tester/riscv_processor/control_unit/next_state
+# add wave -position insertpoint sim:/riscv_tester/riscv_processor/*
+
+source ./wave.do
+
 radix -h
 
 # Run the simulation
