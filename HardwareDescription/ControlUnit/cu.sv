@@ -67,7 +67,7 @@ module cu
     
     assign opcode = instr_in[`opcode_size-1:0];
     
-    logic F_stall, FD_stall, F_stall_mem;
+    logic F_stall, FD_stall, F_stall_mem, F_stall_del, FD_stall_del;
     logic[3:0] counter;
     logic counting, start_counting, stop_counting;     // simple flags for starting/resetting the counter
     
@@ -88,11 +88,24 @@ assign rf_we = cw1[0];
     
     always_comb begin : out_assign
     
-        cw_out =    {current_cw[`cw_length-1: `cw_length-2], 
+    if (FD_stall_del || F_stall_del) begin
+        
+        cw_out =    {1'b0, 
+                     current_cw[`cw_length-2], 
                      cw1[`cw_length-3: `cw_length-6],
                      cw2[`cw_length-7: `cw_length-9],
                      cw3[`cw_length-10:`cw_length-14],
                      cw4[`cw_length-15]};
+                     
+    end else begin
+    
+        cw_out =    {current_cw[`cw_length-1], 
+                     current_cw[`cw_length-2], 
+                     cw1[`cw_length-3: `cw_length-6],
+                     cw2[`cw_length-7: `cw_length-9],
+                     cw3[`cw_length-10:`cw_length-14],
+                     cw4[`cw_length-15]};
+    end
     
     end : out_assign
     
@@ -111,7 +124,7 @@ assign rf_we = cw1[0];
               `rtype_op     : current_cw = cw_memory[2];
               `fence_op     : current_cw = cw_memory[1];
               `cstype_op    : current_cw = cw_memory[0];
-              'b0           : current_cw = 'b10000000000000;  // enabling pc during icache loading
+              'b0           : current_cw = 'b100000000000000;  // enabling pc during icache loading
             endcase
         end
     end : cw_fetch
@@ -182,9 +195,13 @@ assign rf_we = cw1[0];
     end : fsm_seq
 
     always_ff @(posedge clk) begin : output_logic
+        
+        F_stall_del <= F_stall;
+        FD_stall_del <= FD_stall;
+    
         if (stall)
             cw1 <= 'b0;
-      
+
         else begin            
             case(state)
                 
@@ -200,18 +217,18 @@ assign rf_we = cw1[0];
                 
                 NORMAL : begin
                     if (FD_stall) begin
-                        cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
-                        cw2 <= cw2;
-                        cw3 <= 'b0;                            // Bubble
-                        cw4 <= cw2[`cw_length-9:0];
-                        cw5 <= cw4[`cw_length-13:0];
+                        //cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
+                        cw1 <= cw1;
+                        cw2 <= 'b0;                            // Bubble
+                        cw3 <= cw1[`cw_length-9:0];
+                        cw4 <= cw3[`cw_length-13:0];
                     end    
                     else if (F_stall) begin
-                        cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
-                        cw2 <= 'b0;                            // Bubble
-                        cw3 <= cw1[`cw_length-7:0];
-                        cw4 <= cw3[`cw_length-9:0];
-                        cw5 <= cw4[`cw_length-13:0];
+                        //cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
+                        cw1 <= 'b0;                            // Bubble
+                        cw2 <= current_cw[`cw_length-7:0];
+                        cw3 <= cw2[`cw_length-9:0];
+                        cw4 <= cw3[`cw_length-13:0];
                     end
                     else begin
                         case (opcode)
@@ -227,15 +244,14 @@ assign rf_we = cw1[0];
                           'b0           : cw1 <= 'b10000000000000;  // enabling pc during icache loading
                         endcase
                         
-                        // cw1 <= current_cw;
-                        cw3 <= cw2[`cw_length-7:0];
-                        cw4 <= cw3[`cw_length-9:0];
-                        cw5 <= cw4[`cw_length-13:0];
+                        cw2 <= cw1[`cw_length-7:0];
+                        cw3 <= cw2[`cw_length-9:0];
+                        cw4 <= cw3[`cw_length-13:0];
 
                         if(chng2nop)    // the bpu mispredicted
-                            cw2 <= 'b0;
+                            cw1 <= 'b0;
                         else
-                            cw2 <= cw1[`cw_length-3:0];
+                            cw1 <= current_cw[`cw_length-3:0];
                     end 
                 end
                 

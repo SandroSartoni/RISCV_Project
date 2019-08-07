@@ -3,7 +3,7 @@
 module tb_CU;
 
 
-  bit clk, nrst, stall, chng2nop;
+  bit clk, nrst, stall, chng2nop, rf_we;
   logic[`instr_size -1 :0] instr_in;
   logic[`cw_length -1 :0] datapath_out;
 
@@ -13,7 +13,8 @@ module tb_CU;
     .clk(clk),
     .nrst(nrst),
     .stall(stall),
-    .chng2nop(chng2nop)
+    .chng2nop(chng2nop), 
+    .rf_we(rf_we)
   );
 
 always #1 clk = ~clk;
@@ -32,9 +33,9 @@ initial begin
   #2
   instr_in = {7'd0, 5'd5, 5'd4, `addsub_func , 5'd7, `rtype_op};
   #2    // hazard begin
-  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `ldtype_op}; // 1
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `rtype_op}; // 1
   #2
-  instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `rtype_op};  // 2
+  instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `btype_op};  // 2
   #2    // end
   instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `rtype_op};
 end
