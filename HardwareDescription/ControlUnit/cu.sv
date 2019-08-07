@@ -52,7 +52,7 @@ module cu
     };
 
     logic [`opcode_size-1:0] opcode;
-    logic [`cw_length-1:0]  cw1;
+    logic [`cw_length-1:0]  cw1, current_cw;
     logic [`cw_length-3:0]  cw2;
     logic [`cw_length-7:0]  cw3;
     logic [`cw_length-9:0]  cw4;
@@ -88,28 +88,33 @@ assign rf_we = cw1[0];
     
     always_comb begin : out_assign
     
-        cw_out =    {cw1[`cw_length-1: `cw_length-2], 
-                     cw2[`cw_length-3: `cw_length-6],
-                     cw3[`cw_length-7: `cw_length-9],
-                     cw4[`cw_length-10:`cw_length-14],
-                     cw5[`cw_length-15]};
+        cw_out =    {current_cw[`cw_length-1: `cw_length-2], 
+                     cw1[`cw_length-3: `cw_length-6],
+                     cw2[`cw_length-7: `cw_length-9],
+                     cw3[`cw_length-10:`cw_length-14],
+                     cw4[`cw_length-15]};
     
     end : out_assign
     
-    // // super bulky case statement fetching each entry from the internal control word memory_word
-    // always_comb begin : cw_fetch
-        // case (opcode)
-          // `btype_op     : current_cw = cw_memory[8];
-          // `jal_op       : current_cw = cw_memory[7];
-          // `jalr_op      : current_cw = cw_memory[6];
-          // `ldtype_op    : current_cw = cw_memory[5];
-          // `stotype_op   : current_cw = cw_memory[4];
-          // `itype_op     : current_cw = cw_memory[3];
-          // `rtype_op     : current_cw = cw_memory[2];
-          // `fence_op     : current_cw = cw_memory[1];
-          // `cstype_op    : current_cw = cw_memory[0];
-        // endcase
-    // end : cw_fetch
+    // super bulky case statement fetching each entry from the internal control word memory_word
+    always_comb begin : cw_fetch
+        if(~nrst || stall)
+            current_cw = 'b0;
+        else begin
+            case (opcode)
+              `btype_op     : current_cw = cw_memory[8];
+              `jal_op       : current_cw = cw_memory[7];
+              `jalr_op      : current_cw = cw_memory[6];
+              `ldtype_op    : current_cw = cw_memory[5];
+              `stotype_op   : current_cw = cw_memory[4];
+              `itype_op     : current_cw = cw_memory[3];
+              `rtype_op     : current_cw = cw_memory[2];
+              `fence_op     : current_cw = cw_memory[1];
+              `cstype_op    : current_cw = cw_memory[0];
+              'b0           : current_cw = 'b10000000000000;  // enabling pc during icache loading
+            endcase
+        end
+    end : cw_fetch
 
     always_comb begin : fsm_comb
     case (state)

@@ -32,16 +32,11 @@ initial begin
   #2
   instr_in = {7'd0, 5'd5, 5'd4, `addsub_func , 5'd7, `rtype_op};
   #2    // hazard begin
-<<<<<<< HEAD:HardwareDescription/Testbench/tb_cu.sv
-  instr_in = {7'd0, 5'd1, 5'd0, `addsub_func , 5'd8, `rtype_op}; // 1
-=======
   instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `ldtype_op}; // 1
->>>>>>> 625389ffd5024bd898b4bac93024088cef61355c:HardwareDescription/ControlUnit/tb_cu.sv
   #2
-  /*instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `btype_op};  // 2
+  instr_in = {7'd0, 5'd2, 5'd4, `addsub_func , 5'd5, `rtype_op};  // 2
   #2    // end
-  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `btype_op};*/
-	$stop;
+  instr_in = {7'd0, 5'd2, 5'd3, `addsub_func , 5'd4, `rtype_op};
 end
 
 endmodule
