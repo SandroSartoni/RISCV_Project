@@ -4,7 +4,7 @@ module alu
 (
 	input logic [`data_size-1:0] A,
 	input logic [`data_size-1:0] B,
-	input logic [3:0] Control,
+	input logic [`alu_control_size:0] Control,
 	output logic [`data_size-1:0] Out,
 	output logic ovfl
 );

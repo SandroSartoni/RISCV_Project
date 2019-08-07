@@ -4,17 +4,18 @@
 // - chng2nop at the second clock cycle
 // - hazards:
 //      load / any
-//      load / branch ?
-//      any / branch ?
+//      any / branch 
+//      load / branch   NOT WORKING
 
 `include "../Constants/constants.sv"
 
 module cu
 (
     input logic clk, nrst, stall, chng2nop,
+    output logic rf_we,
     input logic [`instr_size-1:0] instr_in,
-    output logic [`cw_length-1:0] cw_out,
-    output logic rf_we
+    output logic [`alu_control_size-1:0] ALU_control,
+    output logic [`cw_length-1:0] cw_out
 );
 
   localparam  logic [`cw_length-1:0] cw_memory [`cw_mem_size-1:0] =
@@ -64,14 +65,16 @@ module cu
     logic[`opcode_size-1:0] opcode_previous, opcode_temp;           // opcode for hazards. temp is
                                                                     //  for having a delay b/w opcode and 
                                                                     //  opcode_previous
-    
-    assign opcode = instr_in[`opcode_size-1:0];
+
+    logic [`alu_control_size-1:0] ALU_control_temp;
     
     logic F_stall, FD_stall, F_stall_mem, F_stall_del, FD_stall_del;
     logic[3:0] counter;
     logic counting, start_counting, stop_counting;     // simple flags for starting/resetting the counter
     
-assign rf_we = cw1[0];								
+    assign rf_we = cw1[0];								
+    assign opcode = instr_in[`opcode_size-1:0];
+    
 
         // For the CU fsm
     typedef enum {  
@@ -84,6 +87,67 @@ assign rf_we = cw1[0];
     
     statetype state, next_state;
 
+    // ALU control process
+    
+    always_ff @(posedge clk) begin : alu_assign
+
+        case(opcode)
+        
+            `lui_op:        ALU_control_temp <= 'd0;
+            `ldtype_op ||
+            `stotype_op:    ALU_control_temp <= 'd1;
+            `rtype_op:      
+                
+                case (instr_in[14:12])      // func field
+                    
+                    `addsub_func:   
+                        
+                        if (instr_in[`instr_size-2])
+                            ALU_control_temp <= 'd2;    // ADD
+                        else
+                            ALU_control_temp <= 'd9;    // SUB
+                            
+                    `xor_func   :   ALU_control_temp <= 'd3;
+                    `or_func    :   ALU_control_temp <= 'd4;
+                    `and_func   :   ALU_control_temp <= 'd5;
+                    `sll_func   :   ALU_control_temp <= 'd6;
+                    `srx_func   :   
+                        
+                        if (instr_in[`instr_size-2])
+                            ALU_control_temp <= 'd7;    // SRL
+                        else
+                            ALU_control_temp <= 'd8;    // SRA
+                            
+                    `slt_func   :   ALU_control_temp <= 'b10;
+                    `sltu_func  :   ALU_control_temp <= 'b11;
+                    
+                endcase
+            
+            `itype_op:
+            
+                case (instr_in[14:12])      // func field
+            
+                    `addi_func  :   ALU_control_temp <= 'd2;
+                    `xori_func  :   ALU_control_temp <= 'd3;
+                    `ori_func   :   ALU_control_temp <= 'd4;
+                    `andi_func  :   ALU_control_temp <= 'd5;
+                    `slli_func  :   ALU_control_temp <= 'd6;
+                    `srxi_func  :   
+                    
+                        if (instr_in[`instr_size-2])
+                            ALU_control_temp <= 'd7;    // SRLI
+                        else
+                            ALU_control_temp <= 'd8;    // SRAI
+                    
+                    `slti_func  :   ALU_control_temp <= 'd10;
+                    `sltiu_func  :   ALU_control_temp <= 'd11;
+                    
+                endcase
+        endcase
+
+    end : alu_assign
+    
+    
     // Assigning the datapath outputs
     
     always_comb begin : out_assign
@@ -96,7 +160,9 @@ assign rf_we = cw1[0];
                      cw2[`cw_length-7: `cw_length-9],
                      cw3[`cw_length-10:`cw_length-14],
                      cw4[`cw_length-15]};
-                     
+        
+        ALU_control = ALU_control;
+        
     end else begin
     
         cw_out =    {current_cw[`cw_length-1], 
@@ -105,11 +171,15 @@ assign rf_we = cw1[0];
                      cw2[`cw_length-7: `cw_length-9],
                      cw3[`cw_length-10:`cw_length-14],
                      cw4[`cw_length-15]};
+        
+        ALU_control = ALU_control_temp;      // will it infer a latch? who knows!
+        
     end
     
     end : out_assign
     
     // super bulky case statement fetching each entry from the internal control word memory_word
+    
     always_comb begin : cw_fetch
         if(~nrst || stall)
             current_cw = 'b0;
