@@ -2453,3 +2453,2529 @@ do ../Bin/compile.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
 # ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
 # hexadecimal
+!do
+# do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:39 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:11:39 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:39 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:11:39 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:11:40 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 12:11:40 on Aug 08,2019, Elapsed time: 0:12:39
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 12:11:40 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:15:29 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 12:15:29 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 12:15:30 on Aug 08,2019, Elapsed time: 0:03:50
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 12:15:30 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/data_ram/dram_word
+radix -h
+# hexadecimal
+restart; run 1500ns
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+add wave -position insertpoint sim:/riscv_tester/riscv_processor/control_unit/*
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:40:14 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 12:40:14 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 12:40:15 on Aug 08,2019, Elapsed time: 0:24:45
+# Errors: 0, Warnings: 13, Suppressed Warnings: 2
+# vsim -t ns work.riscv_tester 
+# Start time: 12:40:15 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint sim:/riscv_tester/riscv_processor/control_unit/*
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:13 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 12:41:13 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 12:41:14 on Aug 08,2019, Elapsed time: 0:00:59
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 12:41:14 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint sim:/riscv_tester/riscv_processor/control_unit/*
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:43:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:07 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:43:08 on Aug 08,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:08 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 12:43:08 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:08 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 12:43:08 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 12:43:08 on Aug 08,2019, Elapsed time: 0:01:54
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 12:43:08 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint sim:/riscv_tester/riscv_processor/control_unit/*
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:57 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:47:57 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:57 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:47:57 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:57 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:47:57 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:57 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:47:58 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 12:47:58 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 12:47:59 on Aug 08,2019, Elapsed time: 0:04:51
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 12:47:59 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall \
+sim:/riscv_tester/riscv_processor/control_unit/FD_stall \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall_mem \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall_del \
+sim:/riscv_tester/riscv_processor/control_unit/FD_stall_del
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:54:01 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 13:54:01 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 13:54:02 on Aug 08,2019, Elapsed time: 1:06:03
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 13:54:02 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/data_ram/dram_word
+radix -h
+# hexadecimal
+restart; run 1500ns
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/cw1 \
+sim:/riscv_tester/riscv_processor/control_unit/current_cw \
+sim:/riscv_tester/riscv_processor/control_unit/cw2 \
+sim:/riscv_tester/riscv_processor/control_unit/cw3
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/state \
+sim:/riscv_tester/riscv_processor/control_unit/next_state
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall \
+sim:/riscv_tester/riscv_processor/control_unit/FD_stall \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall_mem \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall_del \
+sim:/riscv_tester/riscv_processor/control_unit/FD_stall_del
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:07:15 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(241): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 14:07:15 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 14:07:16 on Aug 08,2019, Elapsed time: 0:13:14
+# Errors: 0, Warnings: 13, Suppressed Warnings: 2
+# vsim -t ns work.riscv_tester 
+# Start time: 14:07:16 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/cw1 \
+sim:/riscv_tester/riscv_processor/control_unit/current_cw \
+sim:/riscv_tester/riscv_processor/control_unit/cw2 \
+sim:/riscv_tester/riscv_processor/control_unit/cw3
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall \
+sim:/riscv_tester/riscv_processor/control_unit/FD_stall \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall_mem \
+sim:/riscv_tester/riscv_processor/control_unit/F_stall_del \
+sim:/riscv_tester/riscv_processor/control_unit/FD_stall_del
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/opcode
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:49:04 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 14:49:04 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 14:49:05 on Aug 08,2019, Elapsed time: 0:41:49
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 14:49:05 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/cw1 \
+sim:/riscv_tester/riscv_processor/control_unit/current_cw \
+sim:/riscv_tester/riscv_processor/control_unit/cw2 \
+sim:/riscv_tester/riscv_processor/control_unit/cw3
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:25 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 15:22:25 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:25 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 15:22:25 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:25 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 15:22:25 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:25 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:22:26 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 15:22:26 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 15:22:27 on Aug 08,2019, Elapsed time: 0:33:22
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 15:22:27 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/cw1 \
+sim:/riscv_tester/riscv_processor/control_unit/current_cw \
+sim:/riscv_tester/riscv_processor/control_unit/prev_cw \
+sim:/riscv_tester/riscv_processor/control_unit/cw2 \
+sim:/riscv_tester/riscv_processor/control_unit/cw3
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:45 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 15:26:45 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:45 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 15:26:45 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:45 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 15:26:45 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:45 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/RISCVCore/../ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:26:46 on Aug 08,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv(251): (vlog-2182) 'stop_counting' might be read before written in always_comb or always @* block.
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_core
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 15:26:46 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 15:26:47 on Aug 08,2019, Elapsed time: 0:04:20
+# Errors: 0, Warnings: 11, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 15:26:47 on Aug 08,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram
+# ** Warning: (vsim-3017) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Too few port connections. Expected 21, found 20.
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3722) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(94): [TFMPC] - Missing connection for port 'wr_en'.
+# hexadecimal
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/control_unit/cw1 \
+sim:/riscv_tester/riscv_processor/control_unit/current_cw \
+sim:/riscv_tester/riscv_processor/control_unit/prev_cw \
+sim:/riscv_tester/riscv_processor/control_unit/cw2 \
+sim:/riscv_tester/riscv_processor/control_unit/cw3
+# End time: 15:27:58 on Aug 08,2019, Elapsed time: 0:01:11
+# Errors: 0, Warnings: 2, Suppressed Warnings: 1

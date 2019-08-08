@@ -256,7 +256,6 @@ always_ff @(posedge clk) begin : du_exu_regs
 	end
 	else
 		if(dec_exe_en) begin
-			rdw_exu <= rdw_du;
 			op1_decode <= rd_data1;
 			op2_decode <= rd_data2;
 			imm_exe <= immediate_field;
@@ -265,6 +264,13 @@ always_ff @(posedge clk) begin : du_exu_regs
 			rs1_field_exe <= rs1_field;
 			rs2_field_exe <= rs2_field;
 		end
+
+		// This is necessary in order not to have problems with
+		// forwarding
+		if(dec_exe_en)
+			rdw_exu <= rdw_du;
+		else
+			rdw_exu <= 'h0;
 end : du_exu_regs
 
 

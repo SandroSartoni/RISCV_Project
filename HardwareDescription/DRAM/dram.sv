@@ -12,7 +12,7 @@ module dram
 	output logic[`data_size-1:0] dmem_out
 );
 
-logic[7:0] dram_word [31:0];
+logic[31:0] dram_word [0:511];
 int i;
 
 always_ff @(posedge clk) begin

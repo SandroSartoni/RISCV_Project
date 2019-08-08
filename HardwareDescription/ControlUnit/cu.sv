@@ -39,7 +39,7 @@ module cu
 //       ||||||||||||| MUXC_SEL
 //       |||||||||||||| MUXD_SEL
 //       ||||||||||||||| RF_WE
-                        
+
        'b111111111001100,   // branch
        'b110011101001111,   // jal
        'b111011011001111,   // jalr
@@ -55,7 +55,7 @@ module cu
     logic [`opcode_size-1:0] opcode;
     logic [`opcode_size-1:0] opcode_pipe;
     logic [`instr_size-1:0] instr_pipe;
-    logic [`cw_length-1:0]  cw1, current_cw;
+    logic [`cw_length-1:0]  cw1, current_cw, prev_cw;
     logic [`cw_length-3:0]  cw2;
     logic [`cw_length-7:0]  cw3;
     logic [`cw_length-9:0]  cw4;
@@ -169,14 +169,14 @@ module cu
     
     if (FD_stall_del || F_stall_del) begin
         
-        cw_out =    {1'b0, 
-                     current_cw[`cw_length-2], 
+        cw_out =    {2'b0, //1'b0
+                     //current_cw[`cw_length-2], 
                      cw1[`cw_length-3: `cw_length-6],
                      cw2[`cw_length-7: `cw_length-9],
                      cw3[`cw_length-10:`cw_length-14],
                      cw4[`cw_length-15]};
         
-        ALU_control = ALU_control;
+        ALU_control = ALU_control_temp;
         
     end else begin
     
@@ -198,6 +198,8 @@ module cu
     always_comb begin : cw_fetch
         if(~nrst || stall)
             current_cw = 'b0;
+    	else if(FD_stall_del)
+		current_cw = prev_cw;
         else begin
             case (opcode)
               `btype_op     : current_cw = cw_memory[8];
@@ -213,6 +215,14 @@ module cu
             endcase
         end
     end : cw_fetch
+
+    always_ff @(posedge clk) begin
+	    if(~nrst)
+		    prev_cw <= 'h0;
+	    else
+		    prev_cw <= current_cw;
+    end
+
 
     always_comb begin : fsm_comb
     case (state)
@@ -303,10 +313,10 @@ module cu
                 NORMAL : begin
                     if (FD_stall) begin
                         //cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
-                        cw1 <= cw1;
-                        cw2 <= 'b0;                            // Bubble
-                        cw3 <= cw1[`cw_length-9:0];
-                        cw4 <= cw3[`cw_length-13:0];
+                        cw1 <= 'h0048; //cw1;
+                        cw2 <= cw1[`cw_length-7:0];//'b0;                            // Bubble
+                        cw3 <= cw2[`cw_length-9:0];//cw1[`cw_length-9:0];
+                        cw4 <= cw3[`cw_length-13:0];//cw3[`cw_length-13:0];
                     end    
                     else if (F_stall) begin
                         //cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
@@ -368,20 +378,19 @@ module cu
     // Shifting the reg number to store the previous instruction
 
     always_ff @(posedge clk) begin : hazard_shift
-    
-        rs1_field_previous <= rs1_field;
-        rs2_field_previous <= rs2_field;
-        rd_field_previous <= rd_field;
-        opcode_temp <= opcode;
-        opcode_previous <= opcode_temp;
-        
-        if (!nrst) begin
+        if (~nrst) begin
             rs1_field_previous <= 'b0;
             rs2_field_previous <= 'b0;
             rd_field_previous <= 'b0;
             opcode_previous <= 'b0;
         end
-    
+	else begin
+		rs1_field_previous <= rs1_field;
+		rs2_field_previous <= rs2_field;
+		rd_field_previous <= rd_field;
+		opcode_temp <= opcode;
+		opcode_previous <= opcode_temp;
+        end
     end : hazard_shift
 
     // Decoding the operands for hazard detection
@@ -420,7 +429,7 @@ module cu
     
         if( (rs1_field == rd_field_previous) || (rs2_field == rd_field_previous) ) begin
             if ( rd_field_previous != 'b0 ) begin
-                if (opcode_previous == `ldtype_op) begin      // First Load then branch
+                if (opcode_temp == `ldtype_op) begin      // First Load then branch
                     if (opcode == `btype_op)
                         F_stall_mem = 1;        // Branch
                     else
