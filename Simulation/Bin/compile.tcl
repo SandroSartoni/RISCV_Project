@@ -11,6 +11,9 @@ vlog +acc -sv -work work $PATH/Constants/constants.sv
 # Branch Prediction Unit
 vlog +acc -sv -work work $PATH/FetchUnit/BranchPredictionUnit/bpu.sv
 
+# Branch Forwarding Unit
+vlog +acc -sv -work work $PATH/FetchUnit/BranchForwardingUnit/bfu.sv
+
 # Instruction Cache
 vlog +acc -sv -work work $PATH/FetchUnit/InstructionCache/i_cache.sv
 vlog +acc -sv -work work $PATH/FetchUnit/InstructionCache/icache_controller.sv

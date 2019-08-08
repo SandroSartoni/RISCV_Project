@@ -41,7 +41,8 @@ logic rf_we_w;
 logic[`data_size-1:0] immediate_field;		// Immediate Field from the DecodeUnit
 branch_type branch_op;				// Branch type operation
 logic jr_bpu;					// Bit from CU that is 1'b1 when there's a JR in the Decode Stage
-logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg)
+logic[`instr_size-1:0] instr_fetched;		// Instruction fetched in the FetchUnit (before pipeline reg, pre chng2nop)
+logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg, post chng2nop)
 logic[`instr_size-1:0] instr_fetched_du;	// Instruction fetched in the DecodeUnit (after pipeline reg)
 logic chng2nop;					// Change to NOP bit in the FetchUnit (before pipeline reg)
 logic[`cw_length-1:0] cw_out;			// Control signals from Control Unit
@@ -97,9 +98,9 @@ fetch_unit fu
 	.nrst(nrst),
         .pc_en(pc_en),
         .op_decode(op_decode),
-        .rs1_decode(op1_decode),
-        .rs2_decode(op2_decode),
-	.wr_mem(aluout_mem),
+        .rs1_decode(rd_data1),
+        .rs2_decode(rd_data2),
+	.wr_mem(wr_datamem),
 	.rs1_field(rs1_field),
 	.rs2_field(rs2_field),
 	.wr_field(rdw_du),
@@ -108,23 +109,24 @@ fetch_unit fu
 	.jr_bpu(jr_bpu),
         .mem_word(mem_word),
         .word_ready(word_ready),
+	.wr_en(rf_we_d),
 	.pc_val(pc_fu),
         .ram_address(ram_address),
         .miss_cache(miss_cache),
-        .instr_fetched(instr_fetched_fu),
+        .instr_fetched(instr_fetched),
         .chng2nop(chng2nop)
 );
+
+assign instr_fetched_fu = chng2nop ? 'h00000013 : instr_fetched;
 
 // FetchUnit -> DecodeUnit pipeline registers
 always_ff @(posedge clk) begin : fu_du_regs
 	if(~nrst) begin
-		//chng2nop_du <= 1'b0;
 		instr_fetched_du <= 'h0;
 		pc_dec <= 'h0;
 	end
 	else 
 		if(fet_dec_en) begin
-			//chng2nop_du <= chng2nop_fu;
 			instr_fetched_du <= instr_fetched_fu;
 			pc_dec <= pc_fu;
 		end
@@ -377,11 +379,5 @@ always_ff @(posedge clk) begin : wr_mu_regs
 			rf_we_w <= rf_we_m;
 		end
 end : wr_mu_regs
-
-
-//////////////////////////////////////
-// Writeback Unit of the RISCV Core //
-//////////////////////////////////////
-
 
 endmodule

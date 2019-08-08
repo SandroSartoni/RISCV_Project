@@ -167,7 +167,7 @@ module cu
     
     always_comb begin : out_assign
     
-    if (FD_stall_del || F_stall_del) begin
+    if (FD_stall_del || F_stall || F_stall_mem) begin //|| F_stall_del
         
         cw_out =    {2'b0, //1'b0
                      //current_cw[`cw_length-2], 
@@ -251,7 +251,9 @@ module cu
             if ( stop_counting )
                 next_state = NORMAL;
     endcase
+    end : fsm_comb
 
+    always_comb begin : counting_log
     if ( F_stall_mem )
         start_counting = 1;
     else if ( counter == `mem_delay_const )
@@ -261,7 +263,7 @@ module cu
         start_counting = 0;
     
     end
-    end : fsm_comb
+    end : counting_log
 
     always_ff @(posedge clk) begin : fsm_seq    // including a counter for memory delay
         
@@ -320,8 +322,15 @@ module cu
                     end    
                     else if (F_stall) begin
                         //cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
-                        cw1 <= 'b0;                            // Bubble
+                        cw1 <= 'h0248;                            // Bubble
                         cw2 <= current_cw[`cw_length-7:0];
+                        cw3 <= cw2[`cw_length-9:0];
+                        cw4 <= cw3[`cw_length-13:0];
+                    end
+                    else if (F_stall_mem) begin
+                        //cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
+                        //cw1 <= 'h0248;                            // Bubble
+                        cw2 <= cw1[`cw_length-7:0];
                         cw3 <= cw2[`cw_length-9:0];
                         cw4 <= cw3[`cw_length-13:0];
                     end
@@ -365,11 +374,12 @@ module cu
                     cw5 <= cw4[`cw_length-13:0];
                 end
                 F_DELAY_MEM : begin
-                    cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
-                    cw2 <= 'b0;                            // Bubble
-                    cw3 <= cw1[`cw_length-7:0];
-                    cw4 <= cw3[`cw_length-9:0];
-                    cw5 <= cw4[`cw_length-13:0];                
+			if(F_stall_mem) begin
+                        	//cw1 <= 'h0248;                            // Bubble
+                        	cw2 <= cw1[`cw_length-7:0];
+                        	cw3 <= cw2[`cw_length-9:0];
+                        	cw4 <= cw3[`cw_length-13:0];
+			end
                 end
             endcase 
         end
@@ -385,11 +395,13 @@ module cu
             opcode_previous <= 'b0;
         end
 	else begin
-		rs1_field_previous <= rs1_field;
-		rs2_field_previous <= rs2_field;
-		rd_field_previous <= rd_field;
-		opcode_temp <= opcode;
-		opcode_previous <= opcode_temp;
+		if(~F_stall_mem) begin
+			rs1_field_previous <= rs1_field;
+			rs2_field_previous <= rs2_field;
+			rd_field_previous <= rd_field;
+			opcode_temp <= opcode;
+			opcode_previous <= opcode_temp;
+		end
         end
     end : hazard_shift
 
@@ -430,8 +442,10 @@ module cu
         if( (rs1_field == rd_field_previous) || (rs2_field == rd_field_previous) ) begin
             if ( rd_field_previous != 'b0 ) begin
                 if (opcode_temp == `ldtype_op) begin      // First Load then branch
-                    if (opcode == `btype_op)
+                    if ((opcode == `btype_op) && (counter != 4'h1))
                         F_stall_mem = 1;        // Branch
+                    else if ((opcode == `btype_op) && (counter == 4'h1))
+			    F_stall_mem = 0;
                     else
                         FD_stall = 1;           // Any
                 end

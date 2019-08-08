@@ -34,18 +34,18 @@ logic[`data_size-1:0] dataout2;
 			if(wr_en) begin
 				if(wr_addr != 'h0)
 					registers[wr_addr] <= wr_data;
-                else
-                        registers[0] <= 'h0;
+                		else
+                        	registers[0] <= 'h0;
 			end
 			
 		end
 	end : ff_regfile
 
-    // If read @ the first port is enabled
-    assign dataout1 = rd1_en ? ((wr_en && (rd1_addr == wr_addr) && (wr_addr != 'h0)) ? wr_data : registers[rd1_addr]) : 'h0;
+	// If read @ the first port is enabled
+	assign dataout1 = rd1_en ? ((wr_en && (rd1_addr == wr_addr) && (wr_addr != 'h0)) ? wr_data : registers[rd1_addr]) : 'h0;
 
-    // If read @ the second port is enabled
-    assign dataout2 = rd2_en ? ((wr_en && (rd2_addr == wr_addr) && (wr_addr != 'h0)) ? wr_data : registers[rd2_addr]) : 'h0;
+	// If read @ the second port is enabled
+	assign dataout2 = rd2_en ? ((wr_en && (rd2_addr == wr_addr) && (wr_addr != 'h0)) ? wr_data : registers[rd2_addr]) : 'h0;
 
 // If we're synthetizing for an ASIC, use latches
 `else
@@ -59,16 +59,22 @@ logic[`data_size-1:0] dataout2;
 			else begin
 				// If write is enabled
 				if(wr_en)
-		                    if(wr_addr != 'h0)
-					    registers[wr_addr] = wr_data;
+		                	if(wr_addr != 'h0)
+						registers[wr_addr] = wr_data;
 				// If read @ the first port is enabled
 				if(rd1_en)
-					dataout1 = registers[rd1_addr];
+					if(wr_en && (rd1_addr == wr_addr) && (wr_addr != 'h0))
+						dataout1 = wr_data;
+					else
+						dataout1 = registers[rd1_addr];
 				else
 					dataout1 = 'h0;
 				// If read @ the second port is enabled
 				if(rd2_en)
-					dataout2 = registers[rd2_addr];
+					if(wr_en && (rd2_addr == wr_addr) && (wr_addr != 'h0))
+						dataout2 = wr_data;
+					else
+						dataout2 = registers[rd2_addr];
 				else
 					dataout2 = 'h0;
                      

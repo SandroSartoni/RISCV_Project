@@ -5,11 +5,11 @@
 
 _start:
 	addi x1,x0,45
-	addi x2,x0,37
 	sw x1,0(x0)
-	addi x3,x0,16
-	lw x4,0(x0)
-	xor x5,x4,x3
+loop:
+	nop
+	lw x2,0(x0)	#FDEMW
+	bne x1,x2,loop	#FssDEMW
 
 _exit:
 	j _exit
