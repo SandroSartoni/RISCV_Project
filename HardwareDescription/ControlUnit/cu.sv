@@ -53,6 +53,8 @@ module cu
     };
 
     logic [`opcode_size-1:0] opcode;
+    logic [`opcode_size-1:0] opcode_pipe;
+    logic [`instr_size-1:0] instr_pipe;
     logic [`cw_length-1:0]  cw1, current_cw;
     logic [`cw_length-3:0]  cw2;
     logic [`cw_length-7:0]  cw3;
@@ -90,62 +92,75 @@ module cu
     // ALU control process
     
     always_ff @(posedge clk) begin : alu_assign
-
-        case(opcode)
-        
-            `lui_op:        ALU_control_temp <= 'd0;
-            `ldtype_op ||
-            `stotype_op:    ALU_control_temp <= 'd1;
-            `rtype_op:      
-                
-                case (instr_in[14:12])      // func field
-                    
-                    `addsub_func:   
-                        
-                        if (instr_in[`instr_size-2])
-                            ALU_control_temp <= 'd2;    // ADD
-                        else
-                            ALU_control_temp <= 'd9;    // SUB
-                            
-                    `xor_func   :   ALU_control_temp <= 'd3;
-                    `or_func    :   ALU_control_temp <= 'd4;
-                    `and_func   :   ALU_control_temp <= 'd5;
-                    `sll_func   :   ALU_control_temp <= 'd6;
-                    `srx_func   :   
-                        
-                        if (instr_in[`instr_size-2])
-                            ALU_control_temp <= 'd7;    // SRL
-                        else
-                            ALU_control_temp <= 'd8;    // SRA
-                            
-                    `slt_func   :   ALU_control_temp <= 'b10;
-                    `sltu_func  :   ALU_control_temp <= 'b11;
-                    
-                endcase
-            
-            `itype_op:
-            
-                case (instr_in[14:12])      // func field
-            
-                    `addi_func  :   ALU_control_temp <= 'd2;
-                    `xori_func  :   ALU_control_temp <= 'd3;
-                    `ori_func   :   ALU_control_temp <= 'd4;
-                    `andi_func  :   ALU_control_temp <= 'd5;
-                    `slli_func  :   ALU_control_temp <= 'd6;
-                    `srxi_func  :   
-                    
-                        if (instr_in[`instr_size-2])
-                            ALU_control_temp <= 'd7;    // SRLI
-                        else
-                            ALU_control_temp <= 'd8;    // SRAI
-                    
-                    `slti_func  :   ALU_control_temp <= 'd10;
-                    `sltiu_func  :   ALU_control_temp <= 'd11;
-                    
-                endcase
-        endcase
-
+	if(~nrst)
+		ALU_control_temp <= 'h0;
+	else begin
+		case(opcode_pipe)
+		
+		    `lui_op:        ALU_control_temp <= 'd0;
+		    `ldtype_op ||
+		    `stotype_op:    ALU_control_temp <= 'd1;
+		    `rtype_op:      
+			
+			case (instr_pipe[14:12])      // func field
+			    
+			    `addsub_func:   
+				
+				if (~instr_pipe[`instr_size-2])
+				    ALU_control_temp <= 'd2;    // ADD
+				else
+				    ALU_control_temp <= 'd9;    // SUB
+				    
+			    `xor_func   :   ALU_control_temp <= 'd3;
+			    `or_func    :   ALU_control_temp <= 'd4;
+			    `and_func   :   ALU_control_temp <= 'd5;
+			    `sll_func   :   ALU_control_temp <= 'd6;
+			    `srx_func   :   
+				
+				if (~instr_pipe[`instr_size-2])
+				    ALU_control_temp <= 'd7;    // SRL
+				else
+				    ALU_control_temp <= 'd8;    // SRA
+				    
+			    `slt_func   :   ALU_control_temp <= 'b10;
+			    `sltu_func  :   ALU_control_temp <= 'b11;
+			    
+			endcase
+		    
+		    `itype_op:
+		    
+			case (instr_pipe[14:12])      // func field
+		    
+			    `addi_func  :   ALU_control_temp <= 'd2;
+			    `xori_func  :   ALU_control_temp <= 'd3;
+			    `ori_func   :   ALU_control_temp <= 'd4;
+			    `andi_func  :   ALU_control_temp <= 'd5;
+			    `slli_func  :   ALU_control_temp <= 'd6;
+			    `srxi_func  :   
+			    
+				if (~instr_pipe[`instr_size-2])
+				    ALU_control_temp <= 'd7;    // SRLI
+				else
+				    ALU_control_temp <= 'd8;    // SRAI
+			    
+			    `slti_func  :   ALU_control_temp <= 'd10;
+			    `sltiu_func  :   ALU_control_temp <= 'd11;
+			    
+			endcase
+		endcase
+	end
     end : alu_assign
+
+    always_ff @(posedge clk) begin : opcode_pipe_reg
+	    if(~nrst) begin
+		    opcode_pipe <= 'h0;
+		    instr_pipe <= 'h0;
+	    end
+	    else begin
+		    opcode_pipe <= opcode;
+		    instr_pipe <= instr_in;
+	    end
+    end
     
     
     // Assigning the datapath outputs
@@ -194,7 +209,7 @@ module cu
               `rtype_op     : current_cw = cw_memory[2];
               `fence_op     : current_cw = cw_memory[1];
               `cstype_op    : current_cw = cw_memory[0];
-              'b0           : current_cw = 'b100000000000000;  // enabling pc during icache loading
+              'b0           : current_cw = 'b110000000000000;  // enabling pc during icache loading
             endcase
         end
     end : cw_fetch

@@ -1,5 +1,6 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
+log -recursive *
 add wave -noupdate /riscv_tester/riscv_processor/register_file/registers
 add wave -noupdate /riscv_tester/riscv_processor/control_unit/state
 add wave -noupdate /riscv_tester/riscv_processor/control_unit/next_state
@@ -47,6 +48,7 @@ add wave -noupdate /riscv_tester/riscv_processor/imm_exe
 add wave -noupdate /riscv_tester/riscv_processor/pc_exe
 add wave -noupdate /riscv_tester/riscv_processor/alu_op1
 add wave -noupdate /riscv_tester/riscv_processor/alu_op2
+add wave -noupdate /riscv_tester/riscv_processor/ALU_control
 add wave -noupdate /riscv_tester/riscv_processor/alu_out
 add wave -noupdate /riscv_tester/riscv_processor/ovfl_bit
 add wave -noupdate /riscv_tester/riscv_processor/pc_mem

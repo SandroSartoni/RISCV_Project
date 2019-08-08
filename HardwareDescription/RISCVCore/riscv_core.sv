@@ -44,7 +44,6 @@ logic jr_bpu;					// Bit from CU that is 1'b1 when there's a JR in the Decode St
 logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg)
 logic[`instr_size-1:0] instr_fetched_du;	// Instruction fetched in the DecodeUnit (after pipeline reg)
 logic chng2nop;					// Change to NOP bit in the FetchUnit (before pipeline reg)
-//logic chng2nop_du;				// Change to NOP bit in the DecodeUnit (after pipeline reg)
 logic[`cw_length-1:0] cw_out;			// Control signals from Control Unit
 logic miss_cache;				// Miss signal from Instruction Cache
 logic[1:0] sel_fwdmux1;				// Forwarding Multiplexer Selector 1
@@ -62,6 +61,7 @@ logic[`data_size-1:0] imm_exe;			// Immediate Field in the Execute Stage
 logic[`pc_size-1:0] pc_exe;			// Program Counter in the Execute Stage
 logic[`data_size-1:0] alu_op1;			// First ALU's operand
 logic[`data_size-1:0] alu_op2;			// Second ALU's operand
+logic[`alu_control_size-1:0] ALU_control;	// Control bit of the ALU
 logic[`data_size-1:0] alu_out;			// ALU's result in EXE stage
 logic ovfl_bit;
 logic[`pc_size-1:0] pc_mem;			// Program Counter in the Memory Stage
@@ -205,9 +205,10 @@ cu control_unit
 	.nrst(nrst),
 	.stall(miss_cache),
 	.chng2nop(chng2nop),
+	.rf_we(rf_we_d),
 	.instr_in(instr_fetched_fu),
-	.cw_out(cw_out),
-	.rf_we(rf_we_d)
+	.ALU_control(ALU_control),
+	.cw_out(cw_out)
 );
 
 // Control Word signals assignment
@@ -215,7 +216,6 @@ assign pc_en = cw_out[`cw_length-1];
 assign fet_dec_en = cw_out[`cw_length-2]; 
 assign rd1_en = cw_out[`cw_length-3];
 assign rd2_en = cw_out[`cw_length-4];
-//assign rf_we = riportalo nella Control Word e tiralo fuori di lì se tutto funziona
 assign dec_exe_en = cw_out[`cw_length-6];
 assign muxA_sel = cw_out[`cw_length-7];
 assign muxB_sel = cw_out[`cw_length-8];
@@ -312,7 +312,7 @@ alu arithm_log_unit
 (
 	.A(alu_op1),
 	.B(alu_op2),
-	.Control(4'h2),
+	.Control(ALU_control),
 	.Out(alu_out),
 	.ovfl(ovfl_bit)
 );

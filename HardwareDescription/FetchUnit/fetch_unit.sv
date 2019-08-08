@@ -20,6 +20,7 @@ module fetch_unit
 	input logic jr_bpu,				// When 1'b1 there's a JR instruction in the Decode Stage
 	input logic[`memory_word-1:0] mem_word,		// Word from RAM
 	input logic word_ready,
+	input logic wr_en,				// DestinationRegister Write Enable for BranchForwardingUnit
 	output logic[`pc_size-1:0] pc_val,		// Current Program Counter value
 	output logic[`pc_size-1:0] ram_address,
 	output logic miss_cache,

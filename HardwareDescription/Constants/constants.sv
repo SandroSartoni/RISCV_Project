@@ -4,13 +4,13 @@ package constants;
 	`define data_size	        32
 	`define pc_size		        32
 	`define opcode_size	        7
-	`define regfile_logsize     5
+	`define regfile_logsize		5
 	`define instr_size	        32
 	
-    `define regfile_size	    32
+	`define regfile_size		32
 	`define memory_word	        8
-    `define mem_delay_const     2   // Used in the hdu, it's ( 1 + the dmem delay )
-    `define alu_control_size    4
+    	`define mem_delay_const		2   // Used in the hdu, it's ( 1 + the dmem delay )
+    	`define alu_control_size	4
 
 	// I-Cache parameters
 	`define icache_blocksize	64*8 // Bytes*no_of_bits (in a byte)
