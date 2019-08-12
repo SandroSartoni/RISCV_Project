@@ -169,7 +169,10 @@ end : rdw_assign
 always_comb begin : imm_assign
 	case(op_decode)
 		`itype_op : begin//|| `jalr_op) : begin
-			immediate_field = `data_size'(signed'(instr_fetched_du[31:20]));
+			if((instr_fetched_du[14:12] != `slli_func) && (instr_fetched_du[14:12] != `srxi_func))
+				immediate_field = `data_size'(signed'(instr_fetched_du[31:20]));
+			else
+				immediate_field = `data_size'(instr_fetched_du[24:20]);
 		end
 
 		`stotype_op : begin
@@ -180,7 +183,11 @@ always_comb begin : imm_assign
 			immediate_field = `data_size'(signed'({instr_fetched_du[31],instr_fetched_du[7],instr_fetched_du[30:25],instr_fetched_du[11:8],1'b0}));	
 		end
 
-		(`lui_op || `auipc_op) : begin
+		`lui_op : begin
+			immediate_field = {instr_fetched_du[31:12],12'h000};
+		end
+
+		`auipc_op : begin
 			immediate_field = {instr_fetched_du[31:12],12'h000};
 		end
 

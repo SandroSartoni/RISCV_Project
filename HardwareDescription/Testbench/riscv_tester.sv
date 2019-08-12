@@ -25,7 +25,7 @@ riscv_core riscv_processor
 always #5 clk = ~clk;
 
 initial begin : IRAM_loading
-	$readmemh("../../Executables/riscv_tester.in",ram_words,0);
+	$readmemh("../../Executables/instr_tester.in",ram_words,0);
 end : IRAM_loading
 
 logic[6:0] counter;

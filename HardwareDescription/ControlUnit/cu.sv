@@ -98,7 +98,7 @@ module cu
 		case(opcode_pipe)
 		
 		    `lui_op:        ALU_control_temp <= 'd0;
-		    `ldtype_op ||
+		    `ldtype_op:    ALU_control_temp <= 'd1;
 		    `stotype_op:    ALU_control_temp <= 'd1;
 		    `rtype_op:      
 			
@@ -122,8 +122,8 @@ module cu
 				else
 				    ALU_control_temp <= 'd8;    // SRA
 				    
-			    `slt_func   :   ALU_control_temp <= 'b10;
-			    `sltu_func  :   ALU_control_temp <= 'b11;
+			    `slt_func   :   ALU_control_temp <= 'd10;
+			    `sltu_func  :   ALU_control_temp <= 'd11;
 			    
 			endcase
 		    

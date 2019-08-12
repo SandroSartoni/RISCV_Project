@@ -30,7 +30,7 @@ assign { >>{ notluipart,luipart}} = B;
 
 always_comb
 Compare_s:begin
-	if (A<B) 
+	if (signed'(A) < signed'(B)) 
 		compare_s_result = 1'b1;
 	else  
 		compare_s_result = 1'b0;
@@ -38,7 +38,7 @@ end
 
 always_comb
 Compare_u:begin
-	if (unsigned'(A)<unsigned'(B)) 
+	if (A < B) 
 		compare_u_result = 1'b1;
 	else  
 		compare_u_result = 1'b0;
@@ -55,7 +55,7 @@ always_comb
 	S5: Out = A & B;
 	S6: Out = A << B;
 	S7: Out = A >> B;
-	S8: Out = A >>> B;
+	S8: Out = signed'(A) >>> B;
 	S9: Out = A - B;
 	S10: Out = compare_s_result;
 	S11: Out = compare_u_result;
