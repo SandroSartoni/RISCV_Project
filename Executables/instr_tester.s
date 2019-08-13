@@ -34,11 +34,11 @@ _start:
 	sb	x1,0(x0)
 	sh	x1,4(x0)
 	sw	x1,8(x0)
-	#lb
-	#lh	
-	#lw
-	#lbu
-	#lhu
+	lb	x20,8(x0)
+	lh	x21,8(x0)
+	lw	x22,8(x0)
+	lbu	x23,8(x0)
+	lhu	x24,8(x0)
 
 _exit:
 	j _exit

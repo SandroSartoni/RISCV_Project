@@ -38,6 +38,10 @@ vlog +acc -sv -work work $PATH/ForwardUnit/forwardunit.sv
 vlog +acc -sv -work work $PATH/ControlUnit/cu.sv
 ##################
 
+### Data RAM Controller ###
+vlog +acc -sv -work work $PATH/DRAMController/dram_controller.sv
+###########################
+
 ### Data RAM ###
 vlog +acc -sv -work work $PATH/DRAM/dram.sv
 ##################

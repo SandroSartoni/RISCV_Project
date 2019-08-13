@@ -1,46 +1,75 @@
 # do ../Bin/compile.tcl
 # ../../HardwareDescription
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:28 on Aug 12,2019
+# Start time: 11:49:38 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# ** Error: (vlog-13069) ../../HardwareDescription/Constants/constants.sv(112): near "}": syntax error, unexpected '}', expecting IDENTIFIER or TYPE_IDENTIFIER or NETTYPE_IDENTIFIER.
+# ** Error: (vlog-13069) ../../HardwareDescription/Constants/constants.sv(117): near "'0": syntax error, unexpected UNSIZED_BIT, expecting ',' or '}'.
+# End time: 11:49:38 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./../Bin/compile.tcl line 7
+# /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog +acc -sv -work work $PATH/Constants/constants.sv"
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:50:22 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# ** Error: (vlog-13069) ../../HardwareDescription/Constants/constants.sv(117): near "'0": syntax error, unexpected UNSIZED_BIT, expecting ',' or '}'.
+# End time: 11:50:22 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./../Bin/compile.tcl line 7
+# /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog +acc -sv -work work $PATH/Constants/constants.sv"
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
 # -- Compiling package constants
 # 
 # Top level modules:
 # 	--none--
-# End time: 11:50:28 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:28 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
 # 
 # Top level modules:
 # 	bpu
-# End time: 11:50:28 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:28 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
 # -- Compiling package constants
 # -- Compiling module bfu
 # 
 # Top level modules:
 # 	bfu
-# End time: 11:50:28 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
 # 
 # Top level modules:
 # 	i_cache
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
@@ -48,10 +77,10 @@
 # 
 # Top level modules:
 # 	icache_controller
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -73,40 +102,40 @@
 # 
 # Top level modules:
 # 	fetch_unit
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
 # -- Compiling package constants
 # -- Compiling module reg_file
 # 
 # Top level modules:
 # 	reg_file
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
 # -- Compiling package constants
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
 # -- Compiling package constants
 # -- Compiling module forw_unit
 # 
 # Top level modules:
 # 	forw_unit
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
 # -- Compiling package constants
 # -- Compiling module cu
@@ -114,20 +143,20 @@
 # 
 # Top level modules:
 # 	cu
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
 # -- Compiling package constants
 # -- Compiling module dram
 # 
 # Top level modules:
 # 	dram
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:50:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -145,6 +174,435 @@
 # ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
 # -- Compiling package constants
 # -- Compiling module bfu
+# ** Error: (vlog-13069) ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(9)
+# ** at ../../HardwareDescription/RISCVCore/../DRAMController/dram_controller.sv(4): near "module": syntax error, unexpected module, expecting ';' or ','.
+# End time: 11:50:43 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 2
+# ** Error: /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./../Bin/compile.tcl line 46
+# /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog +acc -sv -work work $PATH/RISCVCore/riscv_core.sv"
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
+# -- Compiling package constants
+# -- Compiling module bfu
+# 
+# Top level modules:
+# 	bfu
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:52:27 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# ** Error: (vlog-13069) ../../HardwareDescription/DRAMController/dram_controller.sv(4): near "module": syntax error, unexpected module, expecting ';' or ','.
+# End time: 11:52:27 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./../Bin/compile.tcl line 42
+# /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog +acc -sv -work work $PATH/DRAMController/dram_controller.sv"
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 11:53:16 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 11:53:16 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
+# -- Compiling package constants
+# -- Compiling module bfu
+# 
+# Top level modules:
+# 	bfu
+# End time: 11:53:16 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 11:53:16 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 11:53:16 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 11:53:16 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 11:53:16 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:16 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 11:53:17 on Aug 13,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 11:53:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 11:53:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# ** Error: ../../HardwareDescription/DRAMController/dram_controller.sv(24): (vlog-2730) Undefined variable: 'dmem_add'.
+# End time: 11:53:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./../Bin/compile.tcl line 42
+# /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog +acc -sv -work work $PATH/DRAMController/dram_controller.sv"
+do ../Bin/compile.tcl
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:35 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
+# -- Compiling package constants
+# -- Compiling module bfu
+# 
+# Top level modules:
+# 	bfu
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# ** Warning: ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(4): (vlog-13233) Design unit "riscv_core_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 # -- Compiling package riscv_core_sv_unit
 # -- Importing package constants
 # -- Compiling module fetch_unit
@@ -157,15 +615,15 @@
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
 # 
 # Top level modules:
 # 	riscv_core
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:53:36 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -185,6 +643,7 @@
 # ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
 # -- Compiling package constants
 # -- Compiling module bfu
+# ** Warning: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(4): (vlog-13233) Design unit "riscv_tester_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 # -- Compiling package riscv_tester_sv_unit
 # -- Importing package constants
 # -- Compiling module fetch_unit
@@ -197,16 +656,18 @@
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
+# -- Compiling package constants
+# -- Compiling module dram
 # -- Compiling module riscv_tester
 # 
 # Top level modules:
 # 	riscv_tester
-# End time: 11:50:29 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
+# End time: 11:53:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
 # vsim -t ns work.riscv_tester 
-# Start time: 11:50:29 on Aug 12,2019
+# Start time: 11:53:36 on Aug 13,2019
 # Loading sv_std.std
 # Loading work.constants
 # Loading work.riscv_tester_sv_unit
@@ -221,62 +682,56 @@
 # Loading work.reg_file
 # Loading work.forw_unit
 # Loading work.alu
+# Loading work.dram_controller
 # Loading work.dram
-# ** Error: Un# End time: 11:51:37 on Aug 12,2019, Elapsed time: 0:19:19
-# Errors: 0, Warnings: 0, Suppressed Warnings: 1
- Retrying 2 times, errno 11
-# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
-# ** Error: Cannot lock WLF file: "vsim.wlf"
-#           errno 11: Resource temporarily unavailable.
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: sandro  Hostname: sandro-HP-Pavilion-x360-Convert  ProcessID: 8777
-#           Attempting to use alternate WLF file "./wlftvjzoiO".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftvjzoiO
+# ** Warning: (vsim-3015) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(98): [PCDPC] - Port size (8) does not match connection size (1) for port 'mem_word'. The port definition is at: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(21).
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+# ** Warning: (vsim-3015) ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(98): [PCDPC] - Port size (32) does not match connection size (1) for port 'ram_address'. The port definition is at: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(25).
+#    Time: 0 ns  Iteration: 0  Instance: /riscv_tester/riscv_processor/fu File: ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
 # hexadecimal
 do ../Bin/compile.tcl
 # ../../HardwareDescription
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:42 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
 # -- Compiling package constants
 # 
 # Top level modules:
 # 	--none--
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:42 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:42 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
 # 
 # Top level modules:
 # 	bpu
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:42 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:42 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
 # -- Compiling package constants
 # -- Compiling module bfu
 # 
 # Top level modules:
 # 	bfu
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:42 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:42 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
 # 
 # Top level modules:
 # 	i_cache
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:42 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:42 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
@@ -284,10 +739,10 @@ do ../Bin/compile.tcl
 # 
 # Top level modules:
 # 	icache_controller
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:42 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:42 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -309,40 +764,40 @@ do ../Bin/compile.tcl
 # 
 # Top level modules:
 # 	fetch_unit
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:42 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:42 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
 # -- Compiling package constants
 # -- Compiling module reg_file
 # 
 # Top level modules:
 # 	reg_file
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:42 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
 # -- Compiling package constants
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
 # -- Compiling package constants
 # -- Compiling module forw_unit
 # 
 # Top level modules:
 # 	forw_unit
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
 # -- Compiling package constants
 # -- Compiling module cu
@@ -350,20 +805,32 @@ do ../Bin/compile.tcl
 # 
 # Top level modules:
 # 	cu
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:43 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 11:55:43 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:55:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
 # -- Compiling package constants
 # -- Compiling module dram
 # 
 # Top level modules:
 # 	dram
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -393,15 +860,15 @@ do ../Bin/compile.tcl
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
 # 
 # Top level modules:
 # 	riscv_core
-# End time: 11:59:37 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 11:55:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:59:37 on Aug 12,2019
+# Start time: 11:55:43 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -433,18 +900,20 @@ do ../Bin/compile.tcl
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
+# -- Compiling package constants
+# -- Compiling module dram
 # -- Compiling module riscv_tester
 # 
 # Top level modules:
 # 	riscv_tester
-# End time: 11:59:38 on Aug 12,2019, Elapsed time: 0:00:01
+# End time: 11:55:43 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
-# End time: 11:59:38 on Aug 12,2019, Elapsed time: 0:09:09
-# Errors: 4, Warnings: 8, Suppressed Warnings: 1
+# End time: 11:55:44 on Aug 13,2019, Elapsed time: 0:02:08
+# Errors: 0, Warnings: 8, Suppressed Warnings: 1
 # vsim -t ns work.riscv_tester 
-# Start time: 11:59:38 on Aug 12,2019
+# Start time: 11:55:44 on Aug 13,2019
 # Loading sv_std.std
 # Loading work.constants
 # Loading work.riscv_tester_sv_unit
@@ -459,1190 +928,53 @@ do ../Bin/compile.tcl
 # Loading work.reg_file
 # Loading work.forw_unit
 # Loading work.alu
-# Loading work.dram
-# hexadecimal
-do ../Bin/compile.tcl
-# ../../HardwareDescription
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
-# -- Compiling package constants
-# 
-# Top level modules:
-# 	--none--
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# 
-# Top level modules:
-# 	bpu
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
-# -- Compiling package constants
-# -- Compiling module bfu
-# 
-# Top level modules:
-# 	bfu
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# 
-# Top level modules:
-# 	i_cache
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# 
-# Top level modules:
-# 	icache_controller
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package fetch_unit_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# 
-# Top level modules:
-# 	fetch_unit
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
-# -- Compiling package constants
-# -- Compiling module reg_file
-# 
-# Top level modules:
-# 	reg_file
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
-# -- Compiling package constants
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# 
-# Top level modules:
-# 	forw_unit
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
-# -- Compiling package constants
-# -- Compiling module cu
-# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
-# 
-# Top level modules:
-# 	cu
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
-# -- Compiling package constants
-# -- Compiling module dram
-# 
-# Top level modules:
-# 	dram
-# End time: 12:22:49 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:49 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_core_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# 
-# Top level modules:
-# 	riscv_core
-# End time: 12:22:50 on Aug 12,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:22:50 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_tester_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# -- Compiling module riscv_tester
-# 
-# Top level modules:
-# 	riscv_tester
-# End time: 12:22:50 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# End time: 12:22:50 on Aug 12,2019, Elapsed time: 0:23:12
-# Errors: 0, Warnings: 6, Suppressed Warnings: 1
-# vsim -t ns work.riscv_tester 
-# Start time: 12:22:50 on Aug 12,2019
-# Loading sv_std.std
-# Loading work.constants
-# Loading work.riscv_tester_sv_unit
-# Loading work.riscv_tester
-# Loading work.riscv_core
-# Loading work.fetch_unit
-# Loading work.bfu
-# Loading work.bpu
-# Loading work.icache_controller
-# Loading work.i_cache
-# Loading work.cu
-# Loading work.reg_file
-# Loading work.forw_unit
-# Loading work.alu
-# Loading work.dram
-# hexadecimal
-do ../Bin/compile.tcl
-# ../../HardwareDescription
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
-# -- Compiling package constants
-# 
-# Top level modules:
-# 	--none--
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# 
-# Top level modules:
-# 	bpu
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
-# -- Compiling package constants
-# -- Compiling module bfu
-# 
-# Top level modules:
-# 	bfu
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# 
-# Top level modules:
-# 	i_cache
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# 
-# Top level modules:
-# 	icache_controller
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package fetch_unit_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# 
-# Top level modules:
-# 	fetch_unit
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
-# -- Compiling package constants
-# -- Compiling module reg_file
-# 
-# Top level modules:
-# 	reg_file
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
-# -- Compiling package constants
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# 
-# Top level modules:
-# 	forw_unit
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
-# -- Compiling package constants
-# -- Compiling module cu
-# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
-# 
-# Top level modules:
-# 	cu
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
-# -- Compiling package constants
-# -- Compiling module dram
-# 
-# Top level modules:
-# 	dram
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_core_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# 
-# Top level modules:
-# 	riscv_core
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:31:25 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_tester_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# -- Compiling module riscv_tester
-# 
-# Top level modules:
-# 	riscv_tester
-# End time: 12:31:25 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# End time: 12:31:26 on Aug 12,2019, Elapsed time: 0:08:36
-# Errors: 0, Warnings: 6, Suppressed Warnings: 1
-# vsim -t ns work.riscv_tester 
-# Start time: 12:31:26 on Aug 12,2019
-# Loading sv_std.std
-# Loading work.constants
-# Loading work.riscv_tester_sv_unit
-# Loading work.riscv_tester
-# Loading work.riscv_core
-# Loading work.fetch_unit
-# Loading work.bfu
-# Loading work.bpu
-# Loading work.icache_controller
-# Loading work.i_cache
-# Loading work.cu
-# Loading work.reg_file
-# Loading work.forw_unit
-# Loading work.alu
-# Loading work.dram
-# hexadecimal
-do ../Bin/compile.tcl
-# ../../HardwareDescription
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:12 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
-# -- Compiling package constants
-# 
-# Top level modules:
-# 	--none--
-# End time: 13:38:12 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:12 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# 
-# Top level modules:
-# 	bpu
-# End time: 13:38:12 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:12 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
-# -- Compiling package constants
-# -- Compiling module bfu
-# 
-# Top level modules:
-# 	bfu
-# End time: 13:38:12 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:12 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# 
-# Top level modules:
-# 	i_cache
-# End time: 13:38:12 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:12 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# 
-# Top level modules:
-# 	icache_controller
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package fetch_unit_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# 
-# Top level modules:
-# 	fetch_unit
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
-# -- Compiling package constants
-# -- Compiling module reg_file
-# 
-# Top level modules:
-# 	reg_file
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
-# -- Compiling package constants
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# 
-# Top level modules:
-# 	forw_unit
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
-# -- Compiling package constants
-# -- Compiling module cu
-# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
-# 
-# Top level modules:
-# 	cu
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
-# -- Compiling package constants
-# -- Compiling module dram
-# 
-# Top level modules:
-# 	dram
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_core_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# 
-# Top level modules:
-# 	riscv_core
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:38:13 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_tester_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# -- Compiling module riscv_tester
-# 
-# Top level modules:
-# 	riscv_tester
-# End time: 13:38:13 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# End time: 13:38:14 on Aug 12,2019, Elapsed time: 1:06:48
-# Errors: 0, Warnings: 6, Suppressed Warnings: 1
-# vsim -t ns work.riscv_tester 
-# Start time: 13:38:14 on Aug 12,2019
-# Loading sv_std.std
-# Loading work.constants
-# Loading work.riscv_tester_sv_unit
-# Loading work.riscv_tester
-# Loading work.riscv_core
-# Loading work.fetch_unit
-# Loading work.bfu
-# Loading work.bpu
-# Loading work.icache_controller
-# Loading work.i_cache
-# Loading work.cu
-# Loading work.reg_file
-# Loading work.forw_unit
-# Loading work.alu
-# Loading work.dram
-# hexadecimal
-do ../Bin/compile.tcl
-# ../../HardwareDescription
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
-# -- Compiling package constants
-# 
-# Top level modules:
-# 	--none--
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# 
-# Top level modules:
-# 	bpu
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
-# -- Compiling package constants
-# -- Compiling module bfu
-# 
-# Top level modules:
-# 	bfu
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# 
-# Top level modules:
-# 	i_cache
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# 
-# Top level modules:
-# 	icache_controller
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package fetch_unit_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# 
-# Top level modules:
-# 	fetch_unit
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
-# -- Compiling package constants
-# -- Compiling module reg_file
-# 
-# Top level modules:
-# 	reg_file
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
-# -- Compiling package constants
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# 
-# Top level modules:
-# 	forw_unit
-# End time: 19:16:51 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:51 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
-# -- Compiling package constants
-# -- Compiling module cu
-# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
-# 
-# Top level modules:
-# 	cu
-# End time: 19:16:52 on Aug 12,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:52 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
-# -- Compiling package constants
-# -- Compiling module dram
-# 
-# Top level modules:
-# 	dram
-# End time: 19:16:52 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:52 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_core_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# 
-# Top level modules:
-# 	riscv_core
-# End time: 19:16:52 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:16:52 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_tester_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# -- Compiling module riscv_tester
-# 
-# Top level modules:
-# 	riscv_tester
-# End time: 19:16:52 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# End time: 19:16:53 on Aug 12,2019, Elapsed time: 5:38:39
-# Errors: 0, Warnings: 6, Suppressed Warnings: 1
-# vsim -t ns work.riscv_tester 
-# Start time: 19:16:53 on Aug 12,2019
-# Loading sv_std.std
-# Loading work.constants
-# Loading work.riscv_tester_sv_unit
-# Loading work.riscv_tester
-# Loading work.riscv_core
-# Loading work.fetch_unit
-# Loading work.bfu
-# Loading work.bpu
-# Loading work.icache_controller
-# Loading work.i_cache
-# Loading work.cu
-# Loading work.reg_file
-# Loading work.forw_unit
-# Loading work.alu
-# Loading work.dram
-# hexadecimal
-run 200ns
-run 1000ns
-run 500ns
-do ../Bin/compile.tcl
-# ../../HardwareDescription
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
-# -- Compiling package constants
-# 
-# Top level modules:
-# 	--none--
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# 
-# Top level modules:
-# 	bpu
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
-# -- Compiling package constants
-# -- Compiling module bfu
-# 
-# Top level modules:
-# 	bfu
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# 
-# Top level modules:
-# 	i_cache
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# 
-# Top level modules:
-# 	icache_controller
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package fetch_unit_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# 
-# Top level modules:
-# 	fetch_unit
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
-# -- Compiling package constants
-# -- Compiling module reg_file
-# 
-# Top level modules:
-# 	reg_file
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
-# -- Compiling package constants
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# 
-# Top level modules:
-# 	forw_unit
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
-# -- Compiling package constants
-# -- Compiling module cu
-# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
-# 
-# Top level modules:
-# 	cu
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
-# -- Compiling package constants
-# -- Compiling module dram
-# 
-# Top level modules:
-# 	dram
-# End time: 19:29:37 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:37 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_core_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# 
-# Top level modules:
-# 	riscv_core
-# End time: 19:29:38 on Aug 12,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 2
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:29:38 on Aug 12,2019
-# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
-# -- Compiling package constants
-# -- Compiling module bpu
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module i_cache
-# -- Compiling module icache_controller
-# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
-# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
-# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
-# -- Compiling package constants
-# -- Compiling module bfu
-# -- Compiling package riscv_tester_sv_unit
-# -- Importing package constants
-# -- Compiling module fetch_unit
-# -- Compiling package constants
-# -- Compiling module cu
-# -- Compiling package constants
-# -- Compiling module reg_file
-# -- Compiling package constants
-# -- Compiling module forw_unit
-# -- Compiling package constants
-# -- Compiling module alu
-# -- Compiling package constants
-# -- Compiling module dram
-# -- Compiling module riscv_core
-# -- Compiling module riscv_tester
-# 
-# Top level modules:
-# 	riscv_tester
-# End time: 19:29:38 on Aug 12,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-# End time: 19:29:38 on Aug 12,2019, Elapsed time: 0:12:45
-# Errors: 0, Warnings: 6, Suppressed Warnings: 1
-# vsim -t ns work.riscv_tester 
-# Start time: 19:29:38 on Aug 12,2019
-# Loading sv_std.std
-# Loading work.constants
-# Loading work.riscv_tester_sv_unit
-# Loading work.riscv_tester
-# Loading work.riscv_core
-# Loading work.fetch_unit
-# Loading work.bfu
-# Loading work.bpu
-# Loading work.icache_controller
-# Loading work.i_cache
-# Loading work.cu
-# Loading work.reg_file
-# Loading work.forw_unit
-# Loading work.alu
+# Loading work.dram_controller
 # Loading work.dram
 # hexadecimal
 run 1700ns
 do ../Bin/compile.tcl; run 1700ns
 # ../../HardwareDescription
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:29 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
 # -- Compiling package constants
 # 
 # Top level modules:
 # 	--none--
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:29 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:29 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
 # 
 # Top level modules:
 # 	bpu
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:29 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:29 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
 # -- Compiling package constants
 # -- Compiling module bfu
 # 
 # Top level modules:
 # 	bfu
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:29 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:29 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
 # 
 # Top level modules:
 # 	i_cache
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:29 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:29 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
@@ -1650,10 +982,10 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	icache_controller
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:29 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:29 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -1675,40 +1007,40 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	fetch_unit
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:29 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:29 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
 # -- Compiling package constants
 # -- Compiling module reg_file
 # 
 # Top level modules:
 # 	reg_file
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:29 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:30 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
 # -- Compiling package constants
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:30 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:30 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
 # -- Compiling package constants
 # -- Compiling module forw_unit
 # 
 # Top level modules:
 # 	forw_unit
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:30 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:30 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
 # -- Compiling package constants
 # -- Compiling module cu
@@ -1716,20 +1048,370 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	cu
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:30 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:30 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 12:07:30 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:07:30 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
 # -- Compiling package constants
 # -- Compiling module dram
 # 
 # Top level modules:
 # 	dram
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:07:30 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:07:30 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# ** Error: (vlog-13069) ../../HardwareDescription/RISCVCore/riscv_core.sv(276): near "(": syntax error, unexpected '(', expecting '\''.
+# ** Error: (vlog-13069) ../../HardwareDescription/RISCVCore/riscv_core.sv(277): near "(": syntax error, unexpected '(', expecting '\''.
+# ** Error: (vlog-13069) ../../HardwareDescription/RISCVCore/riscv_core.sv(358): near "(": syntax error, unexpected '(', expecting '\''.
+# ** Error: (vlog-13069) ../../HardwareDescription/RISCVCore/riscv_core.sv(359): near "(": syntax error, unexpected '(', expecting '\''.
+# End time: 12:07:30 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 2
+# ** Error: /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./../Bin/compile.tcl line 50
+# /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog +acc -sv -work work $PATH/RISCVCore/riscv_core.sv"
+do ../Bin/compile.tcl; run 1700ns
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:08:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:08:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
+# -- Compiling package constants
+# -- Compiling module bfu
+# 
+# Top level modules:
+# 	bfu
+# End time: 12:08:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:08:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:08:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:17 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:08:17 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:18 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:08:18 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:18 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:08:18 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:18 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:08:18 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:18 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:08:18 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:18 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 12:08:18 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:18 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:08:18 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:18 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# ** Error: (vlog-13069) ../../HardwareDescription/RISCVCore/riscv_core.sv(358): near "(": syntax error, unexpected '(', expecting '\''.
+# ** Error: (vlog-13069) ../../HardwareDescription/RISCVCore/riscv_core.sv(359): near "(": syntax error, unexpected '(', expecting '\''.
+# End time: 12:08:18 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 2
+# ** Error: /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./../Bin/compile.tcl line 50
+# /home/sandro/intelFPGA/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog +acc -sv -work work $PATH/RISCVCore/riscv_core.sv"
+do ../Bin/compile.tcl; run 1700ns
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
+# -- Compiling package constants
+# -- Compiling module bfu
+# 
+# Top level modules:
+# 	bfu
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:36 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:08:36 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:37 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:08:37 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:37 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 12:08:37 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:37 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:08:37 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:08:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -1759,15 +1441,15 @@ do ../Bin/compile.tcl; run 1700ns
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
 # 
 # Top level modules:
 # 	riscv_core
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:08:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:46:06 on Aug 12,2019
+# Start time: 12:08:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -1799,18 +1481,20 @@ do ../Bin/compile.tcl; run 1700ns
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
+# -- Compiling package constants
+# -- Compiling module dram
 # -- Compiling module riscv_tester
 # 
 # Top level modules:
 # 	riscv_tester
-# End time: 19:46:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:08:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
-# End time: 19:46:07 on Aug 12,2019, Elapsed time: 0:16:29
-# Errors: 0, Warnings: 6, Suppressed Warnings: 1
+# End time: 12:08:38 on Aug 13,2019, Elapsed time: 0:12:54
+# Errors: 12, Warnings: 14, Suppressed Warnings: 1
 # vsim -t ns work.riscv_tester 
-# Start time: 19:46:07 on Aug 12,2019
+# Start time: 12:08:38 on Aug 13,2019
 # Loading sv_std.std
 # Loading work.constants
 # Loading work.riscv_tester_sv_unit
@@ -1825,56 +1509,52 @@ do ../Bin/compile.tcl; run 1700ns
 # Loading work.reg_file
 # Loading work.forw_unit
 # Loading work.alu
+# Loading work.dram_controller
 # Loading work.dram
 # hexadecimal
-add wave -position insertpoint  \
-sim:/riscv_tester/riscv_processor/data_ram/dram_word
-restart; run 2200ns
-run 1000ns
-restart; run 3200ns
 do ../Bin/compile.tcl; run 1700ns
 # ../../HardwareDescription
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:00 on Aug 12,2019
+# Start time: 12:12:36 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
 # -- Compiling package constants
 # 
 # Top level modules:
 # 	--none--
-# End time: 19:52:00 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:36 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:00 on Aug 12,2019
+# Start time: 12:12:36 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
 # 
 # Top level modules:
 # 	bpu
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:01
+# End time: 12:12:36 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:36 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
 # -- Compiling package constants
 # -- Compiling module bfu
 # 
 # Top level modules:
 # 	bfu
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
 # 
 # Top level modules:
 # 	i_cache
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
@@ -1882,10 +1562,10 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	icache_controller
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -1907,40 +1587,40 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	fetch_unit
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
 # -- Compiling package constants
 # -- Compiling module reg_file
 # 
 # Top level modules:
 # 	reg_file
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
 # -- Compiling package constants
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
 # -- Compiling package constants
 # -- Compiling module forw_unit
 # 
 # Top level modules:
 # 	forw_unit
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
 # -- Compiling package constants
 # -- Compiling module cu
@@ -1948,20 +1628,32 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	cu
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
 # -- Compiling package constants
 # -- Compiling module dram
 # 
 # Top level modules:
 # 	dram
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -1991,15 +1683,15 @@ do ../Bin/compile.tcl; run 1700ns
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
 # 
 # Top level modules:
 # 	riscv_core
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:52:01 on Aug 12,2019
+# Start time: 12:12:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -2031,18 +1723,271 @@ do ../Bin/compile.tcl; run 1700ns
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
+# -- Compiling package constants
+# -- Compiling module dram
 # -- Compiling module riscv_tester
 # 
 # Top level modules:
 # 	riscv_tester
-# End time: 19:52:01 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:12:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
-# End time: 19:52:02 on Aug 12,2019, Elapsed time: 0:05:55
+# End time: 12:12:38 on Aug 13,2019, Elapsed time: 0:04:00
+# Errors: 0, Warnings: 6, Suppressed Warnings: 1
+# vsim -t ns work.riscv_tester 
+# Start time: 12:12:38 on Aug 13,2019
+# Loading sv_std.std
+# Loading work.constants
+# Loading work.riscv_tester_sv_unit
+# Loading work.riscv_tester
+# Loading work.riscv_core
+# Loading work.fetch_unit
+# Loading work.bfu
+# Loading work.bpu
+# Loading work.icache_controller
+# Loading work.i_cache
+# Loading work.cu
+# Loading work.reg_file
+# Loading work.forw_unit
+# Loading work.alu
+# Loading work.dram_controller
+# Loading work.dram
+# hexadecimal
+add wave -position insertpoint sim:/riscv_tester/riscv_processor/*
+add wave -position insertpoint  \
+sim:/riscv_tester/riscv_processor/load_type \
+sim:/riscv_tester/riscv_processor/store_type
+restart; run 3200ns
+add wave -position insertpoint  \
+sim:/riscv_tester/data_ram/dram_word
+restart; run 3200ns
+!do
+# do ../Bin/compile.tcl; run 1700ns
+# ../../HardwareDescription
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
+# -- Compiling package constants
+# 
+# Top level modules:
+# 	--none--
+# End time: 12:20:48 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# 
+# Top level modules:
+# 	bpu
+# End time: 12:20:48 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
+# -- Compiling package constants
+# -- Compiling module bfu
+# 
+# Top level modules:
+# 	bfu
+# End time: 12:20:48 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# 
+# Top level modules:
+# 	i_cache
+# End time: 12:20:48 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# 
+# Top level modules:
+# 	icache_controller
+# End time: 12:20:48 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package fetch_unit_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# 
+# Top level modules:
+# 	fetch_unit
+# End time: 12:20:48 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
+# -- Compiling package constants
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 12:20:48 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:48 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
+# -- Compiling package constants
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 12:20:49 on Aug 13,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:49 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# 
+# Top level modules:
+# 	forw_unit
+# End time: 12:20:49 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:49 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
+# -- Compiling package constants
+# -- Compiling module cu
+# ** Note: (vlog-143) Recognized 1 FSM in module "cu(verilog)".
+# 
+# Top level modules:
+# 	cu
+# End time: 12:20:49 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:49 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 12:20:49 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:49 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
+# -- Compiling package constants
+# -- Compiling module dram
+# 
+# Top level modules:
+# 	dram
+# End time: 12:20:49 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:49 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_core_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram_controller
+# -- Compiling module riscv_core
+# 
+# Top level modules:
+# 	riscv_core
+# End time: 12:20:49 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:20:49 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
+# -- Compiling package constants
+# -- Compiling module bpu
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(2)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv(1)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module i_cache
+# -- Compiling module icache_controller
+# ** Warning: ** while parsing file included at ../../HardwareDescription/Testbench/riscv_tester.sv(1)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv(4)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv(3)
+# ** while parsing file included at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv(16)
+# ** at ../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv(1): (vlog-2275) 'constants' already exists and will be overwritten.
+# -- Compiling package constants
+# -- Compiling module bfu
+# -- Compiling package riscv_tester_sv_unit
+# -- Importing package constants
+# -- Compiling module fetch_unit
+# -- Compiling package constants
+# -- Compiling module cu
+# -- Compiling package constants
+# -- Compiling module reg_file
+# -- Compiling package constants
+# -- Compiling module forw_unit
+# -- Compiling package constants
+# -- Compiling module alu
+# -- Compiling package constants
+# -- Compiling module dram_controller
+# -- Compiling module riscv_core
+# -- Compiling package constants
+# -- Compiling module dram
+# -- Compiling module riscv_tester
+# 
+# Top level modules:
+# 	riscv_tester
+# End time: 12:20:49 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# End time: 12:20:50 on Aug 13,2019, Elapsed time: 0:08:12
 # Errors: 0, Warnings: 6, Suppressed Warnings: 3
 # vsim -t ns work.riscv_tester 
-# Start time: 19:52:02 on Aug 12,2019
+# Start time: 12:20:50 on Aug 13,2019
 # Loading sv_std.std
 # Loading work.constants
 # Loading work.riscv_tester_sv_unit
@@ -2057,51 +2002,52 @@ do ../Bin/compile.tcl; run 1700ns
 # Loading work.reg_file
 # Loading work.forw_unit
 # Loading work.alu
+# Loading work.dram_controller
 # Loading work.dram
 # hexadecimal
 do ../Bin/compile.tcl; run 1700ns
 # ../../HardwareDescription
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Constants/constants.sv 
 # -- Compiling package constants
 # 
 # Top level modules:
 # 	--none--
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
 # 
 # Top level modules:
 # 	bpu
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv 
 # -- Compiling package constants
 # -- Compiling module bfu
 # 
 # Top level modules:
 # 	bfu
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
 # 
 # Top level modules:
 # 	i_cache
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv 
 # -- Compiling package constants
 # -- Compiling module i_cache
@@ -2109,10 +2055,10 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	icache_controller
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/FetchUnit/fetch_unit.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -2134,40 +2080,40 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	fetch_unit
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RegisterFile/reg_file.sv 
 # -- Compiling package constants
 # -- Compiling module reg_file
 # 
 # Top level modules:
 # 	reg_file
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ALU/alu.sv 
 # -- Compiling package constants
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ForwardUnit/forwardunit.sv 
 # -- Compiling package constants
 # -- Compiling module forw_unit
 # 
 # Top level modules:
 # 	forw_unit
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/ControlUnit/cu.sv 
 # -- Compiling package constants
 # -- Compiling module cu
@@ -2175,20 +2121,32 @@ do ../Bin/compile.tcl; run 1700ns
 # 
 # Top level modules:
 # 	cu
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
+# vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAMController/dram_controller.sv 
+# -- Compiling package constants
+# -- Compiling package dram_controller_sv_unit
+# -- Importing package constants
+# -- Compiling module dram_controller
+# 
+# Top level modules:
+# 	dram_controller
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/DRAM/dram.sv 
 # -- Compiling package constants
 # -- Compiling module dram
 # 
 # Top level modules:
 # 	dram
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:05 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/RISCVCore/riscv_core.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -2218,15 +2176,15 @@ do ../Bin/compile.tcl; run 1700ns
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
 # 
 # Top level modules:
 # 	riscv_core
-# End time: 20:57:05 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:37 on Aug 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:57:06 on Aug 12,2019
+# Start time: 12:27:37 on Aug 13,2019
 # vlog -reportprogress 300 "+acc" -sv -work work ../../HardwareDescription/Testbench/riscv_tester.sv 
 # -- Compiling package constants
 # -- Compiling module bpu
@@ -2258,18 +2216,20 @@ do ../Bin/compile.tcl; run 1700ns
 # -- Compiling package constants
 # -- Compiling module alu
 # -- Compiling package constants
-# -- Compiling module dram
+# -- Compiling module dram_controller
 # -- Compiling module riscv_core
+# -- Compiling package constants
+# -- Compiling module dram
 # -- Compiling module riscv_tester
 # 
 # Top level modules:
 # 	riscv_tester
-# End time: 20:57:06 on Aug 12,2019, Elapsed time: 0:00:00
+# End time: 12:27:38 on Aug 13,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 2
-# End time: 20:57:06 on Aug 12,2019, Elapsed time: 1:05:04
+# End time: 12:27:38 on Aug 13,2019, Elapsed time: 0:06:48
 # Errors: 0, Warnings: 6, Suppressed Warnings: 1
 # vsim -t ns work.riscv_tester 
-# Start time: 20:57:06 on Aug 12,2019
+# Start time: 12:27:38 on Aug 13,2019
 # Loading sv_std.std
 # Loading work.constants
 # Loading work.riscv_tester_sv_unit
@@ -2284,9 +2244,8 @@ do ../Bin/compile.tcl; run 1700ns
 # Loading work.reg_file
 # Loading work.forw_unit
 # Loading work.alu
+# Loading work.dram_controller
 # Loading work.dram
 # hexadecimal
-add wave -position insertpoint  \
-sim:/riscv_tester/riscv_processor/data_ram/dram_word
-# End time: 20:59:03 on Aug 12,2019, Elapsed time: 0:01:57
+# End time: 12:27:56 on Aug 13,2019, Elapsed time: 0:00:18
 # Errors: 0, Warnings: 0, Suppressed Warnings: 1

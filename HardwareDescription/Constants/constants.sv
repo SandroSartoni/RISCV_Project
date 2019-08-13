@@ -104,15 +104,18 @@ package constants;
 
 	// Define user data types
 	typedef enum logic[2:0] {
-		add_conf = 3'b000,
-		sub_conf = 3'b001,
-		and_conf = 3'b010,
-		or_conf = 3'b011,
-		xor_conf = 3'b100,
-		sll_conf = 3'b101,
-		srl_conf = 3'b110,
-		sra_conf = 3'b111
-	} iexu_conf;
+		lb_conf = 3'h0,
+		lh_conf = 3'h1,
+		lw_conf = 3'h2,
+		lbu_conf = 3'h4,
+		lhu_conf = 3'h5
+	} load_conf;
+
+	typedef enum logic[2:0] {
+		sb_conf = 3'h0,
+		sh_conf = 3'h1,
+		sw_conf = 3'h2
+	} store_conf;
 
 	typedef enum logic[2:0] {
 		beq_inst = 3'b000,

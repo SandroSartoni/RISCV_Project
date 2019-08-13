@@ -6,7 +6,7 @@
 `include "../RegisterFile/reg_file.sv"
 `include "../ForwardUnit/forwardunit.sv"
 `include "../ALU/alu.sv"
-`include "../DRAM/dram.sv"
+`include "../DRAMController/dram_controller.sv"
 
 import constants::*;
 
@@ -14,12 +14,15 @@ module riscv_core
 (
 	input logic clk,			// Clock signal
 	input logic nrst,			// Reset active on negedge
-	input logic[`memory_word-1:0] mem_word, // Word from RAM
+	input logic[`memory_word-1:0] imem_word,// Word from RAM
 	input logic word_ready,			// Bit from IRAM Controller, requested word from RAM is available
-//	...
-	output logic[`pc_size-1:0] ram_address, // Address for the IRAM Controller (in case of Cache Miss)
-	output logic i_miss//,			// Bit to tell the IRAM Controller there's a miss
-//	...
+	input logic[`data_size-1:0] dmem_word,  // DRAM Word from Data RAM
+	output logic[`pc_size-1:0] iram_address,// Address for the IRAM Controller (in case of Cache Miss)
+	output logic i_miss,			// Bit to tell the IRAM Controller there's a miss
+	output logic dram_re,			// Read Enable CTRL Bit for DRAM
+	output logic dram_we,			// Write Enable CTRL Bit for DRAM
+	output logic[8:0] dram_address,		// Address Field of the DRAM
+	output logic[`data_size-1:0] dram_datain// Data Input Field of the DRAM
 );
 
 // Internal signals definition
@@ -40,6 +43,8 @@ logic rf_we_m;
 logic rf_we_w;
 logic[`data_size-1:0] immediate_field;		// Immediate Field from the DecodeUnit
 branch_type branch_op;				// Branch type operation
+load_conf load_type[0:2];			// Load type operation
+store_conf store_type[0:2];			// Store type operation
 logic jr_bpu;					// Bit from CU that is 1'b1 when there's a JR in the Decode Stage
 logic[`instr_size-1:0] instr_fetched;		// Instruction fetched in the FetchUnit (before pipeline reg, pre chng2nop)
 logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg, post chng2nop)
@@ -107,11 +112,11 @@ fetch_unit fu
         .immediate_decode(immediate_field),
         .branch_op(branch_op),
 	.jr_bpu(jr_bpu),
-        .mem_word(mem_word),
+        .mem_word(imem_word),
         .word_ready(word_ready),
 	.wr_en(rf_we_d),
 	.pc_val(pc_fu),
-        .ram_address(ram_address),
+        .ram_address(iram_address),
         .miss_cache(miss_cache),
         .instr_fetched(instr_fetched),
         .chng2nop(chng2nop)
@@ -175,6 +180,10 @@ always_comb begin : imm_assign
 				immediate_field = `data_size'(instr_fetched_du[24:20]);
 		end
 
+		`ldtype_op : begin
+			immediate_field = `data_size'(signed'(instr_fetched_du[31:20]));
+		end
+
 		`stotype_op : begin
 			immediate_field = `data_size'(signed'({instr_fetched_du[31:25],instr_fetched_du[11:7]}));
 		end
@@ -203,6 +212,12 @@ end : imm_assign
 
 // Branch Operation field
 assign branch_op = (op_decode == `btype_op) ? branch_type'(instr_fetched_du[14:12]) : branch_type'('h0);
+
+// Load Configuration field
+assign load_type[0] = (op_decode == `ldtype_op) ? load_conf'(instr_fetched_du[14:12]) : load_conf'('h0);
+
+// Store Configuration field
+assign store_type[0] = (op_decode == `stotype_op) ? store_conf'(instr_fetched_du[14:12]) : store_conf'('h0);
 
 // JALR related jr_bpu bit generation
 assign jr_bpu = (op_decode == `jalr_op);
@@ -262,6 +277,8 @@ always_ff @(posedge clk) begin : du_exu_regs
 		rf_we_e <= 1'b0;
 		rs1_field_exe <= 'h0;
 		rs2_field_exe <= 'h0;
+		load_type[1] <= load_conf'('h0);
+		store_type[1] <= store_conf'('h0);
 	end
 	else
 		if(dec_exe_en) begin
@@ -272,6 +289,8 @@ always_ff @(posedge clk) begin : du_exu_regs
 			rf_we_e <= rf_we_d;
 			rs1_field_exe <= rs1_field;
 			rs2_field_exe <= rs2_field;
+			load_type[1] <= load_type[0];
+			store_type[1] <= store_type[0];
 		end
 
 		// This is necessary in order not to have problems with
@@ -340,6 +359,8 @@ always_ff @(posedge clk) begin : exu_mu_regs
 		dmem_data <= 'h0;
 		rf_we_m <= 1'b0;
 		pc_mem <= 'h0;
+		load_type[2] <= load_conf'('h0);
+		store_type[2] <= store_conf'('h0);
 	end
 	else
 		if(exe_mem_en) begin
@@ -348,6 +369,8 @@ always_ff @(posedge clk) begin : exu_mu_regs
 			dmem_data <= op2_execute;
 			rf_we_m <= rf_we_e;
 			pc_mem <= pc_exe;
+			load_type[2] <= load_type[1];
+			store_type[2] <= store_type[1];
 		end
 end : exu_mu_regs
 
@@ -357,7 +380,7 @@ end : exu_mu_regs
 ///////////////////////////////////
 
 // DRAM instantiation
-dram data_ram
+dram_controller data_ram_controller
 (
 	.clk(clk),
 	.nrst(nrst),
@@ -365,7 +388,14 @@ dram data_ram
 	.dmem_data(dmem_data),
 	.dmem_re(dmem_re),
 	.dmem_we(dmem_we),
-	.dmem_out(dmem_out)
+	.load_type(load_type[2]),
+	.store_type(store_type[2]),
+	.dmem_word(dmem_word),
+	.dmem_out(dmem_out),
+	.dram_re(dram_re),
+	.dram_we(dram_we),
+	.dram_datain(dram_datain),
+	.dram_address(dram_address)
 );
 
 // Mux that chooses between DRAM's out or ALU's out
