@@ -40,6 +40,8 @@ module cu
 //       |||||||||||||| MUXD_SEL
 //       ||||||||||||||| RF_WE
 
+       'b110011011001101,   // auipc
+       'b110011111001101,   // lui
        'b111111111001100,   // branch
        'b110011101001111,   // jal
        'b111011011001111,   // jalr
@@ -97,9 +99,10 @@ module cu
 	else begin
 		case(opcode_pipe)
 		
-		    `lui_op:        ALU_control_temp <= 'd0;
-		    `ldtype_op:    ALU_control_temp <= 'd1;
-		    `stotype_op:    ALU_control_temp <= 'd1;
+		    `lui_op	: ALU_control_temp <= 'd0;
+		    `ldtype_op	: ALU_control_temp <= 'd1;
+		    `stotype_op	: ALU_control_temp <= 'd1;
+		    `auipc_op	: ALU_control_temp <= 'd2;
 		    `rtype_op:      
 			
 			case (instr_pipe[14:12])      // func field
@@ -157,8 +160,10 @@ module cu
 		    instr_pipe <= 'h0;
 	    end
 	    else begin
-		    opcode_pipe <= opcode;
-		    instr_pipe <= instr_in;
+		if(~stall) begin
+		    	opcode_pipe <= opcode;
+		    	instr_pipe <= instr_in;
+		end
 	    end
     end
     
@@ -202,16 +207,18 @@ module cu
 		current_cw = prev_cw;
         else begin
             case (opcode)
-              `btype_op     : current_cw = cw_memory[8];
-              `jal_op       : current_cw = cw_memory[7];
-              `jalr_op      : current_cw = cw_memory[6];
-              `ldtype_op    : current_cw = cw_memory[5];
-              `stotype_op   : current_cw = cw_memory[4];
-              `itype_op     : current_cw = cw_memory[3];
-              `rtype_op     : current_cw = cw_memory[2];
-              `fence_op     : current_cw = cw_memory[1];
-              `cstype_op    : current_cw = cw_memory[0];
-              'b0           : current_cw = 'b110000000000000;  // enabling pc during icache loading
+	      `auipc_op		: current_cw = cw_memory[10];
+              `lui_op		: current_cw = cw_memory[9];
+              `btype_op		: current_cw = cw_memory[8];
+              `jal_op		: current_cw = cw_memory[7];
+              `jalr_op		: current_cw = cw_memory[6];
+              `ldtype_op	: current_cw = cw_memory[5];
+              `stotype_op	: current_cw = cw_memory[4];
+              `itype_op		: current_cw = cw_memory[3];
+              `rtype_op		: current_cw = cw_memory[2];
+              `fence_op		: current_cw = cw_memory[1];
+              `cstype_op	: current_cw = cw_memory[0];
+              'b0		: current_cw = 'b110000000000000;  // enabling pc during icache loading
             endcase
         end
     end : cw_fetch
@@ -296,10 +303,10 @@ module cu
         F_stall_del <= F_stall;
         FD_stall_del <= FD_stall;
     
-        if (stall)
-            cw1 <= 'b0;
+        //if (stall)
+            //cw1 <= 'b0;
 
-        else begin            
+        if (~stall) begin            
             case(state)
                 
                 RESET : begin
@@ -322,8 +329,8 @@ module cu
                     end    
                     else if (F_stall) begin
                         //cw1 <= {1'b0, cw1[`cw_length-2:0]};    // Disabling PC for one clk
-                        cw1 <= 'h0248;                            // Bubble
-                        cw2 <= current_cw[`cw_length-7:0];
+                        //cw1 <= cw1;                            // Bubble
+                        cw2 <= cw1[`cw_length-7:0];
                         cw3 <= cw2[`cw_length-9:0];
                         cw4 <= cw3[`cw_length-13:0];
                     end

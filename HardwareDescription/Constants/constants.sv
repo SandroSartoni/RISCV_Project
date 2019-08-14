@@ -19,7 +19,7 @@ package constants;
 
 	// Define cu sizes
 	`define cw_length	15	// number of control signals
-	`define cw_mem_size	9	// number of distinct instructions
+	`define cw_mem_size	11	// number of distinct instructions
 
 
 	// Define opcodes

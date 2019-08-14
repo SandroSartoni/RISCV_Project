@@ -55,9 +55,9 @@ logic[`instr_size-1:0] instr_entry[0:(`icache_blocksize/`instr_size)-1];
 generate
 
 	for(genvar i=0; i<(`icache_blocksize/`instr_size); i++)
-		assign instr_entry[i] = hit_s ? {cache_table[set_base_address+singlentry_hit-1][32*i+24:32*i+31],cache_table[set_base_address+singlentry_hit-1][32*i+16:32*i+23],
-						 cache_table[set_base_address+singlentry_hit-1][32*i+8:32*i+15],cache_table[set_base_address+singlentry_hit-1][32*i:32*i+7]} :
-						 (we ? {block_in[32*i+24:32*i+31],block_in[32*i+16:32*i+23],block_in[32*i+8:32*i+15],block_in[32*i:32*i+7]} : 'h0);
+		assign instr_entry[i] = (hit_s) ? {cache_table[set_base_address+singlentry_hit-1][32*i+24:32*i+31],cache_table[set_base_address+singlentry_hit-1][32*i+16:32*i+23],
+						cache_table[set_base_address+singlentry_hit-1][32*i+8:32*i+15],cache_table[set_base_address+singlentry_hit-1][32*i:32*i+7]} :
+						(we ? {block_in[32*i+24:32*i+31],block_in[32*i+16:32*i+23],block_in[32*i+8:32*i+15],block_in[32*i:32*i+7]} : 'h0);
 
 endgenerate
 

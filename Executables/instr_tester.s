@@ -40,5 +40,48 @@ _start:
 	lbu	x23,8(x0)
 	lhu	x24,8(x0)
 
+# LUI/AUIPC Instructions
+
+	lui	x25,0x800	#FDEMW
+	auipc	x26,0x10	# FDEMW
+
+# Branch instructions and JALR
+
+	beq	x25,x26,beq_lab #  FsDEMW
+bne_instr:
+	bne	x25,x26,bne_lab
+blt_instr:
+	blt	x1,x2,blt_lab
+bge_instr:
+	bge	x1,x2,bge_lab
+bltu_instr:
+	bltu	x1,x2,bltu_lab
+bgeu_instr:
+	bgeu	x1,x2,bgeu_lab
+
+jalr_lab:
+	addi x2,x2,10
+	jalr x3,x1,0
+beq_lab:
+	addi x27,x27,27
+	j bne_instr
+bne_lab:
+	addi x28,x28,28
+	j blt_instr
+blt_lab:
+	addi x29,x29,29
+	j bge_instr
+bge_lab:
+	addi x30,x30,30
+	j bltu_instr
+bltu_lab:
+	addi x31,x31,37
+	j bgeu_instr
+bgeu_lab:
+	addi x27,x27,27
+	jal x1,jalr_lab
+
+# End of Program
+
 _exit:
 	j _exit

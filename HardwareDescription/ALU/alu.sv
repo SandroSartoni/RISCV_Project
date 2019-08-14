@@ -16,7 +16,7 @@ logic compare_s_result;
 
 parameter S0 = 4'b0000; //LUI
 parameter S1 = 4'b0001; // LB LH LW LBU LHU SB SH SW
-parameter S2 = 4'b0010; //ADDI ADD
+parameter S2 = 4'b0010; //ADDI ADD AUIPC
 parameter S3 = 4'b0011; //XORI XOR
 parameter S4 = 4'b0100; //ORI OR
 parameter S5 = 4'b0101; //ANDI AND

@@ -35,6 +35,7 @@ logic[`pc_size-1:0] pc_four;
 logic[`pc_size-1:0] pc_dec;
 logic[`pc_size-1:0] alupc;
 logic[`instr_size-1:0] fetched_inst;
+logic[`instr_size-1:0] fetched_inst_chng;
 logic mux_sel;
 logic trgt_gen;
 logic b_eval;
@@ -96,7 +97,7 @@ assign rs2 = br_fwsel2 ? wr_mem : rs2_decode;
 
 // Branch outcome: if 1'b0 it means do not branch, if 1'b1 it means branch
 always_comb begin : branch_operations
-	if(op_decode == `btype_op) begin
+	if((op_decode == `btype_op) & pc_en) begin
 		case(branch_op)
 			beq_inst : begin
 				if(rs1 == rs2)
@@ -150,7 +151,7 @@ bpu branch_pred_unit
 (
 	.clk(clk),
 	.nrst(nrst),
-	.op(fetched_inst[`opcode_size-1:0]),
+	.op(fetched_inst_chng[`opcode_size-1:0]),
 	.pc(curr_pc),
 	.alupc(alupc),
 	.pcplf(pc_four),
@@ -178,7 +179,9 @@ icache_controller instruction_cache_controller
 	.inst_fu(fetched_inst)
 );
 
-assign instr_fetched = fetched_inst;
+
+assign fetched_inst_chng = chng2nop? 'h00000013 : fetched_inst;
+assign instr_fetched = fetched_inst_chng;
 assign miss_cache = cache_miss;
 
 endmodule

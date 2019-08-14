@@ -118,11 +118,11 @@ fetch_unit fu
 	.pc_val(pc_fu),
         .ram_address(iram_address),
         .miss_cache(miss_cache),
-        .instr_fetched(instr_fetched),
+        .instr_fetched(instr_fetched_fu),
         .chng2nop(chng2nop)
 );
 
-assign instr_fetched_fu = chng2nop ? 'h00000013 : instr_fetched;
+//assign instr_fetched_fu = chng2nop ? 'h00000013 : instr_fetched;
 
 // FetchUnit -> DecodeUnit pipeline registers
 always_ff @(posedge clk) begin : fu_du_regs
@@ -193,7 +193,7 @@ always_comb begin : imm_assign
 		end
 
 		`lui_op : begin
-			immediate_field = {instr_fetched_du[31:12],12'h000};
+			immediate_field = `data_size'(instr_fetched_du[31:12]);
 		end
 
 		`auipc_op : begin
