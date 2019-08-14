@@ -1,0 +1,8 @@
+In pipelined microprocessor is necessary to introduce a forward unit to avoid the
+data hazard and don't introduce bubble. 
+In the code are describe all the conditions where the data read from register file is 
+equal to a data that we write in previous instructions taking into account that in the
+same field could pass data don't coming from RF but data of immediate and load/store 
+instructions. In fact the Forward unit receive also the write register signal.
+The output of Forward Unit are 2 bus of 2 bit each that drive two muxes with in input 
+data from RF, from ALU output and from output of register "inserire nome"
