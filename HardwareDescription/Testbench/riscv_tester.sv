@@ -80,6 +80,7 @@ initial begin
 	nrst = 1'b0;
 	clk = 1'b0;
 	@(posedge clk);
+	@(posedge clk);
 	nrst = 1'b1;
 	@(posedge clk);
 end

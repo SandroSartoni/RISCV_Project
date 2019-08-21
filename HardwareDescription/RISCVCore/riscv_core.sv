@@ -46,8 +46,7 @@ branch_type branch_op;				// Branch type operation
 load_conf load_type[0:2];			// Load type operation
 store_conf store_type[0:2];			// Store type operation
 logic jr_bpu;					// Bit from CU that is 1'b1 when there's a JR in the Decode Stage
-logic[`instr_size-1:0] instr_fetched;		// Instruction fetched in the FetchUnit (before pipeline reg, pre chng2nop)
-logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg, post chng2nop)
+logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg)
 logic[`instr_size-1:0] instr_fetched_du;	// Instruction fetched in the DecodeUnit (after pipeline reg)
 logic chng2nop;					// Change to NOP bit in the FetchUnit (before pipeline reg)
 logic[`cw_length-1:0] cw_out;			// Control signals from Control Unit
