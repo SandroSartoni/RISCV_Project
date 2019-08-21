@@ -1,4 +1,5 @@
 `include "../../Constants/constants.sv"
+import constants::log2;
 
 module i_cache
 (
@@ -16,24 +17,24 @@ module i_cache
 //  -- Tag table: each entry contains a tag
 //  -- Valbit: each entry has the validity bit for the corresponding cache entry
 logic[0:`icache_blocksize-1] cache_table [0:(`icache_noofsets*`entriesperset)-1];
-logic[(`pc_size-$clog2(`icache_blocksize/8)-$clog2(`icache_noofsets)-1):0] tag_table [0:(`icache_noofsets*`entriesperset)-1];
+logic[(`pc_size-log2(`icache_blocksize/8)-log2(`icache_noofsets)-1):0] tag_table [0:(`icache_noofsets*`entriesperset)-1];
 logic valbit [0:(`icache_noofsets*`entriesperset)-1];
 
 // Decompose the PC value in TAG, Set Index, Block Offset
-logic[`pc_size-$clog2(`icache_noofsets)-$clog2(`icache_blocksize/8)-1:0] tag;
-logic[$clog2(`icache_noofsets)-1:0] set_index;
-logic[$clog2(`icache_blocksize/8)-1:0] block_offset;
+logic[`pc_size-log2(`icache_noofsets)-log2(`icache_blocksize/8)-1:0] tag;
+logic[log2(`icache_noofsets)-1:0] set_index;
+logic[log2(`icache_blocksize/8)-1:0] block_offset;
 
-assign tag = pc[`pc_size-1:$clog2(`icache_blocksize/8)+$clog2(`icache_noofsets)];
-assign set_index = pc[$clog2(`icache_blocksize/8)+$clog2(`icache_noofsets)-1:$clog2(`icache_blocksize/8)];
-assign block_offset = pc[$clog2(`icache_blocksize/8)-1:0];
+assign tag = pc[`pc_size-1:log2(`icache_blocksize/8)+log2(`icache_noofsets)];
+assign set_index = pc[log2(`icache_blocksize/8)+log2(`icache_noofsets)-1:log2(`icache_blocksize/8)];
+assign block_offset = pc[log2(`icache_blocksize/8)-1:0];
 
 
 // Evaluate physical set_base_address
-logic[$clog2(`icache_noofsets*`entriesperset)-1:0] set_base_address; // This vector has the base address of the set indicated by the current PC value
+logic[log2(`icache_noofsets*`entriesperset)-1:0] set_base_address; // This vector has the base address of the set indicated by the current PC value
 
-assign set_base_address[$clog2(`icache_noofsets*`entriesperset)-1:$clog2(`entriesperset)] = set_index;
-assign set_base_address[$clog2(`entriesperset)-1:0] = 'h0;
+assign set_base_address[log2(`icache_noofsets*`entriesperset)-1:log2(`entriesperset)] = set_index;
+assign set_base_address[log2(`entriesperset)-1:0] = 'h0;
 
 // Hit/Miss signal logic
 logic[`entriesperset-1:0] singlentry_hit; // Hit signal for each entry in a set
@@ -64,11 +65,11 @@ endgenerate
 
 // Assign here output hit signal and fetched instruction (if any)
 assign hit = hit_s;
-assign fetched_inst = instr_entry[block_offset[$clog2(`icache_blocksize/8)-1:2]];
+assign fetched_inst = instr_entry[block_offset[log2(`icache_blocksize/8)-1:2]];
 
 
 // Tag and Cache Table 
-logic[$clog2(`entriesperset)-1:0] update_cnt[0:`icache_noofsets-1];
+logic[log2(`entriesperset)-1:0] update_cnt[0:`icache_noofsets-1];
 
 always_ff @(posedge clk) begin
 	if(~nrst) begin

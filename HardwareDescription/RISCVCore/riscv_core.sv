@@ -8,7 +8,6 @@
 `include "../ALU/alu.sv"
 `include "../DRAMController/dram_controller.sv"
 
-import constants::*;
 
 module riscv_core
 (

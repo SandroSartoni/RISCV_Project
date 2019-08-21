@@ -1,5 +1,14 @@
 `include "../Constants/constants.sv"
-import constants::*;
+import constants::store_conf;
+import constants::sb_conf;
+import constants::sh_conf;
+import constants::sw_conf;
+import constants::load_conf;
+import constants::lb_conf;
+import constants::lh_conf;
+import constants::lw_conf;
+import constants::lbu_conf;
+import constants::lhu_conf;
 
 module dram_controller
 (

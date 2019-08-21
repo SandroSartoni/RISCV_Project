@@ -1,4 +1,4 @@
-# Added te +acc flagg, it may make the simulations run faster, see http://www.pldworld.com/_hdl/2/_ref/se_html/manual_html/c_vlog19.html
+# Added te +acc flag, it may make the simulations run faster, see http://www.pldworld.com/_hdl/2/_ref/se_html/manual_html/c_vlog19.html
 
 set PATH ../../HardwareDescription
 

@@ -133,5 +133,22 @@ package constants;
 		F_DELAY_ONE, 
 		F_DELAY_MEM
 	} statetype;
-    
+   
+	// User defined Functions
+	function automatic integer log2;
+		input [31:0] v;
+		reg [31:0] value;
+		begin
+			value = v;
+			if (value == 1) begin
+				log2 = 1;
+			end
+			else begin
+				value = value-1;
+				for (log2=0; value>0; log2=log2+1)
+					value = value>>1;
+			end
+		end
+	endfunction
+
 endpackage

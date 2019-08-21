@@ -1,7 +1,13 @@
 `include "BranchPredictionUnit/bpu.sv"
 `include "InstructionCache/icache_controller.sv"
 `include "BranchForwardingUnit/bfu.sv"
-import constants::*;
+import constants::branch_type;
+import constants::beq_inst;
+import constants::bne_inst;
+import constants::blt_inst;
+import constants::bge_inst;
+import constants::bltu_inst;
+import constants::bgeu_inst;
 
 module fetch_unit
 (

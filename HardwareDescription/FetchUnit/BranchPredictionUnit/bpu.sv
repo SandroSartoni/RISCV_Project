@@ -1,6 +1,8 @@
 `include "../../Constants/constants.sv"
+import constants::log2;
+
 `define table_size 512
-`define table_logsize $clog2(`table_size)
+`define table_logsize log2(`table_size)
 
 module bpu
 (
