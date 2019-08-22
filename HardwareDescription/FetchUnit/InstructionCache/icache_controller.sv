@@ -56,10 +56,12 @@ end : byte_from_mem_assign
 
 // Assign all the words coming from RAM to a single signal that feeds the
 // I_Cache
+genvar i;
 generate
 
-	for(genvar i=0; i<(`icache_blocksize/`memory_word); i++)
+	for(i=0; i<(`icache_blocksize/`memory_word); i++) begin
 		assign block_in_cache[`memory_word*i:(`memory_word*(i+1)-1)] = byte_from_mem[i];
+	end
 
 endgenerate
 

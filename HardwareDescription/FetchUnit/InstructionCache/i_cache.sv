@@ -33,8 +33,10 @@ assign block_offset = pc[log2(`icache_blocksize/8)-1:0];
 // Evaluate physical set_base_address
 logic[log2(`icache_noofsets*`entriesperset)-1:0] set_base_address; // This vector has the base address of the set indicated by the current PC value
 
-assign set_base_address[log2(`icache_noofsets*`entriesperset)-1:log2(`entriesperset)] = set_index;
-assign set_base_address[log2(`entriesperset)-1:0] = 'h0;
+always_comb begin : set_base_address_assignment
+	set_base_address[log2(`icache_noofsets*`entriesperset)-1:log2(`entriesperset)] = set_index;
+	set_base_address[log2(`entriesperset)-1:0] = 'h0;
+end : set_base_address_assignment
 
 // Hit/Miss signal logic
 logic[`entriesperset-1:0] singlentry_hit; // Hit signal for each entry in a set
@@ -52,13 +54,15 @@ assign hit_s = |singlentry_hit; // OR reduce of the vector of hit signals
 
 // Decompose the instruction block entry
 logic[`instr_size-1:0] instr_entry[0:(`icache_blocksize/`instr_size)-1];
+genvar i;
 
 generate
 
-	for(genvar i=0; i<(`icache_blocksize/`instr_size); i++)
+	for(i=0; i<(`icache_blocksize/`instr_size); i++) begin
 		assign instr_entry[i] = (hit_s) ? {cache_table[set_base_address+singlentry_hit-1][32*i+24:32*i+31],cache_table[set_base_address+singlentry_hit-1][32*i+16:32*i+23],
 						cache_table[set_base_address+singlentry_hit-1][32*i+8:32*i+15],cache_table[set_base_address+singlentry_hit-1][32*i:32*i+7]} :
 						(we ? {block_in[32*i+24:32*i+31],block_in[32*i+16:32*i+23],block_in[32*i+8:32*i+15],block_in[32*i:32*i+7]} : 'h0);
+	end
 
 endgenerate
 

@@ -27,7 +27,7 @@ w1566395121
 Z6 F../../HardwareDescription/Testbench/../RISCVCore/../ALU/alu.sv
 L0 3
 Z7 OV;L;10.5b;63
-Z8 !s108 1566395704.000000
+Z8 !s108 1566401948.000000
 Z9 !s107 ../../HardwareDescription/Testbench/../DRAM/../Constants/constants.sv|../../HardwareDescription/Testbench/../DRAM/dram.sv|../../HardwareDescription/Testbench/../RISCVCore/../DRAMController/../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../DRAMController/dram_controller.sv|../../HardwareDescription/Testbench/../RISCVCore/../ALU/../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../ALU/alu.sv|../../HardwareDescription/Testbench/../RISCVCore/../ForwardUnit/../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../ForwardUnit/forwardunit.sv|../../HardwareDescription/Testbench/../RISCVCore/../RegisterFile/../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../RegisterFile/reg_file.sv|../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/bfu.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchPredictionUnit/../../Constants/constants.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchPredictionUnit/bpu.sv|../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv|../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv|../../HardwareDescription/Testbench/riscv_tester.sv|
 Z10 !s90 -reportprogress|300|+acc|-sv|-work|work|../../HardwareDescription/Testbench/riscv_tester.sv|
 !i113 1
@@ -72,9 +72,9 @@ Ij;Xgmkd5l2[gF8KngWCMG0
 R5
 S1
 R0
-Z14 w1566393595
+w1566393595
 8../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchPredictionUnit/bpu.sv
-Z15 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchPredictionUnit/bpu.sv
+Z14 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchPredictionUnit/bpu.sv
 L0 7
 R7
 R8
@@ -96,13 +96,13 @@ Id1LT:IQhTo8lCEQ7L^R2b1
 !i103 1
 S1
 R0
-R14
+Z15 w1566401214
 8../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv
 Z16 F../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv
 Z17 F../../HardwareDescription/FetchUnit/BranchPredictionUnit/../../Constants/constants.sv
 L0 2
 R7
-Z18 !s108 1566395703.000000
+R8
 !s107 ../../HardwareDescription/FetchUnit/BranchPredictionUnit/../../Constants/constants.sv|../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv|
 !s90 -reportprogress|300|+acc|-sv|-work|work|../../HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv|
 !i113 1
@@ -119,9 +119,9 @@ r1
 ICE;gdhVFaeH5NTZ^4i5EY3
 S1
 R0
-w1566387469
+R15
 8../../HardwareDescription/Testbench/../DRAM/../Constants/constants.sv
-Z19 F../../HardwareDescription/Testbench/../DRAM/../Constants/constants.sv
+Z18 F../../HardwareDescription/Testbench/../DRAM/../Constants/constants.sv
 L0 1
 R7
 R8
@@ -146,8 +146,8 @@ S1
 R0
 w1566395130
 8../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv
-Z20 F../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv
-Z21 L0 12
+Z19 F../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/cu.sv
+Z20 L0 12
 R7
 R8
 R9
@@ -171,7 +171,7 @@ S1
 R0
 w1565692148
 8../../HardwareDescription/Testbench/../DRAM/dram.sv
-Z22 F../../HardwareDescription/Testbench/../DRAM/dram.sv
+Z21 F../../HardwareDescription/Testbench/../DRAM/dram.sv
 L0 4
 R7
 R8
@@ -194,10 +194,10 @@ IcS4e9<ii03<[NEaO_MAVz0
 R5
 S1
 R0
-Z23 w1566395214
+w1566395214
 8../../HardwareDescription/Testbench/../RISCVCore/../DRAMController/dram_controller.sv
-Z24 F../../HardwareDescription/Testbench/../RISCVCore/../DRAMController/dram_controller.sv
-Z25 L0 13
+Z22 F../../HardwareDescription/Testbench/../RISCVCore/../DRAMController/dram_controller.sv
+L0 13
 R7
 R8
 R9
@@ -218,7 +218,7 @@ I1f2X[dd4WafkJ49R@g@E41
 !i103 1
 S1
 R0
-R23
+R15
 8../../HardwareDescription/DRAMController/dram_controller.sv
 F../../HardwareDescription/DRAMController/dram_controller.sv
 F../../HardwareDescription/DRAMController/../Constants/constants.sv
@@ -244,10 +244,10 @@ I9UD_3HjSdGNSYJ5CW`e610
 R5
 S1
 R0
-Z26 w1566395096
+w1566395096
 8../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
-Z27 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
-R21
+Z23 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/fetch_unit.sv
+R20
 R7
 R8
 R9
@@ -268,14 +268,14 @@ I_5nTh1h_?6OGgBFS;]ln`1
 !i103 1
 S1
 R0
-R26
+Z24 w1566401944
 8../../HardwareDescription/FetchUnit/fetch_unit.sv
 F../../HardwareDescription/FetchUnit/fetch_unit.sv
 R16
 R17
-Z28 F../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv
-Z29 F../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv
-Z30 F../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv
+Z25 F../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv
+Z26 F../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv
+Z27 F../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv
 F../../HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv
 F../../HardwareDescription/FetchUnit/BranchForwardingUnit/../../Constants/constants.sv
 L0 2
@@ -302,7 +302,7 @@ S1
 R0
 w1566395225
 8../../HardwareDescription/Testbench/../RISCVCore/../ForwardUnit/forwardunit.sv
-Z31 F../../HardwareDescription/Testbench/../RISCVCore/../ForwardUnit/forwardunit.sv
+Z28 F../../HardwareDescription/Testbench/../RISCVCore/../ForwardUnit/forwardunit.sv
 L0 3
 R7
 R8
@@ -320,14 +320,14 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 JW[M;5mfK_4mLcojg^1En0
-I32_aGQbC<UT>MOJSW9;Zo3
+!s100 nA5fJLYPJHz>=L`gJeH5X3
+IQ22QVE<LN^g=>hka7l8n?2
 R5
 S1
 R0
-Z32 w1566393723
+Z29 w1566401914
 8../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv
-Z33 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv
+Z30 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/i_cache.sv
 L0 4
 R7
 R8
@@ -338,7 +338,7 @@ R11
 R12
 Xi_cache_sv_unit
 R1
-Z34 DXx4 work 9 constants 0 22 3XGIWMW84omgPO48j1JMb1
+Z31 DXx4 work 9 constants 0 22 3XGIWMW84omgPO48j1JMb1
 V:8khV?`PgV9Ka5VHUgKVF2
 r1
 !s85 0
@@ -349,13 +349,13 @@ I:8khV?`PgV9Ka5VHUgKVF2
 !i103 1
 S1
 R0
-R32
-8../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv
 R29
-R30
+8../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv
+R26
+R27
 L0 2
 R7
-R18
+R8
 !s107 ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv|../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv|
 !s90 -reportprogress|300|+acc|-sv|-work|work|../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv|
 !i113 1
@@ -370,14 +370,14 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 lmJNYBA`Wez6eVZ[=i?I]0
-I5X>J=0:b]8aZMzge^mKDc3
+!s100 jLL^A_@HH=g5:3m=U?4?M1
+I1EEOmAQA;fNdkUnVE>zHZ1
 R5
 S1
 R0
-Z35 w1566393800
+R24
 8../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv
-Z36 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv
+Z32 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/icache_controller.sv
 L0 3
 R7
 R8
@@ -388,7 +388,7 @@ R11
 R12
 Xicache_controller_sv_unit
 R1
-R34
+R31
 VA8CdikPk_0Kg<P@OkiW4R1
 r1
 !s85 0
@@ -399,14 +399,14 @@ IA8CdikPk_0Kg<P@OkiW4R1
 !i103 1
 S1
 R0
-R35
+R24
 8../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv
-R28
-R29
-R30
+R25
+R26
+R27
 L0 2
 R7
-R18
+R8
 !s107 ../../HardwareDescription/FetchUnit/InstructionCache/../../Constants/constants.sv|../../HardwareDescription/FetchUnit/InstructionCache/i_cache.sv|../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv|
 !s90 -reportprogress|300|+acc|-sv|-work|work|../../HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv|
 !i113 1
@@ -428,7 +428,7 @@ S1
 R0
 w1566395235
 8../../HardwareDescription/Testbench/../RISCVCore/../RegisterFile/reg_file.sv
-Z37 F../../HardwareDescription/Testbench/../RISCVCore/../RegisterFile/reg_file.sv
+Z33 F../../HardwareDescription/Testbench/../RISCVCore/../RegisterFile/reg_file.sv
 L0 3
 R7
 R8
@@ -446,15 +446,15 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 E67DUlK]jUQWb<XifB9?]1
-IYNdn5j:TdQQ<m>I0hZemQ1
+!s100 NZXg=zn1cU5L_daE9K]j00
+I^S<C6EABlg1QDCd6zP8SH2
 R5
 S1
 R0
-Z38 w1566395266
+w1566395794
 8../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv
-Z39 F../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv
-R25
+Z34 F../../HardwareDescription/Testbench/../RISCVCore/riscv_core.sv
+R20
 R7
 R8
 R9
@@ -475,7 +475,7 @@ IAPX7]YTVbfc^E7>=9Wj=^0
 !i103 1
 S1
 R0
-R38
+R24
 8../../HardwareDescription/RISCVCore/riscv_core.sv
 F../../HardwareDescription/RISCVCore/riscv_core.sv
 F../../HardwareDescription/RISCVCore/../FetchUnit/fetch_unit.sv
@@ -519,8 +519,8 @@ R5
 S1
 R0
 w1566380181
-Z40 8../../HardwareDescription/Testbench/riscv_tester.sv
-Z41 F../../HardwareDescription/Testbench/riscv_tester.sv
+Z35 8../../HardwareDescription/Testbench/riscv_tester.sv
+Z36 F../../HardwareDescription/Testbench/riscv_tester.sv
 L0 5
 R7
 R8
@@ -542,30 +542,30 @@ IAdBY?D4I8U2Hk:=AD0[k]1
 !i103 1
 S1
 R0
-R38
-R40
-R41
-R39
-R27
-R15
-F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchPredictionUnit/../../Constants/constants.sv
+R24
+R35
 R36
-R33
+R34
+R23
+R14
+F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchPredictionUnit/../../Constants/constants.sv
+R32
+R30
 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/InstructionCache/../../Constants/constants.sv
 R13
 F../../HardwareDescription/Testbench/../RISCVCore/../FetchUnit/BranchForwardingUnit/../../Constants/constants.sv
-R20
+R19
 F../../HardwareDescription/Testbench/../RISCVCore/../ControlUnit/../Constants/constants.sv
-R37
+R33
 F../../HardwareDescription/Testbench/../RISCVCore/../RegisterFile/../Constants/constants.sv
-R31
+R28
 F../../HardwareDescription/Testbench/../RISCVCore/../ForwardUnit/../Constants/constants.sv
 R6
 F../../HardwareDescription/Testbench/../RISCVCore/../ALU/../Constants/constants.sv
-R24
-F../../HardwareDescription/Testbench/../RISCVCore/../DRAMController/../Constants/constants.sv
 R22
-R19
+F../../HardwareDescription/Testbench/../RISCVCore/../DRAMController/../Constants/constants.sv
+R21
+R18
 L0 2
 R7
 R8
