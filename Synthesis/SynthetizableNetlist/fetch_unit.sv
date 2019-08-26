@@ -1,6 +1,9 @@
-`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv"
-`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv"
-`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv"
+`include "bpu.sv"
+`include "icache_controller.sv"
+`include "bfu.sv"
+`ifndef fetch_unit_sv
+`define fetch_unit_sv
+
 import constants::branch_type;
 import constants::beq_inst;
 import constants::bne_inst;
@@ -141,7 +144,7 @@ always_comb begin : branch_operations
 					branch_outcome = 1'b0;
 			end
 
-			default : begin			//bgeu_inst
+			bgeu_inst : begin
 				if(rs1 >= rs2)
 					branch_outcome = 1'b1;
 				else
@@ -192,3 +195,5 @@ assign instr_fetched = fetched_inst_chng;
 assign miss_cache = cache_miss;
 
 endmodule
+
+`endif

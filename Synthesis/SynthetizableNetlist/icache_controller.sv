@@ -1,4 +1,6 @@
-`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/InstructionCache/i_cache.sv"
+`include "i_cache.sv"
+`ifndef icache_controller_sv
+`define icache_controller_sv
 
 module icache_controller
 (
@@ -68,7 +70,7 @@ always_ff @(posedge clk) begin : bfm_ew_prev
                         byte_from_mem_prev[i] <= byte_from_mem[i];
 		entries_written_prev <= entries_written;
 	end
-end		
+end	
 
 
 // Assign all the words coming from RAM to a single signal that feeds the
@@ -76,9 +78,9 @@ end
 genvar i;
 generate
 
-	for(i=0; i<(`icache_blocksize/`memory_word); i++) begin
+	for(i=0; i<(`icache_blocksize/`memory_word); i++) begin : block_in_cache_generation
 		assign block_in_cache[`memory_word*i:(`memory_word*(i+1)-1)] = byte_from_mem[i];
-	end
+	end : block_in_cache_generation
 
 endgenerate
 
@@ -99,3 +101,5 @@ assign cache_miss = ~hit_cache;
 assign ram_address = {pc[`pc_size-1:6],6'h00};
 
 endmodule
+
+`endif

@@ -1,4 +1,8 @@
-`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
+`include "constants.sv"
+`ifndef reg_file_sv
+`define reg_file_sv
+
+`define FPGA_TARGET
 
 module reg_file
 (
@@ -89,3 +93,5 @@ assign rd_data1 = dataout1;
 assign rd_data2 = dataout2;
 
 endmodule
+
+`endif

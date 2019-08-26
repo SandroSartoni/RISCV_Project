@@ -1,12 +1,12 @@
 // RISCV Core based on [xyz] architecture
 // Set of allowed instructions: 
 
-`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/fetch_unit.sv"
-`include "/home/sandro/GIT_RISCV/HardwareDescription/ControlUnit/cu.sv"
-`include "/home/sandro/GIT_RISCV/HardwareDescription/RegisterFile/reg_file.sv"
-`include "/home/sandro/GIT_RISCV/HardwareDescription/ForwardUnit/forwardunit.sv"
-`include "/home/sandro/GIT_RISCV/HardwareDescription/ALU/alu.sv"
-`include "/home/sandro/GIT_RISCV/HardwareDescription/DRAMController/dram_controller.sv"
+`include "fetch_unit.sv"
+`include "cu.sv"
+`include "reg_file.sv"
+`include "forwardunit.sv"
+`include "alu.sv"
+`include "dram_controller.sv"
 
 //import constants::*;
 

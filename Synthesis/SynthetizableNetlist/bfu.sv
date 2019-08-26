@@ -13,7 +13,9 @@
 // nop			  FDEMW
 // beq x1,x5,label	   FDEMW (no stall required, no forwarding required)
 
-`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
+`include "constants.sv"
+`ifndef bfu_sv
+`define bfu_sv
 
 module bfu
 (
@@ -55,3 +57,5 @@ end : pipe_regs
 
 
 endmodule
+
+`endif

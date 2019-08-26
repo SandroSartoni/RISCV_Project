@@ -7,7 +7,9 @@
 //      any / branch 
 //      load / branch
 
-`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
+`include "constants.sv"
+`ifndef cu_sv
+`define cu_sv
 
 module cu
 (
@@ -251,8 +253,8 @@ always_comb begin : fsm_comb
 
 		default : begin
 
-            		if ( stop_counting )
-                		next_state = NORMAL;
+			if ( stop_counting )
+				next_state = NORMAL;
 			else
 				next_state = F_DELAY_MEM;
 
@@ -293,7 +295,7 @@ always_ff @(posedge clk) begin : fsm_seq    // including a counter for memory de
                 	counting <= 1;
 
         	if (counting)
-                	counter <= counter + 1;
+                	counter <= counter + 1'b1;
             	else if (stop_counting) begin
 	                counting <= 0;
         	        counter <= 'b0;  
@@ -455,49 +457,52 @@ end : rdw_assign
 // F_stall and F_stall_mem are separated to have a different number of cycle stalls
 //      if and when we decide to emulate memory latencies
 always_comb begin : hdu
-    
-	if((rs1_field == rd_field_previous) || (rs2_field == rd_field_previous)) begin
-		if (rd_field_previous != 'b0) begin
-			if (opcode_temp == `ldtype_op) begin      // First Load then branch
-				if ((opcode == `btype_op) && (counter != 4'h1)) begin
-					F_stall_mem = 1;        // Branch
-					FD_stall = 0;
-					F_stall = 0;
-				end
-				else if ((opcode == `btype_op) && (counter == 4'h1)) begin
-					FD_stall = 0;
-					F_stall_mem = 0;
-					F_stall = 0;
-				end
-				else begin
-					FD_stall = 1;           // Any
-					F_stall = 0;
-					F_stall_mem = 0;
-				end
-			end
-			else if (opcode == `btype_op) begin           // any / branch
-				FD_stall = 0;
-				F_stall_mem = 0;
-				F_stall = 1;
-			end
-			else begin
-				FD_stall = 0;
-				F_stall_mem = 0;
-				F_stall = 0;
-			end
-               	end
-		else begin
-				FD_stall = 0;
-				F_stall_mem = 0;
-				F_stall = 0;
-		end
-	end
-	else begin 
-		FD_stall = 0;
-		F_stall_mem = 0;
-		F_stall = 0;
-	end
+
+        if((rs1_field == rd_field_previous) || (rs2_field == rd_field_previous)) begin
+                if (rd_field_previous != 'b0) begin
+                        if (opcode_temp == `ldtype_op) begin      // First Load then branch
+                                if ((opcode == `btype_op) && (counter != 4'h1)) begin
+                                        F_stall_mem = 1;        // Branch
+                                        FD_stall = 0;
+                                        F_stall = 0;
+                                end
+                                else if ((opcode == `btype_op) && (counter == 4'h1)) begin
+                                        FD_stall = 0;
+                                        F_stall_mem = 0;
+                                        F_stall = 0;
+                                end
+                                else begin
+                                        FD_stall = 1;           // Any
+                                        F_stall = 0;
+                                        F_stall_mem = 0;
+                                end
+                        end
+                        else if (opcode == `btype_op) begin           // any / branch
+                                FD_stall = 0;
+                                F_stall_mem = 0;
+                                F_stall = 1;
+                        end
+                        else begin
+                                FD_stall = 0;
+                                F_stall_mem = 0;
+                                F_stall = 0;
+                        end
+                end
+                else begin
+                                FD_stall = 0;
+                                F_stall_mem = 0;
+                                F_stall = 0;
+                end
+        end
+        else begin
+                FD_stall = 0;
+                F_stall_mem = 0;
+                F_stall = 0;
+        end
 
 end : hdu
 
+
 endmodule
+
+`endif

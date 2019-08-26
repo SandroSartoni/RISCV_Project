@@ -1,4 +1,4 @@
-`include "../Constants/constants.sv"
+`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
 
 module alu
 (
@@ -9,8 +9,8 @@ module alu
 	output logic ovfl
 );
 
-logic [19:0] luipart;
-logic [11:0] notluipart;
+//logic [19:0] luipart;
+//logic [11:0] notluipart;
 logic compare_u_result;
 logic compare_s_result;
 
@@ -26,7 +26,7 @@ parameter S8 = 4'b1000; //SRAI SRA
 parameter S9 = 4'b1001; //SUB
 parameter S10 = 4'b1010; //SLT SLTI
 parameter S11 = 4'b1011; //SLTU SLTIU
-assign { >>{ notluipart,luipart}} = B;
+//assign { >>{ notluipart,luipart}} = B;
 
 always_comb
 Compare_s:begin
@@ -47,7 +47,7 @@ end
 always_comb
  MUX : begin
  case (Control) 
-	S0: Out = {luipart,12'h0};
+	S0: Out = {B[19:0],12'h0};
 	S1: Out = A + B;//  in realtà sarà il kogge stone
 	S2: Out = A + B;// in realtà sarà il kogge stone
 	S3: Out = A ^ B;
@@ -58,7 +58,7 @@ always_comb
 	S8: Out = signed'(A) >>> B;
 	S9: Out = A - B;
 	S10: Out = compare_s_result;
-	S11: Out = compare_u_result;
+	default: Out = compare_u_result;
 endcase 
 end 
 assign ovfl= 1'b1;

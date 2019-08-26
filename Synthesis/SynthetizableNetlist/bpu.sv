@@ -1,4 +1,6 @@
-`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
+`include "constants.sv"
+`ifndef bpu_sv
+`define bpu_sv
 
 `define table_size 512
 `define table_logsize constants::log2(`table_size)
@@ -127,3 +129,5 @@ module bpu
 	end : pipe_sig_update
 
 endmodule
+
+`endif

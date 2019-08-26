@@ -1,4 +1,7 @@
-`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
+`include "constants.sv"
+`ifndef dram_controller_sv
+`define dram_controller_sv
+
 import constants::store_conf;
 import constants::sb_conf;
 import constants::sh_conf;
@@ -43,7 +46,7 @@ always_comb begin : dram_datain_assignment
 	case(store_type)
 		sb_conf : dram_datain = `data_size'(dmem_data[7:0]);
 		sh_conf : dram_datain = `data_size'(dmem_data[15:0]);
-		default : dram_datain = dmem_data;			// sw_conf
+		sw_conf : dram_datain = dmem_data;
 	endcase
 end : dram_datain_assignment
 
@@ -54,9 +57,11 @@ always_comb begin : dmem_out_assignment
 		lh_conf : dmem_out = `data_size'(signed'(dmem_word[15:0]));
 		lw_conf : dmem_out = dmem_word;
 		lbu_conf : dmem_out = `data_size'(dmem_word[7:0]);
-		default : dmem_out = `data_size'(dmem_word[15:0]);	// lhu_conf
+		lhu_conf : dmem_out = `data_size'(dmem_word[15:0]);
 	endcase
 end : dmem_out_assignment
 
 
 endmodule
+
+`endif
