@@ -114,16 +114,16 @@ always_ff @(posedge clk) begin : alu_assign
 			    		`xor_func   :   ALU_control_temp <= 'd3;
 			    		`or_func    :   ALU_control_temp <= 'd4;
 			    		`and_func   :   ALU_control_temp <= 'd5;
-					`sll_func   :   ALU_control_temp <= 'd6;
-					`srx_func   :   
-				
-						if (~instr_pipe[`instr_size-2])
-				    			ALU_control_temp <= 'd7;    // SRL
-						else
-				    			ALU_control_temp <= 'd8;    // SRA
-				    
-			    		`slt_func   :   ALU_control_temp <= 'd10;
-			    		`sltu_func  :   ALU_control_temp <= 'd11;
+                        `sll_func   :   ALU_control_temp <= 'd6;
+                        `srx_func   :   
+                    
+                        if (~instr_pipe[`instr_size-2])
+                                ALU_control_temp <= 'd7;    // SRL
+                        else
+                                ALU_control_temp <= 'd8;    // SRA
+                    
+                        `slt_func   :   ALU_control_temp <= 'd10;
+                        `sltu_func  :   ALU_control_temp <= 'd11;
 			    
 				endcase
 		
@@ -372,29 +372,29 @@ end : fsm_seq
 			end
 			else begin
 				case (opcode)
-                        		`btype_op     : cw1 <= cw_memory[8];
-                          		`jal_op       : cw1 <= cw_memory[7];
-                          		`jalr_op      : cw1 <= cw_memory[6];
-                          		`ldtype_op    : cw1 <= cw_memory[5];
-                          		`stotype_op   : cw1 <= cw_memory[4];
-                          		`itype_op     : cw1 <= cw_memory[3];
-                         		`rtype_op     : cw1 <= cw_memory[2];
-                          		`fence_op     : cw1 <= cw_memory[1];
-                          		`cstype_op    : cw1 <= cw_memory[0];
-                          		'b0           : cw1 <= 'b10000000000000;  // enabling pc during icache loading
-                        	endcase
+                    `btype_op     : cw1 <= cw_memory[8];
+                    `jal_op       : cw1 <= cw_memory[7];
+                    `jalr_op      : cw1 <= cw_memory[6];
+                    `ldtype_op    : cw1 <= cw_memory[5];
+                    `stotype_op   : cw1 <= cw_memory[4];
+                    `itype_op     : cw1 <= cw_memory[3];
+                    `rtype_op     : cw1 <= cw_memory[2];
+                    `fence_op     : cw1 <= cw_memory[1];
+                    `cstype_op    : cw1 <= cw_memory[0];
+                    'b0           : cw1 <= 'b10000000000000;  // enabling pc during icache loading
+                endcase
 
-                        	cw2 <= cw1[`cw_length-7:0];
-                        	cw3 <= cw2[`cw_length-9:0];
-                        	cw4 <= cw3[`cw_length-13:0];
+                cw2 <= cw1[`cw_length-7:0];
+                cw3 <= cw2[`cw_length-9:0];
+                cw4 <= cw3[`cw_length-13:0];
 
-                        	if(chng2nop)    // the bpu mispredicted
-                            		cw1 <= 'b0;
-                        	else
-                            		cw1 <= current_cw[`cw_length-3:0];
-                    	end
-
+                if(chng2nop)    // the bpu mispredicted
+                    cw1 <= 'b0;
+                else
+                    cw1 <= current_cw[`cw_length-3:0];
                 end
+
+            end
             endcase 
         end
 	else
