@@ -1,3 +1,6 @@
+`ifndef constants_sv
+`define constants_sv
+
 package constants;
 
 	// Define parametric size
@@ -14,8 +17,8 @@ package constants;
 
 	// I-Cache parameters
 	`define icache_blocksize	64*8 // Bytes*no_of_bits (in a byte)
-	`define icache_noofsets		64
-	`define entriesperset		16
+	`define icache_noofsets		4 //64
+	`define entriesperset		8
 
 	// Define cu sizes
 	`define cw_length	15	// number of control signals
@@ -78,14 +81,7 @@ package constants;
         `define or_func		3'h6
         `define and_func	3'h7
 
-        `define mul_func	3'h0		// same as srxi
-        `define mulh_func	3'h1
-        `define mulhsu_func	3'h2
-        `define mulhu_func	3'h3
-        `define div_func	3'h4
-        `define divu_func	3'h5		// same as srxi
-        `define rem_func	3'h6
-        `define remu_func	3'h7
+        `define muldiv_op	7'h33
 	
 	// fence
 	`define fence_op	7'h0F
@@ -105,7 +101,7 @@ package constants;
 	// Define user data types
 	typedef enum logic[2:0] {
 		lb_conf = 3'h0,
-		lh_conf = 3'h1,
+		lh_conf	= 3'h1,
 		lw_conf = 3'h2,
 		lbu_conf = 3'h4,
 		lhu_conf = 3'h5
@@ -125,6 +121,17 @@ package constants;
 		bltu_inst = 3'b110,
 		bgeu_inst = 3'b111
 	} branch_type;
+
+	typedef enum logic[2:0] {
+		mul_inst = 3'h0,
+		mulh_inst = 3'h1,
+		mulhsu_inst = 3'h2,
+		mulhu_inst = 3'h3,
+		div_inst = 3'h4,
+		divu_inst = 3'h5,
+		rem_inst = 3'h6,
+		remu_inst = 3'h7
+	} muldiv_type;
 
 	// For the CU fsm
 	typedef enum {  
@@ -152,3 +159,5 @@ package constants;
 	endfunction
 
 endpackage
+
+`endif

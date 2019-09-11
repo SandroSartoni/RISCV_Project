@@ -23,10 +23,28 @@ vlog +acc -sv -work work $PATH/FetchUnit/fetch_unit.sv
 ##################
 
 ### Register File ###
-vlog +acc -sv -work work $PATH/RegisterFile/reg_file.sv
+vlog +acc +define+FPGA_TARGET -sv -work work $PATH/RegisterFile/reg_file.sv
 #####################
 
 ### Arithmetic Logic Unit ###
+# Multiplier/Divider Module
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/mux2to1.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/mux4to1.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/register.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/shiftRegister.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/syncCounter.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/fullAdder.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/divZeroDetect.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/adder.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/carrySaveAdder.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/comparator.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/divOvfDetectBlock.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MulDivComponents/kernelLogic.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MultDivUnitDP.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MultDivUnit.sv
+vlog +acc -sv -work work $PATH/ALU/MultiplierDivider/MultDivUnitWrapper.sv
+
+# Arithmetic Logic Unit
 vlog +acc -sv -work work $PATH/ALU/alu.sv
 #############################
 

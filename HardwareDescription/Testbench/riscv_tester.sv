@@ -1,5 +1,10 @@
-`include "../RISCVCore/riscv_core.sv"
+`ifdef post_synthesis
+	`include "/home/sandro/GIT_RISCV/Synthesis/SynthetizedCore/riscv_syn_im.v"
+`else
+	`include "/home/sandro/GIT_RISCV/HardwareDescription/RISCVCore/riscv_core.sv"
+`endif
 `include "../DRAM/dram.sv"
+
 import constants::*;
 
 module riscv_tester();
@@ -51,7 +56,7 @@ dram data_ram
 
 // IRAM Section
 initial begin : IRAM_loading
-	$readmemh("../../Executables/instr_tester.in",ram_words,0);
+	$readmemh("../../Executables/muldiv_tester.in",ram_words,0);
 end : IRAM_loading
 
 logic[6:0] counter;

@@ -7,43 +7,43 @@ _start:
 
 # ITYPE Instructions
 
-	addi	x1,x0,0x0E	#FDEMW
-	andi	x2,x1,0x02	# FDEMW (forwarding one cycle)
-	ori	x3,x0,0x03	#  FDEMW
-	xori	x4,x0,0x04	#   FDEMW
-	slli	x5,x3,0x05	#    FDEMW (forwarding two cycles)
-	addi	x1,x0,0
-	sub	x1,x1,x2
-	srai	x6,x1,0x01		
-	srli	x7,x1,0x01
-	slti	x8,x1,8
-	sltiu	x9,x1,9
+	addi	x1,x0,0x0E	# 0x0000000E
+	andi	x2,x1,0x02	# 0x00000002
+	ori	x3,x0,0x03	# 0x00000003
+	xori	x4,x0,0x04	# 0x00000004
+	slli	x5,x3,0x05	# 0x00000060
+	addi	x1,x0,0		# 0x00000000
+	sub	x1,x1,x2	# 0xFFFFFFFE
+	srai	x6,x1,0x01	# 0xFFFFFFFF
+	srli	x7,x1,0x01	# 0x7FFFFFFF
+	slti	x8,x1,8		# 0x00000001
+	sltiu	x9,x1,9		# 0x00000000
 
 # RTYPE Instructions
 
-	add	x10,x5,x2
-	sub	x11,x5,x2
-	and	x12,x4,x1
-	or	x13,x4,x2
-	xor	x14,x4,x3
-	sll	x15,x3,x4
-	sra	x16,x1,x2
-	srl	x17,x1,x2
-	slt	x18,x1,x2
-	sltu	x19,x1,x2
-	sb	x1,0(x0)
-	sh	x1,4(x0)
-	sw	x1,8(x0)
-	lb	x20,8(x0)
-	lh	x21,8(x0)
-	lw	x22,8(x0)
-	lbu	x23,8(x0)
-	lhu	x24,8(x0)
+	add	x10,x5,x2	# 0x00000062
+	sub	x11,x5,x2	# 0x0000005E
+	and	x12,x4,x1	# 0x00000004
+	or	x13,x4,x2	# 0x00000006
+	xor	x14,x4,x3	# 0x00000007
+	sll	x15,x3,x4	# 0x00000030
+	sra	x16,x1,x2	# 0xFFFFFFFF
+	srl	x17,x1,x2	# 0x3FFFFFFF
+	slt	x18,x1,x2	# 0x00000001
+	sltu	x19,x1,x2	# 0x00000000
+	sb	x1,0(x0)	# no effect
+	sh	x1,4(x0)	# no effect
+	sw	x1,8(x0)	# no effect
+	lb	x20,8(x0)	# 0xFFFFFFE
+	lh	x21,8(x0)	# 0xFFFFFFE
+	lw	x22,8(x0)	# 0xFFFFFFE
+	lbu	x23,8(x0)	# 0x00000FE
+	lhu	x24,8(x0)	# 0x000FFFE
 
 # LUI/AUIPC Instructions
 
-	lui	x25,0x800	#FDEMW
-	auipc	x26,0x10	# FDEMW
+	lui	x25,0x800	# 0x00800000
+	auipc	x26,0x10	# 0x0001007C
 
 # Branch instructions and JALR
 
@@ -60,16 +60,16 @@ bgeu_instr:
 	bgeu	x1,x2,bgeu_lab
 
 jalr_lab:
-	addi x2,x2,10
-	jalr x3,x1,0
+	addi x2,x2,10		# 0x0000000C
+	jalr x3,x1,0		# 0x0000009C
 beq_lab:
 	addi x27,x27,27
 	j bne_instr
 bne_lab:
-	addi x28,x28,28
+	addi x28,x28,28		# 0x0000001C
 	j blt_instr
 blt_lab:
-	addi x29,x29,29
+	addi x29,x29,29		# 0x0000001D
 	j bge_instr
 bge_lab:
 	addi x30,x30,30
@@ -78,8 +78,8 @@ bltu_lab:
 	addi x31,x31,37
 	j bgeu_instr
 bgeu_lab:
-	addi x27,x27,27
-	jal x1,jalr_lab
+	addi x27,x27,27		# 0x0000001B
+	jal x1,jalr_lab		# 0x000000CC
 
 # End of Program
 

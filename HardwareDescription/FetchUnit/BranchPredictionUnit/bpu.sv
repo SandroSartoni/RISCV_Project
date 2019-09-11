@@ -1,8 +1,7 @@
-`include "../../Constants/constants.sv"
-import constants::log2;
+`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
 
 `define table_size 512
-`define table_logsize log2(`table_size)
+`define table_logsize constants::log2(`table_size)
 
 module bpu
 (

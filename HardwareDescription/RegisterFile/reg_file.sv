@@ -1,4 +1,4 @@
-`include "../Constants/constants.sv"
+`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
 
 module reg_file
 (
@@ -23,7 +23,7 @@ logic[`data_size-1:0] dataout2;
 
 // If we're synthetizing for an FPGA, use posedge triggered flip flops
 `ifdef FPGA_TARGET
-	
+
 	always_ff @(posedge clk) begin : ff_regfile
 
 		if(~nrst)

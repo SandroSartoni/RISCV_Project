@@ -1,6 +1,6 @@
-`include "BranchPredictionUnit/bpu.sv"
-`include "InstructionCache/icache_controller.sv"
-`include "BranchForwardingUnit/bfu.sv"
+`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/BranchPredictionUnit/bpu.sv"
+`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/InstructionCache/icache_controller.sv"
+`include "/home/sandro/GIT_RISCV/HardwareDescription/FetchUnit/BranchForwardingUnit/bfu.sv"
 import constants::branch_type;
 import constants::beq_inst;
 import constants::bne_inst;
@@ -30,8 +30,8 @@ module fetch_unit
 	output logic[`pc_size-1:0] pc_val,		// Current Program Counter value
 	output logic[`pc_size-1:0] ram_address,
 	output logic miss_cache,
-	output logic[`instr_size-1:0] instr_fetched,
-	output logic chng2nop
+	output logic[`instr_size-1:0] instr_fetched//,
+	//output logic chng2nop
 );
 
 logic[`pc_size-1:0] next_pc;
@@ -50,7 +50,9 @@ logic cache_miss;
 logic[`data_size-1:0] rs1;
 logic[`data_size-1:0] rs2;
 logic[`pc_size-1:0] jr_in;
-
+logic br_fwsel1;
+logic br_fwsel2;
+logic chng2nop;
 
 // Define the PC+4 value and the next program counter value
 assign pc_four = curr_pc + 'h4;
@@ -103,7 +105,7 @@ assign rs2 = br_fwsel2 ? wr_mem : rs2_decode;
 
 // Branch outcome: if 1'b0 it means do not branch, if 1'b1 it means branch
 always_comb begin : branch_operations
-	if((op_decode == `btype_op) & pc_en) begin
+	if((op_decode == `btype_op) & ~cache_miss) begin
 		case(branch_op)
 			beq_inst : begin
 				if(rs1 == rs2)
@@ -140,7 +142,7 @@ always_comb begin : branch_operations
 					branch_outcome = 1'b0;
 			end
 
-			bgeu_inst : begin
+			default : begin			//bgeu_inst
 				if(rs1 >= rs2)
 					branch_outcome = 1'b1;
 				else
@@ -163,7 +165,7 @@ bpu branch_pred_unit
 	.pcplf(pc_four),
 	.jr_in(jr_in),
 	.jr_bpu(jr_bpu),
-	.pc_en(pc_en | cache_miss),
+	.pc_en(pc_en),// | cache_miss),
 	.trgt_gen(trgt_gen),
 	.b_eval(b_eval),
 	.branch_outcome(branch_outcome),
