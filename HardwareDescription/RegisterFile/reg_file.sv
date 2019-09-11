@@ -23,7 +23,7 @@ logic[`data_size-1:0] dataout2;
 
 // If we're synthetizing for an FPGA, use posedge triggered flip flops
 `ifdef FPGA_TARGET
-	
+
 	always_ff @(posedge clk) begin : ff_regfile
 
 		if(~nrst)

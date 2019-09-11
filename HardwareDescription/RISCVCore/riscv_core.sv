@@ -8,8 +8,6 @@
 `include "/home/sandro/GIT_RISCV/HardwareDescription/ALU/alu.sv"
 `include "/home/sandro/GIT_RISCV/HardwareDescription/DRAMController/dram_controller.sv"
 
-//import constants::*;
-
 module riscv_core
 (
 	input logic clk,			// Clock signal
@@ -41,14 +39,16 @@ logic rf_we_d;
 logic rf_we_e;
 logic rf_we_m;
 logic rf_we_w;
+logic MulDiv_stall_del[0:1];
 logic[`data_size-1:0] immediate_field;		// Immediate Field from the DecodeUnit
 branch_type branch_op;				// Branch type operation
 load_conf load_type[0:2];			// Load type operation
 store_conf store_type[0:2];			// Store type operation
+muldiv_type muldiv_inst[0:1];			// Mul/Div type operation
+logic valid_muldiv[0:1];				// Single bit used to tell the Multiplier/Divider when to start its operation
 logic jr_bpu;					// Bit from CU that is 1'b1 when there's a JR in the Decode Stage
 logic[`instr_size-1:0] instr_fetched_fu;	// Instruction fetched in the FetchUnit (before pipeline reg)
 logic[`instr_size-1:0] instr_fetched_du;	// Instruction fetched in the DecodeUnit (after pipeline reg)
-logic chng2nop;					// Change to NOP bit in the FetchUnit (before pipeline reg)
 logic[`cw_length-1:0] cw_out;			// Control signals from Control Unit
 logic miss_cache;				// Miss signal from Instruction Cache
 logic[1:0] sel_fwdmux1;				// Forwarding Multiplexer Selector 1
@@ -62,6 +62,8 @@ logic[`regfile_logsize-1:0] rs1_field_exe;	// RegisterSource_1 field in the Exec
 logic[`regfile_logsize-1:0] rs2_field_exe;	// RegisterSource_2 field in the ExecuteUnit
 logic[`data_size-1:0] op1_execute;		// First Operand in Execute Stage (before mux)
 logic[`data_size-1:0] op2_execute;		// Second Operand in Execute Stage (before mux)
+logic muldiv_done[0:1];				// Bit that tells the CU when to stop stalling for a muldiv operation
+logic divByZero;				// Bit asserted when there's a division by 0
 logic muxA_sel;
 logic muxB_sel;
 logic[`data_size-1:0] imm_exe;			// Immediate Field in the Execute Stage
@@ -82,10 +84,10 @@ logic[`data_size-1:0] wr_datamem;		// Data output of the DRAM
 logic[`data_size-1:0] wr_data;			// Register File input data
 logic muxC_sel;
 logic muxD_sel;
-logic fet_dec_en;
-logic dec_exe_en;
-logic exe_mem_en;
-logic mem_wr_en;
+logic fet_dec_en;				// Enable bit from in the Fetch->Decode pipe regs
+logic dec_exe_en;				// Enable bit from in the Decode->Execute pipe regs
+logic exe_mem_en;				// Enable bit from in the Execute->Memory pipe regs
+logic mem_wr_en;				// Enable bit from in the Memory->Writeback pipe regs
 
 
 ///////////////////
@@ -121,8 +123,8 @@ fetch_unit fu
 	.pc_val(pc_fu),
         .ram_address(iram_address),
         .miss_cache(miss_cache),
-        .instr_fetched(instr_fetched_fu),
-        .chng2nop(chng2nop)
+        .instr_fetched(instr_fetched_fu)//,
+        //.chng2nop(chng2nop)
 );
 
 //assign instr_fetched_fu = chng2nop ? 'h00000013 : instr_fetched;
@@ -222,6 +224,19 @@ assign load_type[0] = (op_decode == `ldtype_op) ? load_conf'(instr_fetched_du[14
 // Store Configuration field
 assign store_type[0] = (op_decode == `stotype_op) ? store_conf'(instr_fetched_du[14:12]) : sb_conf;
 
+// MulDiv Configuration field
+assign muldiv_inst[0] = (op_decode == `muldiv_op) ? muldiv_type'(instr_fetched_du[14:12]) : mul_inst;
+
+// MulDiv valid bit assignment
+always_ff @(posedge clk) begin : valid_bit_ff
+	if(~nrst)
+		MulDiv_stall_del[1] <= 1'b0;
+	else
+		MulDiv_stall_del[1] <= MulDiv_stall_del[0];
+end : valid_bit_ff
+
+assign valid_muldiv[0] = (op_decode == `muldiv_op) & ~MulDiv_stall_del[0];
+
 // JALR related jr_bpu bit generation
 assign jr_bpu = (op_decode == `jalr_op);
 
@@ -231,10 +246,12 @@ cu control_unit
 	.clk(clk),
 	.nrst(nrst),
 	.stall(miss_cache),
-	.chng2nop(chng2nop),
+	.muldiv_valid(valid_muldiv[0]),
+	.muldiv_done(muldiv_done[0]),
 	.rf_we(rf_we_d),
 	.instr_in(instr_fetched_fu),
 	.ALU_control(ALU_control),
+	.MulDiv_stde(MulDiv_stall_del[0]),
 	.cw_out(cw_out)
 );
 
@@ -282,26 +299,43 @@ always_ff @(posedge clk) begin : du_exu_regs
 		rs2_field_exe <= 'h0;
 		load_type[1] <= load_conf'('h0);
 		store_type[1] <= store_conf'('h0);
+		muldiv_inst[1] <= muldiv_type'('h0);
+		valid_muldiv[1] <= 1'b0;
 	end
 	else
 		if(dec_exe_en) begin
-			op1_decode <= rd_data1;
-			op2_decode <= rd_data2;
-			imm_exe <= immediate_field;
 			pc_exe <= pc_dec;
 			rf_we_e <= rf_we_d;
-			rs1_field_exe <= rs1_field;
-			rs2_field_exe <= rs2_field;
 			load_type[1] <= load_type[0];
 			store_type[1] <= store_type[0];
 		end
 
+
 		// This is necessary in order not to have problems with
 		// forwarding
-		if(dec_exe_en)
+		if(dec_exe_en | (valid_muldiv[0] & ~valid_muldiv[1]) | muldiv_done[1]) begin
 			rdw_exu <= rdw_du;
-		else
+		end
+		else if ((~muldiv_done[0] & muldiv_done[1]) | (~dec_exe_en & ~MulDiv_stall_del[0]))
 			rdw_exu <= 'h0;
+
+
+		if(dec_exe_en | (valid_muldiv[0] & ~valid_muldiv[1]) | ~(valid_muldiv[0] | valid_muldiv[1])) begin
+			op1_decode <= rd_data1;
+			op2_decode <= rd_data2;
+		end
+
+
+		if(dec_exe_en | muldiv_done[1]) begin
+			imm_exe <= immediate_field;
+			rs1_field_exe <= rs1_field;
+			rs2_field_exe <= rs2_field;
+		end
+
+
+		valid_muldiv[1] <= valid_muldiv[0];
+		muldiv_inst[1] <= muldiv_inst[0];
+
 end : du_exu_regs
 
 
@@ -328,7 +362,7 @@ always_comb begin : op1_mux
 		op1_execute = op1_decode;
 	else if(sel_fwdmux1 == 2'h1)	// Forwarding from MEM Stage
 		op1_execute = wr_data;
-	else //if(sel_fwdmux1 == 2'h2)	// Forwarding from EXE Stage
+	else				// Forwarding from EXE Stage
 		op1_execute = aluout_mem;
 end : op1_mux
 
@@ -337,7 +371,7 @@ always_comb begin : op2_mux
 		op2_execute = op2_decode;
 	else if(sel_fwdmux2 == 2'h1)	// Forwarding from MEM Stage
 		op2_execute = wr_data;
-	else //if(sel_fwdmux2 == 2'h2)	// Forwarding from EXE Stage
+	else				// Forwarding from EXE Stage
 		op2_execute = aluout_mem;
 end : op2_mux
 
@@ -347,11 +381,17 @@ assign alu_op2 = (muxB_sel) ? imm_exe : op2_execute;
 // ALU instantiation
 alu arithm_log_unit
 (
+	.clk(clk),
+	.nrst(nrst),
 	.A(alu_op1),
 	.B(alu_op2),
 	.Control(ALU_control),
+	.muldiv_inst(muldiv_inst[1]),
+	.valid_muldiv(valid_muldiv[1]),
 	.Out(alu_out),
-	.ovfl(ovfl_bit)
+	.ovfl(ovfl_bit),
+	.muldiv_done(muldiv_done[0]),
+	.divByZero(divByZero)
 );
 
 // ExecuteUnit -> MemoryUnit pipeline registers
@@ -364,6 +404,7 @@ always_ff @(posedge clk) begin : exu_mu_regs
 		pc_mem <= 'h0;
 		load_type[2] <= load_conf'('h0);
 		store_type[2] <= store_conf'('h0);
+		muldiv_done[1] <= 1'b0;
 	end
 	else
 		if(exe_mem_en) begin
@@ -375,6 +416,9 @@ always_ff @(posedge clk) begin : exu_mu_regs
 			load_type[2] <= load_type[1];
 			store_type[2] <= store_type[1];
 		end
+
+		muldiv_done[1] <= muldiv_done[0];
+
 end : exu_mu_regs
 
 

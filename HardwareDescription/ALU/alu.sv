@@ -1,18 +1,34 @@
-`include "/home/sandro/GIT_RISCV/HardwareDescription/Constants/constants.sv"
+`include "/home/sandro/GIT_RISCV/HardwareDescription/ALU/MultiplierDivider/MultDivUnitWrapper.sv"
+
+import constants::muldiv_type;
+import constants::mul_inst;
+import constants::mulh_inst;
+import constants::mulhsu_inst;
+import constants::mulhu_inst;
+import constants::div_inst;
+import constants::divu_inst;
+import constants::rem_inst;
+import constants::remu_inst;
 
 module alu
 (
+	input logic clk,
+	input logic nrst,
 	input logic [`data_size-1:0] A,
 	input logic [`data_size-1:0] B,
 	input logic [`alu_control_size-1:0] Control,
+	input muldiv_type muldiv_inst,
+	input logic valid_muldiv,
 	output logic [`data_size-1:0] Out,
-	output logic ovfl
+	output logic ovfl,
+	output logic muldiv_done,
+	output logic divByZero
 );
 
-//logic [19:0] luipart;
-//logic [11:0] notluipart;
 logic compare_u_result;
 logic compare_s_result;
+logic[`data_size-1:0] muldiv_result;
+logic divOverflow;
 
 parameter S0 = 4'b0000; //LUI
 parameter S1 = 4'b0001; // LB LH LW LBU LHU SB SH SW
@@ -26,26 +42,23 @@ parameter S8 = 4'b1000; //SRAI SRA
 parameter S9 = 4'b1001; //SUB
 parameter S10 = 4'b1010; //SLT SLTI
 parameter S11 = 4'b1011; //SLTU SLTIU
-//assign { >>{ notluipart,luipart}} = B;
+parameter S12 = 4'b1100; // MUL DIV
 
-always_comb
-Compare_s:begin
+always_comb begin : Compare_s
 	if (signed'(A) < signed'(B)) 
 		compare_s_result = 1'b1;
 	else  
 		compare_s_result = 1'b0;
 end
 
-always_comb
-Compare_u:begin
+always_comb begin : Compare_u
 	if (A < B) 
 		compare_u_result = 1'b1;
 	else  
 		compare_u_result = 1'b0;
 end
 
-always_comb
- MUX : begin
+always_comb begin : MUX
  case (Control) 
 	S0: Out = {B[19:0],12'h0};
 	S1: Out = A + B;//  in realtà sarà il kogge stone
@@ -58,8 +71,27 @@ always_comb
 	S8: Out = signed'(A) >>> B;
 	S9: Out = A - B;
 	S10: Out = compare_s_result;
-	default: Out = compare_u_result;
+	S11: Out = compare_u_result;
+	default: Out = muldiv_result;
 endcase 
 end 
-assign ovfl= 1'b1;
+
+// Multiplier/Divider Module
+MultDivUnitWrapper mul_div_unit_wrapper
+(
+	.clk(clk),
+	.nrst(nrst),
+	.opCode(muldiv_inst),
+	.valid(valid_muldiv),
+	.lOp(B),
+	.rOp(A),
+	.result(muldiv_result),
+	.done(muldiv_done),
+	.divByZero(divByZero),
+	.divOverflow(divOverflow_s)
+);
+
+// Overflow bit logic
+assign ovfl= (muldiv_done) ? divOverflow : 1'b0;
+
 endmodule

@@ -30,7 +30,7 @@ always_comb begin : entries_written_assign
 		entries_written = 'h0;
 	else
 		if(word_ready)
-			entries_written = entries_written + 1'b1;
+			entries_written = entries_written_prev + 1'b1;
 		else
 			entries_written = entries_written_prev;
 end : entries_written_assign
