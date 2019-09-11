@@ -1,0 +1,348 @@
+\documentclass[10pt,  english, makeidx, a4paper, titlepage, oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{makeidx}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{hyperref}%package per fare i riferimenti
+\usepackage{appendix}
+
+\hypersetup{hidelinks}%Questo permette di fare i collegamenti trasparenti senza riga rossa sopra
+\usepackage{graphicx}
+\usepackage{tikz-timing}[2014/10/29]
+\usetikztiminglibrary[rising arrows]{clockarrows} 
+\usepackage{xparse} % NewDocumentCommand, IfValueTF, IFBooleanTF
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage[cache=false]{minted}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+
+
+\textwidth 16cm
+\textheight 23cm
+\topmargin -1cm
+\oddsidemargin 0cm
+\linespread{1.1}
+
+\titleformat{\chapter}[display]     %formattazione testa dei chapter della Graziano
+{\normalfont\Large\filcenter\sffamily}
+{\titlerule[0.5pt]%
+\vspace{1pt}
+\titlerule
+\vspace{1pc}
+\LARGE\MakeUppercase{\chaptertitlename} \thechapter
+}
+{1pc}
+{\titlerule
+\vspace{1pc}
+\Huge}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{Integrated System Architecture}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\rhead{\thepage}
+
+\begin{document}
+
+\frontmatter
+\begin{titlepage}
+\vspace{0cm}
+\centerline{
+\includegraphics[width=3cm]{pics/logopoli}} 
+\vspace{0.5cm}
+\centerline{\LARGE Politecnico di Torino}
+\vspace{2.5cm}
+\centerline{\huge\sf Integrated System Architecture}
+\vspace{1cm}
+\centerline{\Huge\sf A RISC-V Processor: Design \& Development}
+\bigskip
+\centerline{\huge\sf Project Report}
+\vspace{2cm}
+\centerline{\Large Master's Degree in Electronic Engineering}
+\bigskip
+\vspace{2.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\centerline{\large Referents: Prof. Martina Maurizio, Prof. Masera Guido}
+\bigskip
+\vspace{1cm}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GROUP
+% Change the name of your group below
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AUTHORS
+% Change the name of the Group participants here
+%
+\centerline{\Large \textbf{Rovere Enrico, Santoro Dino, Sarda Giuseppe, Sartoni Sandro}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{1.5cm}
+\centerline{\large \today}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\subsection*{Introduction}
+The aim of the presented work is modeling a processor core compliant with the RISC-V specifications as of the official website\footnote{RISCV Specifications Website: https://riscv.org/specifications/}.
+What the group did was choose a subset of the RISC-V Instruction Set Architecture (ISA) and produce the HDL modelling the resultant architecture. 
+
+The RISC-V ISA is modular, meaning that, given a defined and fixed word size (32 bits in this case), a given core must support only the \textbf{[I]} - \textbf{Integer} subset. Of course, the architecture may be more complex and include optional \textit{extensions}, like \textbf{[M]} - \textbf{Integer Multiplication and Division}, and many more. The software to be run on the device is then compiled specifying which subsets the target supports, replacing unsupported instruction with a software library.\\
+%There are many different subset of instructions, as a convention they have been grouped by means of capital letters that summarize the functionalities each set implements: \textbf{I} stands for \textbf{Integer}, \textbf{M} stands for \textbf{integer Multiplication and division}, \textbf{E} stands for a subset of instructions intended for \textbf{Embedded systems} and so on. Eventually, some of these extensions may be referred to 32-bits, 64-bits or even 128-bits architectures. \newline
+Since we wanted to implement an Core as general purpose as possible, we opted for the \textit{I} extension, implementing a \textbf{RV32I} architecture.
+Following, the set of instructions supported:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Mnemonics} & \textbf{Mnemonics} \\
+        \hline
+        add     &   lui &  lh\\
+        \hline
+        addi    &   suipc&  lw\\
+        \hline
+        sub     &    slt&   sb\\ 
+        \hline
+        and     &   slti &   sh\\
+        \hline
+        andi    &   sltu &   sw\\ % 5
+        \hline
+        or      &   sltiu&   lbu\\
+        \hline
+        ori     &   beq &   lhu\\ 
+        \hline
+        xor     &   bne&   mul\\
+        \hline
+        xori    &   bge &   mulh\\
+        \hline
+        sll     &   bgeu&   mulhsu\\ % 10
+        \hline
+        slli    &   blt  &   mulhu\\ 
+        \hline
+        sra     &   bltu  &   div\\
+        \hline
+        srai    &   jal  &   divu\\
+        \hline
+        srl     &   jalr  &   rem\\
+        \hline
+        srli    &   lb  &   remu\\ % 15
+        \hline
+
+
+    \end{tabular}
+    \caption{Set of Instructions supported by our Core}
+    \label{tab:supported_instruction}
+\end{table}
+Originally, the RV32I set of instructions includes some additional instructions needed for hardware threading, we decided not to support Operating Systems and keep the implementation as straightforward as possible, thus not including these instructions.
+\mainmatter
+\chapter{Control Unit}
+\label{cu}
+The Control Unit is effectively the brains of the device, manipulating data flowing through the datapath.
+\section{Overview}
+The group chose a "hardwired" approach for the present unit, creating a Look Up Table (LUT) of Control Words (CW) indexed by opcode and sequentially fed to the datapath control signals. Once a CW is fetched, it is progressively shifted to separate signals - \textit{cw1, cw2, cw3} - each mapped to the port it is meant to control. 
+\\
+Moreover, R-type and I-type instructions require decoding of their FUNC field, which determines the operation to be performed by the ALU on the operands. Therefore, the CU includes a decoding unit for this purpose, producing an \textit{ALU\_control} signal which is then fed to the ALU, delayed by an appropriate amount of clock periods.
+
+\section{Control Hazards}
+Despite the fact that this architecture employs a Forwarding Unit, described in Section \ref{fwdu}, some Read-After-Write data dependencies may not be solved at runtime, requiring a stall of the pipeline. For any hazardous pair of instructions, the possible cases are the following:
+\vspace{0.5cm}
+\begin{center}
+    \begin{tabular}{l||c|c|c|c|c|c}
+        
+         & \textbf{IF} & \textbf{ID} & \textbf{EX} & \textbf{MEM} & \textbf{WB} & \textbf{Duration} \\
+        \hline
+        \hline
+        1) \textit{any} & \multirow{2}{*}{\texttt{S}} & & & & & \multirow{2}{*}{1 clk cycle} \\
+        2) Branch & & & & & \\ 
+        \hline
+        1) Load & \multirow{2}{*}{\texttt{S}} & \multirow{2}{*}{\texttt{S}} & & & & \multirow{2}{*}{1 clk cycle} \\
+        2) \textit{any} & & & & & \\ 
+        \hline
+        1) Load & \multirow{2}{*}{\texttt{S}} & & & & & Depends on \\
+        2) Branch & & & & & & memory latency \\ 
+        
+    \end{tabular}{}
+    
+\end{center}{}
+
+\vspace{0.5cm}
+The stages labelled by 'S' are stalled for the specified number of clock cycles, and between them and those unaffected a 'bubble' - a NOP Control Word portion - is inserted. As far as the Load/Branch case is concerned, the number of clock cycles depends on the Data Memory. Once the datum is provided to the processor, it is then able to determine whether to take the branch or not, and therefore resolve the stall. 
+
+\chapter{Datapath}
+
+\section{Instruction Fetch (IF)}
+The Instruction Fetch module is in charge of fetching at each cycle an instruction (if available).\newline
+We decided to implement this module in order to be as efficient as possible, improving its capabilities by means of a \textbf{Branch Prediction Unit}, or \textbf{BPU}, a Branch Forwarding Unit, or \textbf{BFU}, and an \textbf{Instruction Cache} with its relative \textbf{controller}. \newline
+While the specific modules will be thoroughly explained in the Non-Datapath section, below there's a small explanation of the Fetch Unit that collects all of these modules, interfaces them and provides the instruction fetched and whatever may be needed to the other part of our RISCV Core.
+
+\subsection{Fetch Unit}
+% Fetch unit and overview of the architecture
+The Fetch Unit module of the RISCV Core is comprised of the three inner modules described above plus the necessary logic to interface them. Even if not detailed, it's impossible to describe the Fetch Unit without outlining the non-datapath blocks.\newline
+The ICache Controller duty is to retrieve from the Instruction RAM the correct set of instructions, store them correctly in the Cache and handle the cache\_miss signal. On the other hand, the Branch Prediction Unit and Branch Forwarding Unit are in charge of predicting the behaviour of a branch and providing the jump address (if necessary), same for any JAL instruction for which, if available, the jumping address is provided (no need to predict the jump here). The JALR instruction cannot be handled by these modules as the jumping address is given by the content of the source register, thus making not sensible to store a value that may change inside a table - all of the stored values are constants if there's no aliasing. The BPU is the core logic that predicts on a branch, the BFU provides the correct operands to the BPU - even in case of Forwarding, hence the name - that are needed in order to check whether the prediction was correct or not. \newline
+The rationale of the behaviour of the Fetch Unit is the following: whenever the ICache returns a Miss, everything has to stall until the new block of instructions is correctly stored inside the cache: the icache\_controller handles the bytes received from the IRAM controller and reconstructs the original set of instructions. During the normal functioning of the core, the Fetch Unit evaluates the \textbf{NPC}, or Next Program Counter, at the rising edge of the clk signal it updates the current PC value and fetches the consequent instruction. Such instruction is provided at the output of the module. \newline
+In case of Branch/JAL instruction, the BPU drives the PC accordingly; at the following clock cycle, the Fetch Unit generates the branch outcome according to the type of the branch instruction (e.g. BEQ, BNE, BGE etc) along with all of the control signals that are needed by the BPU. If there's a misprediction or the JAL instruction was executed first time, the next fetched instruction is turned to a NOP before even going to the Instruction Decode stage.
+
+\section{Instruction Decode (ID)}
+% just the overview if there's nothing to explain
+The Instruction Decode stage consists of the logic intended to decompose the instructions into its fields:
+\begin{itemize}
+    \item \textbf{Opcode}: the opcode defines the instruction type, whether it's a r-type instruction, an i-type instruction, a load/store instruction etc.
+    \item \textbf{RegisterSource1}: this is the field containing the first source register that has to be provided to the Register File
+    \item \textbf{RegisterSource2}: this is the field containing the second source register that has to be provided to the Register File
+    \item \textbf{RegisterDestination}: this is the field containing the destination register in which the eventual result will be written
+    \item \textbf{ImmediateField}: an immediate numerical value that is encoded in some type of instructions
+\end{itemize}
+Moreover, the ID stage includes the Control Unit module - plus all the logic to decompose the control word into all of its components - and a Register File that will be described below.
+
+\subsection{Register File}
+
+\begin{wrapfigure}{R}{.55\textwidth}
+\paragraph{}
+\vspace*{-\parskip}	\centering
+	\includegraphics[width=.4\textwidth]{pics/RISCV_Core_RegFile.pdf}
+	\caption{Register File Interface}
+	\label{fig:regfile_interface}
+\end{wrapfigure}
+
+The Register File is a set of 32 registers, each one of 32 bits, with the only requirement that the \textit{X0} register is a read-only register that contains a $0$ value. It comes with two different implementations, one that consists of registers made of latches - if the target technology is ASIC - the other having registers made of flip flops - in case of FPGA. \newline
+The interface of the module can be seen in the picture below:
+
+For each input port there's the associated enable signal that controls the related operation: if wr\_en is $1'b1$, then it's possible to write the data presented at the wr\_data port at the address provided by the wr\_addr port (unless the address is equal to $5'h00$, in that case no writing operation is performed). The reading operation is performed in this way: for each port, if the related contorl signal is not enabled then the output will be equal to $32'h00000000$, otherwise the output will be the content of the register requested by rdx\_addr (x may be $1$ or $2$). If there's a read operation in parallel to a write operation and rs1==rd then the register will be written and the value at the wr\_data port will be forwarded to the output.
+
+\section{Execute (EX1)}
+In the Execute Unit the processor provides the correct operands (even in case of RAW hazard) to the ALU and evaluates the result of the operation required by the current instruction.\newline
+This stage is comprised of the two aforementioned modules, the Forwarding Unit and the ALU, and two couples of multiplexers, two of them driven by the Forwarding Unit that selects the correct operand value based on the need to forward or not, the other two needed to select between \textit{op1\_execute} and \textit{pc} and between \textit{op2\_execute} and \textit{immediate\_field}. The output of the latter two MUXs will be the two inputs of the ALU.
+
+\subsection{Forward Unit}
+\label{fwdu}
+\begin{wrapfigure}{R}{.55\textwidth}
+\paragraph{}
+\vspace*{-\parskip}	\centering
+	\includegraphics[width=.45\textwidth]{pics/ForwardUnit.png}
+	\caption{Forward Unit}
+	\label{fig:form}
+\end{wrapfigure}
+In a pipelined microprocessor, a Forward Unit (FWDU) is mandatory for preventing "bubbles" in the datapath pipeline in the event of a Read-After-Write (RAW) data hazard, that is the present instruction requiring the result of any of the previous two. 
+
+To accomplish this task, the FWDU compares source registers of the current instruction with the other two's destinations, and if a collision is detected the appropriate forward path is enabled.
+
+However, the present hazardous instruction may not intend to write a Register File (RF) location and instead simply use the address bits for another purpose, as is the case with load/store or immediate operations: to address this issue, the RF Write Enable signal is also fed to the FWDU.
+
+The FWDU outputs two 2-bit buses, one per ALU input port, each controlling two muxes, each multiplexing between:
+
+\begin{itemize}
+    \item The RF output
+    \item The ALU output
+    \item The output of EX/MEM pipe register
+\end{itemize}{}
+
+This approach prevents any data hazard blocking the program execution, whereas with control hazards an additional module is integrated in the Control Unit, detailed in Chapter \ref{cu}.
+
+\newpage
+
+\subsection{ALU}
+%list of operations
+The unit is used to execute the 29 instructions we implemented that require arithmetic and/or logic operations. Depending on a control signal, named \textit{Control}, we can select the operation the ALU will perform; the organization is presented in the following table:
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}|cc|cc|cc|@{}}
+\hline%\toprule
+\textbf{Mnemonic} & \textbf{Coding} & \textbf{Mnemonic} & \textbf{Coding} & \textbf{Mnemonic} & \textbf{Coding} \\ \hline%\midrule
+\multicolumn{1}{|c|}{LUI} & 4'b0000 & \multicolumn{1}{c|}{XORI} & \multirow{2}{*}{4'b0011} & \multicolumn{1}{c|}{SUB} & 4'b1001 \\ \cmidrule(r){1-2} \cmidrule(l){5-6} 
+\multicolumn{1}{|c|}{LB} & \multirow{8}{*}{4'b0001} & \multicolumn{1}{c|}{XOR} &  & \multicolumn{1}{c|}{SLT} & \multirow{2}{*}{4'b1010} \\ \cmidrule(lr){3-4}
+\multicolumn{1}{|c|}{LH} &  & \multicolumn{1}{c|}{ORI} & \multirow{2}{*}{4'b0100} & \multicolumn{1}{c|}{SLTI} &  \\ \cmidrule(l){5-6} 
+\multicolumn{1}{|c|}{LW} &  & \multicolumn{1}{c|}{OR} &  & \multicolumn{1}{c|}{SLTU} & \multirow{2}{*}{4'b1011} \\ \cmidrule(lr){3-4}
+\multicolumn{1}{|c|}{LBU} &  & \multicolumn{1}{c|}{ANDI} & \multirow{2}{*}{4'b0101} & \multicolumn{1}{c|}{SLTIU} &  \\ \cmidrule(l){5-6} 
+\multicolumn{1}{|c|}{LHU} &  & \multicolumn{1}{c|}{AND} &  &  &  \\ \cmidrule(lr){3-4}
+\multicolumn{1}{|c|}{SB} &  & \multicolumn{1}{c|}{SLLI} & \multirow{2}{*}{4'b0110} &  &  \\
+\multicolumn{1}{|c|}{SH} &  & \multicolumn{1}{c|}{SLL} &  &  &  \\ \cmidrule(lr){3-4}
+\multicolumn{1}{|c|}{SW} &  & \multicolumn{1}{c|}{SRLI} & \multirow{2}{*}{4'b0111} &  &  \\ \cmidrule(r){1-2}
+\multicolumn{1}{|c|}{ADDI} & \multirow{3}{*}{4'b0010} & \multicolumn{1}{c|}{SRL} &  &  &  \\ \cmidrule(lr){3-4}
+\multicolumn{1}{|c|}{ADD} &  & \multicolumn{1}{c|}{SRAI} & \multirow{2}{*}{4'b1000} &  &  \\
+\multicolumn{1}{|c|}{AUIPC} &  & \multicolumn{1}{c|}{SRA} &  &  &  \\ \hline%\bottomrule
+\end{tabular}
+\end{table}
+\input{muldiv.tex}
+\section{Memory (MEM)}
+% overview of the DRAM, the issues with variable latency stalls
+The Memory stage of our RISCV Core is mainly composed of the DRAM Controller that handles the DRAM.\newline
+We decided to keep things simple in this stage, without replicating the cache structure we adopted in the Fetch Unit, so we opted for a basic combinatory unit that is supposed to write/read into/from the DRAM in the same clock cycle in which the operation is required. The Data RAM, on the other hand, has not been introduced inside the processor core since we assumed it to be an outer (and non synthetizable) module. The controller is capable of correctly handling the sign extension of the operand retrieved from memory in case we've a signed load instruction \textit{lb} or \textit{lh} which load a signed byte or half-word respectively from memory or an unsigned load instruction \textit{lbu} or \textit{lhu}.\newline
+An improved version of our core with respect to this stage may implement a similar version of the Instruction Cache, with a \textit{ready} signal to tell the CU when to stall the core in case of a miss; it will also need to handle the data coherency with the main RAM since the content of the two memories may not be the same at any given time instant.
+
+\section{Write Back (WB)}
+The Write Back stage is not explicitly reported on the RISCV Core Module and it just consists of the wr\_en signal, the wr\_addr and wr\_data fields that stem from the pipeline registers and go into the related Register File ports in order to allow the writing of the result of the instruction completed.
+
+\chapter{Non-Datapath Logic}
+% Here goes anything that is not related to specific a pipeline stage
+
+\section{Branch Prediction Unit}
+
+\section{Branch Forwarding Unit}
+
+\section{Instruction Cache and its Controller}
+
+% add description of bpu
+
+\chapter{Verification and Synthesis}
+In order to test our processor core we went through some steps that allowed us to develop a testbench that replicates as much as possible the real situation in which a CPU works.
+
+\section{GCC Toolchain and Test Programs}
+
+\begin{wrapfigure}{R}{.58\textwidth}
+\paragraph{}
+\vspace*{-\parskip}	\centering
+    \includegraphics[width=.28\textwidth]{pics/instr_tester1.png}
+    %\includegraphics[width=-5\textwidth]{pics/instr_tester2.png}
+    \caption{instr\_tester first part}
+    \label{fig:instr_tester_1}
+\end{wrapfigure}
+
+The first thing we worked on was to find a toolchain that could compile our code into an executable file and then something to convert the executable file into a text file containing the bytes to be loaded into the instruction cache.\newline
+In particular, among all the RISCV GCC toolchains that already exist, we were looking for something that would work for bare-metal systems, since we did not want to implement the necessary HW and FW support for OS. What we found was a flexible compiler\footnote{RISCV Toolchain: https://gnu-mcu-eclipse.github.io/toolchain/riscv/} that allows to select the desired architecture and extension in order to determine which subset of instructions to use when compiling the \textit{.c} file. \newline
+For our purposes, though, we decided to start from an assembly file in order to check directly whether the instructions work or not. Once the file was compiled using the command \textit{riscv-none-embed-gcc -Wall -nostdlib -march=rv32i -mabi=ilp32 test\_file.s -o test\_file}, we used a basic C program, named \textit{bin2hex.c} in order to convert the executable file into a text file containing all the bytes in which the converted instructions are formed. The text file we obtained in this way is the one that will be loaded into the behavioural IRAM in the same testbench in which the RISCV Core is instantiated.\newline
+
+\begin{wrapfigure}{R}{.58\textwidth}
+\paragraph{}
+\vspace*{-\parskip}	\centering
+    %\includegraphics[width=.25\textwidth]{pics/instr_tester1.png}
+    \includegraphics[width=.28\textwidth]{pics/instr_tester2.png}
+    \caption{instr\_tester second part}
+    \label{fig:instr_tester_2}
+\end{wrapfigure}
+
+We wrote two different files to show our core's capabilities: the first one is named \textit{instr\_tester.s} and its purpose is to test every instruction our core can execute in order to test its correct functionality. As we can see in the pictures on the right, first we went through all of the i-type instructions, then the r-type, load, store and lui/auipc instructions and, ultimately, we tried all of the branch and jump instructions. This test was interesting not only because we can make sure almost every submodule and all of their interconnections work correctly, but we could also check the behaviour of the processor when there're instructions in the pipe and the cache has a miss. In fact, since there're many instructions, the cache had a few misses and we were able to see if the processor was able to handle correctly the instructions while fetching the new instruction block from the IRAM.
+
+
+\newpage
+\section{Pre-Synthesis Simulation}
+
+
+\section{Synthesis}
+
+
+\section{Post-Synthesis Simulation}
+
+\section{Waveforms}
+\section{Automated testing}
+
+\section*{Conclusion}
+Our core is wonderful
+
+\end{document}
