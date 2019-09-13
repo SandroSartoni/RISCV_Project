@@ -8,7 +8,7 @@ Report : timing
         -max_paths 1
 Design : riscv_core
 Version: Z-2007.03-SP1
-Date   : Wed Sep 11 01:56:16 2019
+Date   : Fri Sep 13 05:41:45 2019
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -18,7 +18,7 @@ Wire Load Model Mode: top
 
   Startpoint: fu/curr_pc_reg[6]
               (rising edge-triggered flip-flop clocked by riscv_clk)
-  Endpoint: fu/curr_pc_reg[19]
+  Endpoint: fu/curr_pc_reg[1]
             (rising edge-triggered flip-flop clocked by riscv_clk)
   Path Group: riscv_clk
   Path Type: max
@@ -32,101 +32,107 @@ Wire Load Model Mode: top
   clock riscv_clk (rise edge)                             0.00       0.00
   clock network delay (ideal)                             0.00       0.00
   fu/curr_pc_reg[6]/CK (DFF_X1)                           0.00 #     0.00 r
-  fu/curr_pc_reg[6]/Q (DFF_X1)                            0.08       0.08 f
+  fu/curr_pc_reg[6]/Q (DFF_X1)                            0.10       0.10 r
   fu/instruction_cache_controller/pc[6] (icache_controller)
-                                                          0.00       0.08 f
+                                                          0.00       0.10 r
   fu/instruction_cache_controller/instruction_cache/pc[6] (i_cache)
-                                                          0.00       0.08 f
-  fu/instruction_cache_controller/instruction_cache/U56203/Z (BUF_X1)
-                                                          0.04       0.13 f
-  fu/instruction_cache_controller/instruction_cache/U17/Z (BUF_X2)
-                                                          0.04       0.17 f
-  fu/instruction_cache_controller/instruction_cache/U56487/ZN (INV_X1)
-                                                          0.03       0.20 r
-  fu/instruction_cache_controller/instruction_cache/U532/Z (CLKBUF_X3)
-                                                          0.06       0.26 r
-  fu/instruction_cache_controller/instruction_cache/U56236/ZN (INV_X1)
-                                                          0.04       0.30 f
-  fu/instruction_cache_controller/instruction_cache/U57034/ZN (OAI221_X1)
-                                                          0.06       0.36 r
-  fu/instruction_cache_controller/instruction_cache/U57035/ZN (OAI21_X1)
-                                                          0.04       0.40 f
-  fu/instruction_cache_controller/instruction_cache/U57037/ZN (XNOR2_X1)
-                                                          0.06       0.46 f
-  fu/instruction_cache_controller/instruction_cache/U57049/ZN (NOR3_X1)
-                                                          0.04       0.50 r
-  fu/instruction_cache_controller/instruction_cache/U56309/ZN (AND4_X1)
-                                                          0.08       0.58 r
-  fu/instruction_cache_controller/instruction_cache/U56638/ZN (NAND2_X1)
-                                                          0.04       0.61 f
-  fu/instruction_cache_controller/instruction_cache/U57069/ZN (INV_X1)
-                                                          0.04       0.65 r
-  fu/instruction_cache_controller/instruction_cache/U50/Z (BUF_X1)
-                                                          0.05       0.70 r
-  fu/instruction_cache_controller/instruction_cache/U56970/Z (CLKBUF_X3)
-                                                          0.06       0.76 r
-  fu/instruction_cache_controller/instruction_cache/U2643/Z (CLKBUF_X1)
-                                                          0.07       0.83 r
-  fu/instruction_cache_controller/instruction_cache/U379/Z (CLKBUF_X3)
-                                                          0.08       0.90 r
-  fu/instruction_cache_controller/instruction_cache/U48357/Z (MUX2_X1)
-                                                          0.08       0.99 f
-  fu/instruction_cache_controller/instruction_cache/U48359/Z (MUX2_X1)
-                                                          0.06       1.05 f
-  fu/instruction_cache_controller/instruction_cache/U48363/Z (MUX2_X1)
-                                                          0.07       1.12 f
-  fu/instruction_cache_controller/instruction_cache/U48371/Z (MUX2_X1)
-                                                          0.06       1.18 f
-  fu/instruction_cache_controller/instruction_cache/U48372/Z (MUX2_X1)
-                                                          0.07       1.25 f
-  fu/instruction_cache_controller/instruction_cache/U58143/ZN (NAND2_X1)
-                                                          0.03       1.28 r
-  fu/instruction_cache_controller/instruction_cache/U58145/ZN (NAND2_X1)
-                                                          0.03       1.32 f
-  fu/instruction_cache_controller/instruction_cache/U58146/ZN (OAI211_X1)
-                                                          0.04       1.35 r
-  fu/instruction_cache_controller/instruction_cache/U58147/ZN (NAND4_X1)
-                                                          0.05       1.40 f
-  fu/instruction_cache_controller/instruction_cache/U58148/ZN (NAND2_X1)
-                                                          0.03       1.43 r
-  fu/instruction_cache_controller/instruction_cache/U335/ZN (AND2_X1)
-                                                          0.04       1.47 r
-  fu/instruction_cache_controller/instruction_cache/U56586/ZN (NAND3_X1)
-                                                          0.04       1.50 f
-  fu/instruction_cache_controller/instruction_cache/fetched_inst[3] (i_cache)
-                                                          0.00       1.50 f
-  fu/instruction_cache_controller/inst_fu[3] (icache_controller)
-                                                          0.00       1.50 f
-  fu/U133/ZN (AND2_X2)                                    0.06       1.56 f
-  fu/instr_fetched[3] (fetch_unit)                        0.00       1.56 f
-  control_unit/instr_in[3] (cu)                           0.00       1.56 f
-  control_unit/U10/ZN (INV_X1)                            0.04       1.61 r
-  control_unit/U9/ZN (NAND4_X1)                           0.04       1.65 f
-  control_unit/U6/ZN (OAI211_X1)                          0.04       1.69 r
-  control_unit/U15/ZN (NAND2_X1)                          0.03       1.72 f
-  control_unit/U19/ZN (NAND2_X1)                          0.03       1.75 r
-  control_unit/U29/ZN (NAND2_X1)                          0.04       1.79 f
-  control_unit/U32/ZN (NAND2_X1)                          0.04       1.83 r
-  control_unit/U31/ZN (AND3_X2)                           0.09       1.91 r
-  control_unit/cw_out[14] (cu)                            0.00       1.91 r
-  fu/pc_en (fetch_unit)                                   0.00       1.91 r
-  fu/U43/ZN (NAND2_X1)                                    0.05       1.96 f
-  fu/U42/Z (BUF_X2)                                       0.06       2.02 f
-  fu/U52/ZN (NAND2_X1)                                    0.04       2.06 r
-  fu/U47/ZN (OAI221_X1)                                   0.04       2.10 f
-  fu/curr_pc_reg[19]/D (DFF_X1)                           0.01       2.11 f
-  data arrival time                                                  2.11
+                                                          0.00       0.10 r
+  fu/instruction_cache_controller/instruction_cache/U53048/ZN (INV_X1)
+                                                          0.04       0.14 f
+  fu/instruction_cache_controller/instruction_cache/U52741/Z (BUF_X2)
+                                                          0.05       0.19 f
+  fu/instruction_cache_controller/instruction_cache/U53428/ZN (INV_X1)
+                                                          0.04       0.22 r
+  fu/instruction_cache_controller/instruction_cache/U1340/Z (BUF_X2)
+                                                          0.04       0.27 r
+  fu/instruction_cache_controller/instruction_cache/U53691/Z (MUX2_X1)
+                                                          0.08       0.34 f
+  fu/instruction_cache_controller/instruction_cache/U1463/ZN (AND2_X1)
+                                                          0.04       0.38 f
+  fu/instruction_cache_controller/instruction_cache/U1464/ZN (NOR2_X1)
+                                                          0.04       0.42 r
+  fu/instruction_cache_controller/instruction_cache/U8929/ZN (XNOR2_X1)
+                                                          0.06       0.48 r
+  fu/instruction_cache_controller/instruction_cache/U53699/ZN (NAND2_X1)
+                                                          0.03       0.51 f
+  fu/instruction_cache_controller/instruction_cache/U53700/ZN (NOR3_X1)
+                                                          0.06       0.56 r
+  fu/instruction_cache_controller/instruction_cache/U5496/ZN (AND3_X1)
+                                                          0.06       0.62 r
+  fu/instruction_cache_controller/instruction_cache/U58395/ZN (AOI211_X1)
+                                                          0.04       0.66 f
+  fu/instruction_cache_controller/instruction_cache/U53116/ZN (NAND3_X2)
+                                                          0.05       0.71 r
+  fu/instruction_cache_controller/instruction_cache/hit (i_cache)
+                                                          0.00       0.71 r
+  fu/instruction_cache_controller/U1074/ZN (NOR2_X1)      0.04       0.75 f
+  fu/instruction_cache_controller/r475/A[0] (icache_controller_DW01_dec_1)
+                                                          0.00       0.75 f
+  fu/instruction_cache_controller/r475/U57/ZN (NOR2_X1)
+                                                          0.05       0.80 r
+  fu/instruction_cache_controller/r475/U58/ZN (NAND2_X1)
+                                                          0.03       0.84 f
+  fu/instruction_cache_controller/r475/U46/ZN (OR2_X1)
+                                                          0.06       0.89 f
+  fu/instruction_cache_controller/r475/U45/ZN (XNOR2_X1)
+                                                          0.07       0.96 r
+  fu/instruction_cache_controller/r475/SUM[5] (icache_controller_DW01_dec_1)
+                                                          0.00       0.96 r
+  fu/instruction_cache_controller/U1502/ZN (INV_X1)       0.03       0.99 f
+  fu/instruction_cache_controller/U157/ZN (AND3_X2)       0.06       1.05 f
+  fu/instruction_cache_controller/U20/Z (BUF_X1)          0.05       1.11 f
+  fu/instruction_cache_controller/U1053/ZN (INV_X2)       0.09       1.20 r
+  fu/instruction_cache_controller/U857/ZN (OAI21_X1)      0.06       1.26 f
+  fu/instruction_cache_controller/instruction_cache/block_in[193] (i_cache)
+                                                          0.00       1.26 f
+  fu/instruction_cache_controller/instruction_cache/U5358/ZN (INV_X1)
+                                                          0.05       1.31 r
+  fu/instruction_cache_controller/instruction_cache/U56266/ZN (NAND2_X1)
+                                                          0.03       1.34 f
+  fu/instruction_cache_controller/instruction_cache/U56267/ZN (NAND3_X1)
+                                                          0.03       1.37 r
+  fu/instruction_cache_controller/instruction_cache/U56272/ZN (NAND2_X1)
+                                                          0.03       1.40 f
+  fu/instruction_cache_controller/instruction_cache/U56273/Z (MUX2_X1)
+                                                          0.07       1.46 f
+  fu/instruction_cache_controller/instruction_cache/U56274/ZN (NAND2_X1)
+                                                          0.03       1.49 r
+  fu/instruction_cache_controller/instruction_cache/U56553/ZN (NAND3_X1)
+                                                          0.04       1.53 f
+  fu/instruction_cache_controller/instruction_cache/fetched_inst[6] (i_cache)
+                                                          0.00       1.53 f
+  fu/instruction_cache_controller/inst_fu[6] (icache_controller)
+                                                          0.00       1.53 f
+  fu/U260/ZN (AND2_X2)                                    0.05       1.58 f
+  fu/instr_fetched[6] (fetch_unit)                        0.00       1.58 f
+  control_unit/instr_in[6] (cu)                           0.00       1.58 f
+  control_unit/U49/ZN (INV_X1)                            0.03       1.61 r
+  control_unit/U244/ZN (AND2_X1)                          0.04       1.65 r
+  control_unit/U309/ZN (NAND2_X1)                         0.02       1.68 f
+  control_unit/U231/ZN (AND2_X1)                          0.04       1.72 f
+  control_unit/U264/ZN (OAI221_X1)                        0.05       1.77 r
+  control_unit/U313/ZN (NAND2_X1)                         0.04       1.81 f
+  control_unit/U225/ZN (NAND2_X1)                         0.04       1.85 r
+  control_unit/U149/ZN (AND3_X2)                          0.08       1.93 r
+  control_unit/cw_out[14] (cu)                            0.00       1.93 r
+  fu/pc_en (fetch_unit)                                   0.00       1.93 r
+  fu/U116/ZN (NAND2_X1)                                   0.04       1.98 f
+  fu/U113/Z (BUF_X2)                                      0.06       2.03 f
+  fu/U589/ZN (NAND2_X1)                                   0.04       2.07 r
+  fu/U590/ZN (OAI221_X1)                                  0.04       2.11 f
+  fu/curr_pc_reg[1]/D (DFF_X1)                            0.01       2.12 f
+  data arrival time                                                  2.12
 
   clock riscv_clk (rise edge)                             0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  fu/curr_pc_reg[19]/CK (DFF_X1)                          0.00       0.00 r
+  fu/curr_pc_reg[1]/CK (DFF_X1)                           0.00       0.00 r
   library setup time                                     -0.04      -0.04
   data required time                                                -0.04
   --------------------------------------------------------------------------
   data required time                                                -0.04
-  data arrival time                                                 -2.11
+  data arrival time                                                 -2.12
   --------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -2.15
+  slack (VIOLATED)                                                  -2.16
 
 
 1

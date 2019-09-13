@@ -123,8 +123,7 @@ fetch_unit fu
 	.pc_val(pc_fu),
         .ram_address(iram_address),
         .miss_cache(miss_cache),
-        .instr_fetched(instr_fetched_fu)//,
-        //.chng2nop(chng2nop)
+        .instr_fetched(instr_fetched_fu)
 );
 
 //assign instr_fetched_fu = chng2nop ? 'h00000013 : instr_fetched;

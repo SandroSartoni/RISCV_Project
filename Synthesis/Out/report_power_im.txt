@@ -9,7 +9,7 @@ Report : power
         -analysis_effort low
 Design : riscv_core
 Version: Z-2007.03-SP1
-Date   : Wed Sep 11 01:57:01 2019
+Date   : Fri Sep 13 05:42:28 2019
 ****************************************
 
 
@@ -35,11 +35,11 @@ Power-specific unit information :
     Leakage Power Units = 1nW
 
 
-  Cell Internal Power  =  29.5137 mW   (37%)
-  Net Switching Power  =  49.3794 mW   (63%)
+  Cell Internal Power  =  29.7531 mW   (38%)
+  Net Switching Power  =  49.4835 mW   (62%)
                          ---------
-Total Dynamic Power    =  78.8931 mW  (100%)
+Total Dynamic Power    =  79.2366 mW  (100%)
 
-Cell Leakage Power     =   7.4807 mW
+Cell Leakage Power     =   7.4819 mW
 
 1

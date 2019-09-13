@@ -56,7 +56,7 @@ dram data_ram
 
 // IRAM Section
 initial begin : IRAM_loading
-	$readmemh("../../Executables/muldiv_tester.in",ram_words,0);
+	$readmemh("../../Executables/instr_tester.in",ram_words,0);
 end : IRAM_loading
 
 logic[6:0] counter;

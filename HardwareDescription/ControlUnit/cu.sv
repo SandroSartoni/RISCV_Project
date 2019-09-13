@@ -19,8 +19,9 @@ module cu
 	output logic [`cw_length-1:0] cw_out
 );
 
-  /*localparam*/ logic [`cw_length-1:0] cw_memory [`cw_mem_size-1:0] =
-    '{
+logic [`cw_length-1:0] cw_memory [`cw_mem_size-1:0];
+assign cw_memory =
+    {
 //       | PC_ENABLE   enabling the incrementing of the PC
 //       || FD_REG_EN   pipeline reg
 //       ||
@@ -83,7 +84,7 @@ module cu
 assign MulDiv_stde = MulDiv_stall_del;
 
         // For the CU fsm
-    typedef enum {  
+    typedef enum logic[1:0]{  
         RESET,
         NORMAL, 
         F_DELAY_MEM
@@ -191,9 +192,9 @@ end
 always_comb begin : out_assign
 	if (~nrst)
 		cw_out = 'h0;
-	else if (FD_stall_del || F_stall || F_stall_mem | MulDiv_stall_del) begin // If there's a LOAD stall or a BRANCH stall or a LOAD-BRANCH stall, disable the fetch unit 
+	else if (FD_stall_del | F_stall | F_stall_mem | MulDiv_stall_del) begin // If there's a LOAD stall or a BRANCH stall or a LOAD-BRANCH stall, disable the fetch unit 
         
-		cw_out = {2'b0, cw1[`cw_length-3: `cw_length-6],
+		cw_out = {2'b00, cw1[`cw_length-3: `cw_length-6],
                 		cw2[`cw_length-7: `cw_length-9],
                 		cw3[`cw_length-10:`cw_length-14],
 				cw4[`cw_length-15]};
@@ -303,26 +304,47 @@ always_ff @(posedge clk) begin : fsm_seq    // including a counter for memory de
         
 	if (~nrst) begin
         	state <= RESET;
-        	counter <= 'b0;
-        	counting <= 0;
+        	//counter <= 4'h0;
+        	//counting <= 1'b0;
 	end
         
 	else begin
         	state <= next_state;
             
-        	if(start_counting)
-                	counting <= 1;
+        	/*if(start_counting)
+                	counting <= 1'b1;
 
         	if (counting)
-                	counter <= counter + 1;
+                	counter <= counter + 1'b1;
             	else if (stop_counting) begin
-	                counting <= 0;
-        	        counter <= 'b0;  
-		end
+	                counting <= 1'b0;
+        	        counter <= 4'h0;  
+		end*/
         end        
         
 end : fsm_seq
 
+always_ff @(posedge clk) begin : counting_logic
+        if(~nrst)
+                counting <= 1'b0;
+        else
+                if(start_counting)
+                        counting <= 1'b1;
+                else if(stop_counting)
+                        counting <= 1'b0;
+end : counting_logic
+
+always_ff @(posedge clk) begin : counter_logic
+        if(~nrst)
+                counter <= 4'h0;
+        else
+                if(counting)
+                        counter <= counter + 1'b1;
+                else if(stop_counting)
+                        counter <= 4'h0;
+                else
+                        counter <= 4'h0;
+end : counter_logic
 
 always_ff @(posedge clk) begin
 	if(~nrst) begin
@@ -557,12 +579,12 @@ always_comb begin : hdu
 	if((rs1_field == rd_field_previous) || (rs2_field == rd_field_previous)) begin
 		if ((rd_field_previous != 'b0) & ~FD_stall_del) begin
 			if (opcode_temp == `ldtype_op) begin      // First Load then branch
-				if ((opcode == `btype_op) && (counter != 4'h1)) begin
+				if ((opcode == `btype_op) && (counter == 4'h0)) begin
 					F_stall_mem = 1;        // Branch
 					FD_stall = 0;
 					F_stall = 0;
 				end
-				else if ((opcode == `btype_op) && (counter == 4'h1)) begin
+				else if ((opcode == `btype_op) && (counter == (`mem_delay_const-1'b1))) begin
 					FD_stall = 0;
 					F_stall_mem = 0;
 					F_stall = 0;
@@ -600,10 +622,6 @@ end : hdu
 
 // MulDiv Stall Logic
 always_comb begin : muldiv_stall
-/*	if ((instr_pipe[`opcode_size-1:0] == `muldiv_op) & (instr_pipe[25]) & ~muldiv_done)
-		MulDiv_stall = 1'b1;
-	else
-		MulDiv_stall = 1'b0;*/
 	if ((instr_pipe[`opcode_size-1:0] == `muldiv_op) & (instr_pipe[25])) begin
 		if(~muldiv_done)
 			MulDiv_stall = 1'b1;

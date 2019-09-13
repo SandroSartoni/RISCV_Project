@@ -3,7 +3,7 @@
 Report : area
 Design : riscv_core
 Version: Z-2007.03-SP1
-Date   : Wed Sep 11 01:56:18 2019
+Date   : Fri Sep 13 05:41:47 2019
 ****************************************
 
 Library(s) Used:
@@ -11,14 +11,14 @@ Library(s) Used:
     NangateOpenCellLibrary (File: /software/dk/nangate45/synopsys/NangateOpenCellLibrary_typical_ecsm.db)
 
 Number of ports:              119
-Number of nets:              2633
-Number of cells:             2042
-Number of references:          35
+Number of nets:              2667
+Number of cells:             2067
+Number of references:          36
 
-Combinational area:       206065.942754
-Noncombinational area:    219229.744176
+Combinational area:       205669.070840
+Noncombinational area:    219277.624181
 Net Interconnect area:      undefined  (Wire load has zero net area)
 
-Total cell area:          425295.687500
+Total cell area:          424946.687500
 Total area:                 undefined
 1

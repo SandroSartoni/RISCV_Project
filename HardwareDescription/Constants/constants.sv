@@ -12,7 +12,7 @@ package constants;
 	
 	`define regfile_size		32
 	`define memory_word	        8
-    	`define mem_delay_const		2   // Used in the hdu, it's ( 1 + the dmem delay )
+    	`define mem_delay_const		4'h2   // Used in the hdu, it's ( 1 + the dmem delay )
     	`define alu_control_size	4
 
 	// I-Cache parameters
@@ -134,7 +134,7 @@ package constants;
 	} muldiv_type;
 
 	// For the CU fsm
-	typedef enum {  
+	typedef enum logic [1:0]{  
 		NORMAL, 
 		FD_DELAY_ONE,
 		F_DELAY_ONE, 
