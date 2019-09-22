@@ -1,4 +1,5 @@
 # RISCV_Project
 # Architecture 
-This RISC-V core has been implemented in accordance with the RISC-V official documentation; we chose to cover the RV32IM ISAs with no Operating System support, i.e., only bare metal programs are supported.
-It's a classic five stage pipelined processor that has been tested pre and post synthesis. It can be synthetized both for ASIC and FPGA targets.
+This RISC-V core is fully compliant with the RISC-V specifications, supporting the RV32I base with the M extension, therefore running the **RV32IM** ISA. The discrete mul/div module is the highlight of the device - the architecture is fully implemented, making this core completely unreliant on compiler implementation.
+However, it does not support running an Operating System, only compiled i.e. "bare metal" programs can be tested at this point.
+The datapath is of the typical five stage pipeline type; the core was tested successully both pre and post synthesis, and synthetized both targeting ASIC and FPGA implementations.
